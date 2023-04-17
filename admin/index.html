@@ -5,8 +5,46 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
+
+        <!-- TAILWIN -->
+        <script src="https://cdn.tailwindcss.com"></script>
     </head>
     <body>
+        <section class="ad_product">
+            <div class="container">
+                <div
+                    class="product w-10/12 mx-auto border border-slate-200 p-5 m-5 rounded"
+                >
+                    <!-- TITLE -->
+                    <div class="flex justify-between">
+                        <h2 class="text-lg font-medium">Product</h2>
+                        <button
+                            class="px-4 py-2 font-semibold text-sm bg-sky-500 text-white rounded-lg shadow-sm"
+                        >
+                            Save Changes
+                        </button>
+                    </div>
+
+                    <!-- LIST -->
+                    <div class="product_list divide-y divide-slate-300">
+                        <!-- HEADER LIST -->
+                        <div class="product_header flex gap-4 font-medium py-4">
+                            <div class="basis-1/12">Tên</div>
+                            <div class="basis-1/12">Giá</div>
+                            <div class="basis-1/12">Màn hình</div>
+                            <div class="basis-1/12">Mặt trước</div>
+                            <div class="basis-1/12">Mặt sau</div>
+                            <div class="basis-1/12">Hình</div>
+                            <div class="flex-1">Mô tả</div>
+                            <div class="basis-1/12">Hãng</div>
+                            <div class="basis-1/12"></div>
+                        </div>
+                        <!-- LIST UL-->
+                        <ul class="product_items divide-y divide-slate-200"></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
         <!-- AXIOS -->
         <script
             src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.5/axios.min.js"
@@ -14,5 +52,8 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
         ></script>
+
+        <!-- JS -->
+        <script src="./controller/main.js"></script>
     </body>
 </html>
