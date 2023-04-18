@@ -1,0 +1,25 @@
+{
+    "name": "bc44_api_b25_vulebaolong_capstone",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build": "postcss admin/css/input.css -o admin/css/output.css --watch"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/vulebaolong/BC44_API_B25_VuLeBaoLong_Capstone.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/vulebaolong/BC44_API_B25_VuLeBaoLong_Capstone/issues"
+    },
+    "homepage": "https://github.com/vulebaolong/BC44_API_B25_VuLeBaoLong_Capstone#readme",
+    "dependencies": {
+        "autoprefixer": "^10.4.14",
+        "postcss-cli": "^10.1.0",
+        "tailwindcss": "^3.3.1"
+    }
+}
