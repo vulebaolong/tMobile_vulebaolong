@@ -3,7 +3,11 @@ module.exports = {
     content: ["./admin/**/*.{html,js}"],
     darkMode: "class",
     theme: {
-        extend: {},
+        extend: {
+            width: {
+                "5%": "5%",
+            },
+        },
     },
     plugins: [],
 };
