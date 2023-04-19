@@ -34,21 +34,22 @@ function notification(mes) {
         gravity: "top", // `top` or `bottom`
         position: "right", // `left`, `center` or `right`
         stopOnFocus: true, // Prevents dismissing of toast on hover
+        className: "info",
         style: {
-            background: "linear-gradient(to right, #00b09b, #96c93d)",
+            background: "white",
         },
         onClick: function () {}, // Callback after click
     }).showToast();
 }
 
 function fillForm(obj) {
-    $("#fid").value = obj.id;
-    $("#fname").value = obj.name;
-    $("#fprice").value = obj.price;
-    $("#fscreen").value = obj.screen;
-    $("#ffront").value = obj.frontCamera;
-    $("#fback").value = obj.backCamera;
-    $("#fimage").value = obj.img;
-    $("#fdesc").value = obj.desc;
-    $("#ftype").value = obj.type;
+    $("#fid").value = obj === "" ? "" : obj.id;
+    $("#fname").value = obj === "" ? "" : obj.name;
+    $("#fprice").value = obj === "" ? "" : obj.price;
+    $("#fscreen").value = obj === "" ? "" : obj.screen;
+    $("#ffront").value = obj === "" ? "" : obj.frontCamera;
+    $("#fback").value = obj === "" ? "" : obj.backCamera;
+    $("#fimage").value = obj === "" ? "" : obj.img;
+    $("#fdesc").value = obj === "" ? "" : obj.desc;
+    $("#ftype").value = obj === "" ? "" : obj.type;
 }

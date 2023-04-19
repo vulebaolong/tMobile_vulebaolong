@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="">
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -25,12 +25,45 @@
         <!-- TAILWIN -->
         <link rel="stylesheet" href="./css/output.css" />
     </head>
-    <body class="text-slate-900 dark:text-slate-400 bg-white dark:bg-slate-900">
-        <img
-            src="https://tailwindui.com/img/beams-basic.png"
-            alt=""
-            class="absolute left-0 top-0 w-full max-w-none -z-10"
-        />
+    <body
+        class="antialiased text-slate-800 dark:text-slate-400 bg-white dark:bg-slate-900"
+    >
+        <div
+            class="absolute z-20 top-0 inset-x-0 flex justify-center overflow-hidden pointer-events-none"
+        >
+            <div class="w-[108rem] flex-none flex justify-end">
+                <picture
+                    ><source
+                        srcset="
+                            https://tailwindcss.com/_next/static/media/docs@30.8b9a76a2.avif
+                        "
+                        type="image/avif" />
+                    <img
+                        src="https://tailwindcss.com/_next/static/media/docs@30.8b9a76a2.avif"
+                        alt=""
+                        class="w-[71.75rem] flex-none max-w-none dark:hidden"
+                        decoding="async" /></picture
+                ><picture
+                    ><source
+                        srcset="
+                            https://tailwindcss.com/_next/static/media/docs-dark@30.1a9f8cbf.avif
+                        "
+                        type="image/avif" />
+                    <img
+                        src="https://tailwindcss.com/_next/static/media/docs-dark@30.1a9f8cbf.avif"
+                        alt=""
+                        class="w-[90rem] flex-none max-w-none hidden dark:block"
+                        decoding="async"
+                /></picture>
+            </div>
+        </div>
+
+        <div class="notification">
+            <i class="notification_suc fa-regular fa-circle-check"></i>
+            <span class="notification_title">Successfully!</span>
+            <i class="notification_close fa-solid fa-x"></i>
+            <span class="notification_mes">Thêm sản phẩm thành công</span>
+        </div>
 
         <!-- FORM -->
         <section class="ad_form_section py-16">
@@ -49,17 +82,13 @@
                                     id="fid"
                                     type="number"
                                     required
-                                    class="relative w-full block rounded-md border-0 p-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
+                                    class="inputForm"
                                 />
                             </div>
                             <!-- Name -->
                             <div class="w-full space-y-1">
                                 <label for="name" class="">Tên sản phẩm</label>
-                                <input
-                                    id="fname"
-                                    required
-                                    class="relative w-full block rounded-md border-0 p-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
-                                />
+                                <input id="fname" required class="inputForm" />
                             </div>
                             <!-- Price -->
                             <div class="w-full space-y-1">
@@ -67,82 +96,57 @@
                                 <input
                                     id="fprice"
                                     required
-                                    class="relative w-full block rounded-md border-0 p-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
+                                    class="inputForm"
+                                    type="number"
                                 />
                             </div>
                             <!-- Screen -->
                             <div class="w-full space-y-1">
                                 <label for="screen" class="">Màn hình</label>
-                                <input
-                                    id="fscreen"
-                                    required
-                                    class="relative w-full block rounded-md border-0 p-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
-                                />
+                                <input id="fscreen" required class="inputForm" />
                             </div>
                             <!-- Front -->
                             <div class="w-full space-y-1">
                                 <label for="screen" class="">Mặt trước</label>
-                                <input
-                                    id="ffront"
-                                    required
-                                    class="relative w-full block rounded-md border-0 p-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
-                                />
+                                <input id="ffront" required class="inputForm" />
                             </div>
                         </div>
-                        <div class="form_right w-full space-y-4">
+                        <div class="form_right w-full space-y-4 flex flex-col">
                             <!-- Back -->
                             <div class="w-full space-y-1">
                                 <label for="screen" class="">Mặt sau</label>
-                                <input
-                                    id="fback"
-                                    required
-                                    class="relative w-full block rounded-md border-0 p-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
-                                />
+                                <input id="fback" required class="inputForm" />
                             </div>
                             <!-- Image -->
                             <div class="w-full space-y-1">
                                 <label for="screen" class="">Hình</label>
-                                <input
-                                    id="fimage"
-                                    required
-                                    class="relative w-full block rounded-md border-0 p-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
-                                />
+                                <input id="fimage" required class="inputForm" />
                             </div>
                             <!-- Desc -->
-                            <div class="w-full space-y-1">
+                            <div class="w-full space-y-1 flex flex-col flex-1">
                                 <label for="screen" class="">Mô tả</label>
-                                <input
+                                <textarea
+                                    class="flex-1 resize-none overflow-y-auto inputForm"
                                     id="fdesc"
+                                    rows="4"
+                                    cols="50"
                                     required
-                                    class="relative w-full block rounded-md border-0 p-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
-                                />
+                                ></textarea>
                             </div>
                             <!-- Type -->
                             <div class="w-full space-y-1">
                                 <label for="screen" class="">Loại</label>
-                                <input
-                                    id="ftype"
-                                    required
-                                    class="relative w-full block rounded-md border-0 p-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
-                                />
+                                <input id="ftype" required class="inputForm" />
                             </div>
                         </div>
                     </div>
                     <!-- FORM BUTTON -->
                     <div class="flex space-x-2">
-                        <button
-                            id="add"
-                            type="button"
-                            class="disabled:opacity-50 bg-blue-700 enabled:hover:bg-blue-800 transition duration-300 px-4 py-2 font-semibold text-sm text-white rounded-lg shadow-sm"
-                        >
+                        <button id="add" type="button" class="btn btn-blue">
                             <i class="fa-solid fa-plus -ml-0.5 mr-1.5"></i>
                             Add Product
                         </button>
-                        <button
-                            id="update"
-                            type="button"
-                            class="flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-                        >
+                        <button id="update" type="button" class="btn btn-white">
                             <i
                                 class="transition duration-300 fa-solid fa-pen text-gray-400 -ml-0.5 mr-1.5"
                             ></i>
@@ -160,10 +164,12 @@
                     <!-- TITLE -->
                     <div class="flex justify-between">
                         <h2 class="text-lg font-medium">Product</h2>
-                        <button
-                            class="transition duration-300 px-4 py-2 font-semibold text-sm bg-blue-700 hover:bg-blue-800 text-white rounded-lg shadow-sm"
-                        >
-                            Save Changes
+                        <button class="btn btn-blue">Save Changes</button>
+                        <button type="button" class="btn btn-white">
+                            <i
+                                class="transition duration-300 fa-solid fa-pen text-gray-400 -ml-0.5 mr-1.5"
+                            ></i>
+                            Update
                         </button>
                     </div>
 

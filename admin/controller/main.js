@@ -15,7 +15,7 @@ function fetchCreate(value) {
             return fetchRead();
         })
         .then(() => {
-            notification("Thêm sản phẩm thành công");
+            notification("<span>Thêm sản phẩm thành công</span>");
         })
         .catch((err) => {
             console.log("👙  err: ", err);
@@ -77,8 +77,8 @@ function render(arrData) {
             <div class="flex-1 text-slate-500">${el.desc}</div>
             <div class="w-5% break-all text-slate-500">${el.type}</div>
             <div class="w-[10%] flex justify-around  break-all font-semibold text-sky-500 text-right pr-2">
-                <span onclick="edit(${el.id})" class="cursor-pointer">Delete</span>
-                <span onclick="delete(${el.id})" class="cursor-pointer">Edit</span>
+                <span onclick="edit(${el.id})" class="cursor-pointer">Edit</span>
+                <span onclick="delete(${el.id})" class="cursor-pointer">Delete</span>
             </div>
         </li>`;
     });
@@ -96,6 +96,8 @@ $("#add").addEventListener("click", (e) => {
 function edit(id) {
     $("#fid").disabled = true;
     $("#add").disabled = true;
+    $("#update").disabled = false;
+
     console.log($("#add"));
     fetchRead(id).then((result) => {
         console.log(result.data);
@@ -109,4 +111,6 @@ $("#update").addEventListener("click", (e) => {
     fetchUpdate(value.id, value);
     $("#fid").disabled = false;
     $("#add").disabled = false;
+    $("#update").disabled = true;
+    fillForm("");
 });

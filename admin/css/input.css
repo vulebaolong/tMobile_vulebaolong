@@ -1,3 +1,67 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@tailwind screens;
+
+.btn {
+    @apply disabled:opacity-50 transition duration-300 px-4 py-2 font-semibold text-sm rounded-lg shadow-sm;
+}
+.btn-blue {
+    @apply bg-blue-700 enabled:hover:bg-blue-800 enabled:active:bg-blue-900 text-white;
+}
+
+.btn-white {
+    @apply bg-slate-50 enabled:hover:bg-slate-200 enabled:active:bg-slate-300 text-gray-900 ring-1 ring-inset ring-gray-300;
+}
+
+.inputForm {
+    @apply focus:outline-none relative w-full block rounded-md border-0 p-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-blue-600;
+}
+
+.info {
+    @apply text-gray-900 font-semibold text-sm rounded-lg shadow-xl;
+}
+
+.notification {
+    @apply text-gray-900 font-semibold text-sm rounded-lg shadow-lg fixed ring-1 ring-inset ring-gray-300 grid grid-cols-7  items-center gap-y-3;
+    padding: 20px 0;
+    cursor: pointer;
+    animation: noti 0.3s 1 forwards ease;
+    z-index: 100;
+    background-color: white;
+    width: 22rem;
+}
+
+.notification_title {
+    @apply font-semibold col-start-2 col-end-7;
+}
+
+.notification_mes {
+    @apply text-slate-500 col-start-2 col-end-7;
+    font-weight: 400;
+}
+
+.notification_suc {
+    @apply text-green-500 justify-self-center;
+    font-size: 1.3rem;
+    padding: 0.1rem 0;
+}
+
+.notification_close {
+    @apply text-slate-500 col-start-7 justify-self-center;
+    padding-top: 0.2rem;
+}
+
+@keyframes noti {
+    0% {
+        top: 0;
+        transform: translateY(-100%);
+        right: 1rem;
+    }
+
+    100% {
+        top: 2rem;
+        transform: translateY(0);
+        right: 1rem;
+    }
+}
