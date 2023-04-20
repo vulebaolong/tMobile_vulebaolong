@@ -22,11 +22,11 @@
     @apply text-gray-900 font-semibold text-sm rounded-lg shadow-xl;
 }
 
-.notification {
+.toastify {
     @apply text-gray-900 font-semibold text-sm rounded-lg shadow-lg fixed ring-1 ring-inset ring-gray-300 grid grid-cols-7  items-center gap-y-3;
     padding: 20px 0;
-    cursor: pointer;
-    animation: noti 0.3s 1 forwards ease;
+    /* cursor: pointer; */
+    /* animation: noti 0.3s 1 forwards ease; */
     z-index: 100;
     background-color: white;
     width: 22rem;

@@ -26,9 +26,9 @@ function getValueForm() {
 
 function notification(mes) {
     Toastify({
-        text: mes,
+        text: "",
         duration: 3000,
-        destination: "123123123123",
+        // destination: "123123123123",
         newWindow: true,
         close: true,
         gravity: "top", // `top` or `bottom`
@@ -38,6 +38,13 @@ function notification(mes) {
         style: {
             background: "white",
         },
+        stringHTML: `
+                        <i class="notification_suc fa-regular fa-circle-check"></i>
+                        <span class="notification_title">Successfully!</span>
+                        <i class="notification_close fa-solid fa-x"></i>
+                        <span class="notification_mes">${mes}</span>
+                    `,
+
         onClick: function () {}, // Callback after click
     }).showToast();
 }

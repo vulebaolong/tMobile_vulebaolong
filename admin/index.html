@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="">
+<html lang="en" class="dark">
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -7,11 +7,7 @@
         <title>Document</title>
 
         <!-- TOAST -->
-        <link
-            rel="stylesheet"
-            type="text/css"
-            href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
-        />
+        <link rel="stylesheet" href="./vendor/toastify/toastify.css" />
 
         <!-- FONT AWESOME -->
         <link
@@ -56,13 +52,6 @@
                         decoding="async"
                 /></picture>
             </div>
-        </div>
-
-        <div class="notification">
-            <i class="notification_suc fa-regular fa-circle-check"></i>
-            <span class="notification_title">Successfully!</span>
-            <i class="notification_close fa-solid fa-x"></i>
-            <span class="notification_mes">Thêm sản phẩm thành công</span>
         </div>
 
         <!-- FORM -->
@@ -164,7 +153,7 @@
                     <!-- TITLE -->
                     <div class="flex justify-between">
                         <h2 class="text-lg font-medium">Product</h2>
-                        <button class="btn btn-blue">Save Changes</button>
+                        <button id="savechange" class="btn btn-blue">Save Changes</button>
                         <button type="button" class="btn btn-white">
                             <i
                                 class="transition duration-300 fa-solid fa-pen text-gray-400 -ml-0.5 mr-1.5"
@@ -196,10 +185,7 @@
         </section>
 
         <!-- TOAST -->
-        <script
-            type="text/javascript"
-            src="https://cdn.jsdelivr.net/npm/toastify-js"
-        ></script>
+        <script src="./vendor/toastify/toastify.js"></script>
 
         <!-- AXIOS -->
         <script
