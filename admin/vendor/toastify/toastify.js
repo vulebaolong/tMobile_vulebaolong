@@ -196,7 +196,7 @@
                 closeElement.type = "button";
                 closeElement.setAttribute("aria-label", "Close");
                 closeElement.className = "toast-close";
-                // closeElement.innerHTML = "&#10006;";
+                closeElement.innerHTML = "&#10006;";
 
                 // Triggering the removal of toast from DOM on close click
                 closeElement.addEventListener(
@@ -284,6 +284,10 @@
             divElement.innerHTML = this.options.stringHTML;
             console.log(this.options);
             console.log(divElement);
+
+            if (this.options.close) {
+                divElement.insertAdjacentElement("afterbegin", this.options.closeBtn);
+            }
             // Returning the generated element
             return divElement;
         },

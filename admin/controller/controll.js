@@ -41,7 +41,6 @@ function notification(mes) {
         stringHTML: `
                         <i class="notification_suc fa-regular fa-circle-check"></i>
                         <span class="notification_title">Successfully!</span>
-                        <i class="notification_close fa-solid fa-x"></i>
                         <span class="notification_mes">${mes}</span>
                     `,
 
@@ -49,6 +48,12 @@ function notification(mes) {
     }).showToast();
 }
 
+/**
+ * nếu không truyền đối số sẽ fill "" rỗng
+ *
+ * nếu có đối số phải là obj
+ * @param {*} obj
+ */
 function fillForm(obj) {
     $("#fid").value = obj === "" ? "" : obj.id;
     $("#fname").value = obj === "" ? "" : obj.name;

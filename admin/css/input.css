@@ -25,43 +25,47 @@
 .toastify {
     @apply text-gray-900 font-semibold text-sm rounded-lg shadow-lg fixed ring-1 ring-inset ring-gray-300 grid grid-cols-7  items-center gap-y-3;
     padding: 20px 0;
-    /* cursor: pointer; */
-    /* animation: noti 0.3s 1 forwards ease; */
     z-index: 100;
     background-color: white;
     width: 22rem;
 }
 
 .notification_title {
-    @apply font-semibold col-start-2 col-end-7;
+    @apply font-semibold col-start-2 col-end-7 row-start-1;
 }
 
 .notification_mes {
-    @apply text-slate-500 col-start-2 col-end-7;
+    @apply text-slate-500 col-start-2 col-end-7 row-start-2;
     font-weight: 400;
 }
 
 .notification_suc {
-    @apply text-green-500 justify-self-center;
+    @apply text-green-500 justify-self-center col-start-1 row-start-1;
     font-size: 1.3rem;
     padding: 0.1rem 0;
 }
 
-.notification_close {
+.toast-close {
     @apply text-slate-500 col-start-7 justify-self-center;
-    padding-top: 0.2rem;
+    /* padding-top: 0.2rem; */
 }
 
-@keyframes noti {
+.focus-edit {
+    outline: 0.2rem solid red;
+    border-radius: 1rem;
+    animation: flicker 1s linear 0s infinite;
+}
+
+@keyframes flicker {
     0% {
-        top: 0;
-        transform: translateY(-100%);
-        right: 1rem;
+        outline: 0.2rem solid red;
+    }
+
+    50% {
+        outline: 0.2rem solid rgba(255, 0, 0, 0);
     }
 
     100% {
-        top: 2rem;
-        transform: translateY(0);
-        right: 1rem;
+        outline: 0.2rem solid red;
     }
 }

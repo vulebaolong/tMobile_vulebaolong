@@ -43,22 +43,25 @@ function fetchRead(id = false) {
 }
 
 function fetchUpdate(id, value) {
-    axios({
-        url: `https://643a58bdbd3623f1b9b164ba.mockapi.io/admin/${id}`,
-        method: "PUT",
-        data: value,
-    })
-        .then((result) => {
-            console.log("👙 fetchUpdate  result: ", result);
-            console.log("👙 fetchUpdate  result: ", result.data);
-            return fetchRead();
+    return new Promise((resolve, reject) => {
+        axios({
+            url: `https://643a58bdbd3623f1b9b164ba.mockapi.io/admin/${id}`,
+            method: "PUT",
+            data: value,
         })
-        .then(() => {
-            notification("Cập nhật sản phẩm thành công");
-        })
-        .catch((err) => {
-            console.log("👙 fetchUpdate err: ", err);
-        });
+            .then((result) => {
+                console.log("👙 fetchUpdate  result: ", result);
+                console.log("👙 fetchUpdate  result: ", result.data);
+                return fetchRead();
+            })
+            .then(() => {
+                notification("Cập nhật sản phẩm thành công");
+                resolve();
+            })
+            .catch((err) => {
+                console.log("👙 fetchUpdate err: ", err);
+            });
+    });
 }
 
 function fetchDelete(id, mes) {
@@ -84,7 +87,7 @@ function render(arrData) {
     let string = "";
     arrData.reverse().forEach((el) => {
         string += `
-        <li class="product_item flex gap-4 py-4">
+        <li id="item${el.id}" class="product_item flex gap-4 py-4">
             <div class="w-5% break-all font-medium">${el.id}</div>
             <div class="w-[7%] break-all font-medium">${el.name}</div>
             <div class="w-[7%] break-all text-slate-500">${el.price}</div>
@@ -112,13 +115,14 @@ $("#add").addEventListener("click", (e) => {
 
 //click edit
 function edit(id) {
-    $("#fid").disabled = true;
-    $("#add").disabled = true;
-    $("#update").disabled = false;
-
-    console.log($("#add"));
     fetchRead(id).then((result) => {
         console.log(result.data);
+        console.log($(`#item${id}`));
+        $(`.focus-edit`)?.classList.remove("focus-edit");
+        $(`#item${id}`).classList.add("focus-edit");
+        $("#fid").disabled = true;
+        $("#add").disabled = true;
+        $("#update").disabled = false;
         fillForm(result.data);
     });
 }
@@ -126,17 +130,18 @@ function edit(id) {
 //click update
 $("#update").addEventListener("click", (e) => {
     const value = getValueForm();
-    fetchUpdate(value.id, value);
-    $("#fid").disabled = false;
-    $("#add").disabled = false;
-    $("#update").disabled = true;
-    fillForm("");
+    fetchUpdate(value.id, value).then(() => {
+        $("#fid").disabled = false;
+        $("#add").disabled = false;
+        $("#update").disabled = true;
+        fillForm("");
+    });
 });
 
 //click delete
 function deleteProduct(id, name) {
     console.log(id);
-    fetchDelete(id, `"${name}" Đã xóa thành công`);
+    fetchDelete(id, `Đã xóa thành công "${name}"`);
 }
 
 //click save test
