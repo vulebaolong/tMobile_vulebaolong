@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind screens;
+
+.btn {
+    @apply disabled:opacity-50 transition duration-300 px-4 py-2 font-semibold text-sm rounded-lg shadow-sm;
+}
+.btn-blue {
+    @apply bg-blue-700 enabled:hover:bg-blue-800 enabled:active:bg-blue-900 text-white;
+}
+
+.btn-white {
+    @apply bg-slate-50 enabled:hover:bg-slate-200 enabled:active:bg-slate-300 text-gray-900 ring-1 ring-inset ring-gray-300;
+}
+
+.cart-slide {
+    transition: transform 0.5s ease-in-out;
+}

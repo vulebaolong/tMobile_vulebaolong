@@ -4,7 +4,8 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "build": "postcss admin/css/input.css -o admin/css/output.css --watch"
+        "build-admin": "postcss admin/css/input.css -o admin/css/output.css --watch",
+        "buildCustomer": "postcss customer/css/input.css -o customer/css/output.css --watch"
     },
     "repository": {
         "type": "git",

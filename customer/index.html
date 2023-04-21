@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+
+        <!-- FONT AWESOME -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+
+        <!-- TOAST -->
+        <link rel="stylesheet" href="../vendor/toastify/toastify.css" />
+
+        <!-- TAILWIN -->
+        <link rel="stylesheet" href="./css/output.css" />
+    </head>
+    <body
+        class="antialiased text-slate-800 dark:text-slate-400 bg-white dark:bg-slate-900"
+    >
+        <!-- BACKGROUND -->
+        <div
+            class="absolute z-20 top-0 inset-x-0 flex justify-center overflow-hidden pointer-events-none"
+        >
+            <div class="w-[108rem] flex-none flex justify-end">
+                <picture
+                    ><source
+                        srcset="
+                            https://tailwindcss.com/_next/static/media/docs@30.8b9a76a2.avif
+                        "
+                        type="image/avif" />
+                    <img
+                        src="https://tailwindcss.com/_next/static/media/docs@30.8b9a76a2.avif"
+                        alt=""
+                        class="w-[71.75rem] flex-none max-w-none dark:hidden"
+                        decoding="async" /></picture
+                ><picture
+                    ><source
+                        srcset="
+                            https://tailwindcss.com/_next/static/media/docs-dark@30.1a9f8cbf.avif
+                        "
+                        type="image/avif" />
+                    <img
+                        src="https://tailwindcss.com/_next/static/media/docs-dark@30.1a9f8cbf.avif"
+                        alt=""
+                        class="w-[90rem] flex-none max-w-none hidden dark:block"
+                        decoding="async"
+                /></picture>
+            </div>
+        </div>
+
+        <!-- PRODUCT -->
+        <div class="container mx-auto">
+            <div
+                class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8"
+            >
+                <!-- PRODUCT TITLE -->
+                <h2 class="text-2xl font-bold tracking-tight">Danh sách sản phẩm</h2>
+
+                <!-- PRODUCT LIST -->
+                <div
+                    class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8"
+                >
+                    <!-- ITEM PRODUCT -->
+                    <div class="group relative">
+                        <div
+                            class="min-h-80 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80"
+                        >
+                            <img
+                                src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg"
+                                alt="Front of men&#039;s Basic Tee in black."
+                                class="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                            />
+                        </div>
+                        <div class="mt-4 flex justify-between">
+                            <div>
+                                <h3 class="text-sm text-gray-700">
+                                    <a href="#">
+                                        <span
+                                            aria-hidden="true"
+                                            class="absolute inset-0"
+                                        ></span>
+                                        Basic Tee
+                                    </a>
+                                </h3>
+                                <p class="mt-1 text-sm text-gray-500">Black</p>
+                            </div>
+                            <p class="text-sm font-medium text-gray-900">$35</p>
+                        </div>
+                    </div>
+
+                    <div class="group relative">
+                        <div
+                            class="min-h-80 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80"
+                        >
+                            <img
+                                src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg"
+                                alt="Front of men&#039;s Basic Tee in black."
+                                class="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                            />
+                        </div>
+                        <div class="mt-4 flex justify-between">
+                            <div>
+                                <h3 class="text-sm text-gray-700">
+                                    <a href="#">
+                                        <span
+                                            aria-hidden="true"
+                                            class="absolute inset-0"
+                                        ></span>
+                                        Basic Tee
+                                    </a>
+                                </h3>
+                                <p class="mt-1 text-sm text-gray-500">Black</p>
+                            </div>
+                            <p class="text-sm font-medium text-gray-900">$35</p>
+                        </div>
+                    </div>
+
+                    <div class="group relative">
+                        <div
+                            class="min-h-80 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80"
+                        >
+                            <img
+                                src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg"
+                                alt="Front of men&#039;s Basic Tee in black."
+                                class="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                            />
+                        </div>
+                        <div class="mt-4 flex justify-between">
+                            <div>
+                                <h3 class="text-sm text-gray-700">
+                                    <a href="#">
+                                        <span
+                                            aria-hidden="true"
+                                            class="absolute inset-0"
+                                        ></span>
+                                        Basic Tee
+                                    </a>
+                                </h3>
+                                <p class="mt-1 text-sm text-gray-500">Black</p>
+                            </div>
+                            <p class="text-sm font-medium text-gray-900">$35</p>
+                        </div>
+                    </div>
+
+                    <div class="group relative">
+                        <div
+                            class="min-h-80 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80"
+                        >
+                            <img
+                                src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg"
+                                alt="Front of men&#039;s Basic Tee in black."
+                                class="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                            />
+                        </div>
+                        <div class="mt-4 flex justify-between">
+                            <div>
+                                <h3 class="text-sm text-gray-700">
+                                    <a href="#">
+                                        <span
+                                            aria-hidden="true"
+                                            class="absolute inset-0"
+                                        ></span>
+                                        Basic Tee
+                                    </a>
+                                </h3>
+                                <p class="mt-1 text-sm text-gray-500">Black</p>
+                            </div>
+                            <p class="text-sm font-medium text-gray-900">$35</p>
+                        </div>
+                    </div>
+
+                    <div class="group relative">
+                        <div
+                            class="min-h-80 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80"
+                        >
+                            <img
+                                src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg"
+                                alt="Front of men&#039;s Basic Tee in black."
+                                class="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                            />
+                        </div>
+                        <div class="mt-4 flex justify-between">
+                            <div>
+                                <h3 class="text-sm text-gray-700">
+                                    <a href="#">
+                                        <span
+                                            aria-hidden="true"
+                                            class="absolute inset-0"
+                                        ></span>
+                                        Basic Tee
+                                    </a>
+                                </h3>
+                                <p class="mt-1 text-sm text-gray-500">Black</p>
+                            </div>
+                            <p class="text-sm font-medium text-gray-900">$35</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button id="opencart" class="z-50 relative btn btn-blue">open</button>
+        <button id="closecart" class="z-50 relative btn btn-blue">close</button>
+
+        <!-- CART -->
+        <section class="cart-section hidden">
+            <div class="container mx-auto">
+                <div class="relative z-10">
+                    <!-- Background backdrop -->
+                    <div
+                        class="cart-backdrop fixed inset-0 bg-gray-500 bg-opacity-75 opacity-0 transition-opacity"
+                    ></div>
+
+                    <div class="fixed inset-0 overflow-hidden">
+                        <div class="absolute inset-0 overflow-hidden">
+                            <div
+                                class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10"
+                            >
+                                <!-- CART-SLIDE -->
+                                <div
+                                    class="cart-slide translate-x-full pointer-events-auto w-screen max-w-md"
+                                >
+                                    <div class="flex h-full flex-col bg-white shadow-xl">
+                                        <div
+                                            class="flex-1 overflow-y-auto px-4 py-6 sm:px-6"
+                                        >
+                                            <div class="flex items-start justify-between">
+                                                <h2
+                                                    class="text-lg font-medium text-gray-900"
+                                                    id="slide-over-title"
+                                                >
+                                                    Shopping cart
+                                                </h2>
+                                                <div class="ml-3 flex h-7 items-center">
+                                                    <button
+                                                        type="button"
+                                                        class="-m-2 p-2 text-gray-400 hover:text-gray-500"
+                                                    >
+                                                        <span class="sr-only"
+                                                            >Close panel</span
+                                                        >
+                                                        <svg
+                                                            class="h-6 w-6"
+                                                            fill="none"
+                                                            viewBox="0 0 24 24"
+                                                            stroke-width="1.5"
+                                                            stroke="currentColor"
+                                                            aria-hidden="true"
+                                                        >
+                                                            <path
+                                                                stroke-linecap="round"
+                                                                stroke-linejoin="round"
+                                                                d="M6 18L18 6M6 6l12 12"
+                                                            />
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                            <div class="mt-8">
+                                                <div class="flow-root">
+                                                    <ul
+                                                        role="list"
+                                                        class="-my-6 divide-y divide-gray-200"
+                                                    >
+                                                        <li class="flex py-6">
+                                                            <div
+                                                                class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200"
+                                                            >
+                                                                <img
+                                                                    src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
+                                                                    alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt."
+                                                                    class="h-full w-full object-cover object-center"
+                                                                />
+                                                            </div>
+
+                                                            <div
+                                                                class="ml-4 flex flex-1 flex-col"
+                                                            >
+                                                                <div>
+                                                                    <div
+                                                                        class="flex justify-between text-base font-medium text-gray-900"
+                                                                    >
+                                                                        <h3>
+                                                                            <a href="#"
+                                                                                >Throwback
+                                                                                Hip Bag</a
+                                                                            >
+                                                                        </h3>
+                                                                        <p class="ml-4">
+                                                                            $90.00
+                                                                        </p>
+                                                                    </div>
+                                                                    <p
+                                                                        class="mt-1 text-sm text-gray-500"
+                                                                    >
+                                                                        Salmon
+                                                                    </p>
+                                                                </div>
+                                                                <div
+                                                                    class="flex flex-1 items-end justify-between text-sm"
+                                                                >
+                                                                    <p
+                                                                        class="text-gray-500"
+                                                                    >
+                                                                        Qty 1
+                                                                    </p>
+
+                                                                    <div class="flex">
+                                                                        <button
+                                                                            type="button"
+                                                                            class="font-medium text-indigo-600 hover:text-indigo-500"
+                                                                        >
+                                                                            Remove
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="flex py-6">
+                                                            <div
+                                                                class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200"
+                                                            >
+                                                                <img
+                                                                    src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg"
+                                                                    alt="Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch."
+                                                                    class="h-full w-full object-cover object-center"
+                                                                />
+                                                            </div>
+
+                                                            <div
+                                                                class="ml-4 flex flex-1 flex-col"
+                                                            >
+                                                                <div>
+                                                                    <div
+                                                                        class="flex justify-between text-base font-medium text-gray-900"
+                                                                    >
+                                                                        <h3>
+                                                                            <a href="#"
+                                                                                >Medium
+                                                                                Stuff
+                                                                                Satchel</a
+                                                                            >
+                                                                        </h3>
+                                                                        <p class="ml-4">
+                                                                            $32.00
+                                                                        </p>
+                                                                    </div>
+                                                                    <p
+                                                                        class="mt-1 text-sm text-gray-500"
+                                                                    >
+                                                                        Blue
+                                                                    </p>
+                                                                </div>
+                                                                <div
+                                                                    class="flex flex-1 items-end justify-between text-sm"
+                                                                >
+                                                                    <p
+                                                                        class="text-gray-500"
+                                                                    >
+                                                                        Qty 1
+                                                                    </p>
+
+                                                                    <div class="flex">
+                                                                        <button
+                                                                            type="button"
+                                                                            class="font-medium text-indigo-600 hover:text-indigo-500"
+                                                                        >
+                                                                            Remove
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+
+                                                        <!-- More products... -->
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div
+                                            class="border-t border-gray-200 px-4 py-6 sm:px-6"
+                                        >
+                                            <div
+                                                class="flex justify-between text-base font-medium text-gray-900"
+                                            >
+                                                <p>Subtotal</p>
+                                                <p>$262.00</p>
+                                            </div>
+                                            <p class="mt-0.5 text-sm text-gray-500">
+                                                Shipping and taxes calculated at checkout.
+                                            </p>
+                                            <div class="mt-6">
+                                                <a
+                                                    href="#"
+                                                    class="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+                                                    >Checkout</a
+                                                >
+                                            </div>
+                                            <div
+                                                class="mt-6 flex justify-center text-center text-sm text-gray-500"
+                                            >
+                                                <p>
+                                                    or
+                                                    <button
+                                                        type="button"
+                                                        class="font-medium text-indigo-600 hover:text-indigo-500"
+                                                    >
+                                                        Continue Shopping
+                                                        <span aria-hidden="true">
+                                                            &rarr;</span
+                                                        >
+                                                    </button>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AXIOS -->
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.5/axios.min.js"
+            integrity="sha512-nnNHpffPSgINrsR8ZAIgFUIMexORL5tPwsfktOTxVYSv+AUAILuFYWES8IHl+hhIhpFGlKvWFiz9ZEusrPcSBQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+
+        <!-- CONTROL -->
+        <script src="./controller/controll.js"></script>
+
+        <!-- JS -->
+        <script src="./controller/main.js"></script>
+    </body>
+</html>
