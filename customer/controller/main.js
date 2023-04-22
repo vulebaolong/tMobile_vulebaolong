@@ -83,10 +83,10 @@ function fetchDelete(id, mes) {
 }
 
 function render(arrData) {
-    const productListEl = $("#product_list");
+    const productListEl = $(".product_list");
     let string = "";
     arrData.reverse().forEach((el) => {
-        string += `<div class="group relative overflow-hidden shadow-xl p-6 rounded-xl">
+        string += `<div class="product_item group">
                         <div class="transition duration-300 group-hover:opacity-40">
                             <!-- IMAGE -->
                             <div
@@ -127,10 +127,10 @@ function render(arrData) {
                         </div>
                         <!-- OVERLAY -->
                         <div
-                            class="absolute flex flex-col justify-center z-50 inset-0 p-6 space-y-2 bg-black bg-opacity-70 group-hover:opacity-100 opacity-0 transition duration-300"
+                            class="group/product_overlay absolute flex flex-col justify-center z-50 inset-0 p-6 space-y-2 bg-black bg-opacity-70 group-hover:opacity-100 opacity-0 transition duration-300"
                         >
                             <div
-                                class="mb-5 transition duration-500 -translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100"
+                                class="mb-5 transition duration-500 -translate-y-full opacity-0 group-hover/product_overlay:translate-y-0 group-hover/product_overlay:opacity-100"
                             >
                                 <div class="">
                                     <span
@@ -165,7 +165,7 @@ function render(arrData) {
                             </div>
                             <button
                                onclick="openCart()"
-                                class="w-full btn btn-blue transition duration-500 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100"
+                                class="w-full btn btn-blue transition duration-500 translate-y-full opacity-0 group-hover/product_overlay:translate-y-0 group-hover/product_overlay:opacity-100"
                             >
                                 Add To Cart
                             </button>

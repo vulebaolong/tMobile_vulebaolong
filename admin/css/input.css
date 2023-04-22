@@ -14,8 +14,16 @@
     @apply bg-slate-50 enabled:hover:bg-slate-200 enabled:active:bg-slate-300 text-gray-900 ring-1 ring-inset ring-gray-300;
 }
 
+/* .form_content {
+    @apply text-gray-900;
+} */
+
 .inputForm {
     @apply focus:outline-none relative w-full block rounded-md border-0 p-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-blue-600;
+}
+
+#fid {
+    @apply dark:text-white;
 }
 
 .info {

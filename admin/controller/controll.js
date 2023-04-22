@@ -55,7 +55,6 @@ function notification(mes) {
  * @param {*} obj
  */
 function fillForm(obj) {
-    $("#fid").value = obj === "" ? "" : obj.id;
     $("#fname").value = obj === "" ? "" : obj.name;
     $("#fprice").value = obj === "" ? "" : obj.price;
     $("#fscreen").value = obj === "" ? "" : obj.screen;

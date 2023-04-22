@@ -3,6 +3,10 @@
 @tailwind utilities;
 @tailwind screens;
 
+.container {
+    @apply mx-auto;
+}
+
 .btn {
     @apply disabled:opacity-50 transition duration-300 px-4 py-2 font-semibold text-sm rounded-lg shadow-sm;
 }
@@ -14,6 +18,10 @@
     @apply bg-slate-50 enabled:hover:bg-slate-200 enabled:active:bg-slate-300 text-gray-900 ring-1 ring-inset ring-gray-300;
 }
 
+/* PRODUCT */
+.product_item {
+    @apply relative overflow-hidden shadow-xl p-6 rounded-xl bg-white;
+}
 .cart-slide {
     transition: transform 0.5s ease-in-out;
 }

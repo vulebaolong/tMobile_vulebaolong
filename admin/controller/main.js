@@ -18,6 +18,7 @@ function fetchCreate(value) {
             console.log(resultRead);
             console.log(value.name);
             notification(`"${value.name}" Thêm sản phẩm thành công`);
+            fillForm("");
         })
         .catch((err) => {
             console.log("👙  err: ", err);
@@ -94,7 +95,13 @@ function render(arrData) {
             <div class="w-[7%] break-all text-slate-500">${el.screen}</div>
             <div class="w-[7%] break-all text-slate-500">${el.frontCamera}</div>
             <div class="w-[7%] break-all text-slate-500">${el.backCamera}</div>
-            <div class="w-[7%] break-all text-slate-500">${el.img}</div>
+            <div class="w-[7%] break-all text-slate-500">
+            <img
+                src="${el.img}"
+                alt="img"
+                class="h-full w-full object-cover object-center lg:h-full lg:w-full"
+            />
+            </div>
             <div class="flex-1 text-slate-500">${el.desc}</div>
             <div class="w-5% break-all text-slate-500">${el.type}</div>
             <div class="w-[10%] flex justify-around  break-all font-semibold text-sky-500 text-right pr-2">
@@ -120,14 +127,13 @@ $("#add").addEventListener("click", (e) => {
 //click edit
 function edit(id) {
     fetchRead(id).then((result) => {
-        console.log(result.data);
+        $("#fid").value = result.data.id;
+        fillForm(result.data);
         console.log($(`#item${id}`));
         $(`.focus-edit`)?.classList.remove("focus-edit");
         $(`#item${id}`).classList.add("focus-edit");
-        $("#fid").disabled = true;
         $("#add").disabled = true;
         $("#update").disabled = false;
-        fillForm(result.data);
     });
 }
 
@@ -135,7 +141,7 @@ function edit(id) {
 $("#update").addEventListener("click", (e) => {
     const value = getValueForm();
     fetchUpdate(value.id, value).then(() => {
-        $("#fid").disabled = false;
+        $("#fid").value = "";
         $("#add").disabled = false;
         $("#update").disabled = true;
         fillForm("");

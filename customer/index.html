@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="">
+<html lang="en" class="dark">
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -26,7 +26,7 @@
     >
         <!-- BACKGROUND -->
         <div
-            class="absolute z-20 top-0 inset-x-0 flex justify-center overflow-hidden pointer-events-none"
+            class="absolute top-0 inset-x-0 flex justify-center overflow-hidden pointer-events-none"
         >
             <div class="flex-none flex justify-end">
                 <picture
@@ -56,323 +56,315 @@
         </div>
 
         <!-- PRODUCT -->
-        <div class="container mx-auto">
-            <div
-                class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8"
-            >
-                <!-- PRODUCT TITLE -->
-                <h2 class="text-2xl font-bold tracking-tight">Danh sách sản phẩm</h2>
-
-                <!-- PRODUCT LIST -->
+        <section class="product-section">
+            <div class="container">
                 <div
-                    id="product_list"
-                    class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8"
+                    class="product mx-auto px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8"
                 >
-                    <!-- ITEM PRODUCT -->
-                    <div class="group relative overflow-hidden shadow-xl p-6 rounded-xl">
-                        <div class="transition duration-300 group-hover:opacity-40">
-                            <!-- IMAGE -->
+                    <!-- PRODUCT TITLE -->
+                    <h2 class="text-2xl font-bold tracking-tight">Danh sách sản phẩm</h2>
+
+                    <!-- PRODUCT LIST -->
+                    <div
+                        class="product_list mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8"
+                    >
+                        <!-- ITEM PRODUCT -->
+                        <div class="product_item group">
+                            <div class="transition duration-300 group-hover:opacity-40">
+                                <!-- IMAGE -->
+                                <div
+                                    class="min-h-80 bg-gray-200 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md lg:aspect-none lg:h-80"
+                                >
+                                    <img
+                                        src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg"
+                                        alt="img"
+                                        class="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                                    />
+                                </div>
+                                <!-- TITLE -->
+                                <div class="mt-4 space-y-2">
+                                    <p
+                                        class="text-base font-bold text-gray-900 truncate text-center"
+                                    >
+                                        Basic TeeBasic
+                                    </p>
+                                    <p
+                                        class="text-sm font-medium text-gray-700 text-center truncate"
+                                    >
+                                        $35
+                                    </p>
+                                    <span class="p-1 bg-neutral-200 rounded text-sm"
+                                        >Apple</span
+                                    >
+                                    <div class="truncate">
+                                        <span
+                                            class="text-sm font-bold text-gray-900 truncate text-center"
+                                        >
+                                            Mô tả:
+                                        </span>
+                                        <span class="mt-1 w-full text-sm text-gray-500">
+                                            BlackBlackBlackBlackBlackBlackBlackBlackBlackBlackBlackBlackBlack
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- OVERLAY -->
                             <div
-                                class="min-h-80 bg-gray-200 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md lg:aspect-none lg:h-80"
+                                class="group/product_overlay absolute flex flex-col justify-center z-50 inset-0 p-6 space-y-2 bg-black bg-opacity-70 hover:opacity-100 opacity-0 transition duration-300"
                             >
-                                <img
-                                    src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg"
-                                    alt="img"
-                                    class="h-full w-full object-cover object-center lg:h-full lg:w-full"
-                                />
-                            </div>
-                            <!-- TITLE -->
-                            <div class="mt-4 space-y-2">
-                                <p
-                                    class="text-base font-bold text-gray-900 truncate text-center"
+                                <div
+                                    class="mb-5 transition duration-500 -translate-y-full opacity-0 group-hover/product_overlay:translate-y-0 group-hover/product_overlay:opacity-100"
                                 >
-                                    Basic TeeBasic
-                                </p>
-                                <p
-                                    class="text-sm font-medium text-gray-700 text-center truncate"
+                                    <div class="">
+                                        <span
+                                            class="text-sm font-bold text-white truncate text-center"
+                                        >
+                                            Screen:
+                                        </span>
+                                        <span class="mt-1 w-full text-sm text-white">
+                                            screen 69
+                                        </span>
+                                    </div>
+                                    <div class="">
+                                        <span
+                                            class="text-sm font-bold text-white truncate text-center"
+                                        >
+                                            Camera sau:
+                                        </span>
+                                        <span class="mt-1 w-full text-sm text-white">
+                                            Chính 64 MP & Phụ 12 MP, 5 MP, 5 MP
+                                        </span>
+                                    </div>
+                                    <div class="">
+                                        <span
+                                            class="text-sm font-bold text-white truncate text-center"
+                                        >
+                                            Camera trước:
+                                        </span>
+                                        <span class="mt-1 w-full text-sm text-white">
+                                            Chính 64 MP & Phụ 12 MP, 5 MP, 5 MP
+                                        </span>
+                                    </div>
+                                </div>
+                                <button
+                                    id="opencart"
+                                    class="w-full btn btn-blue transition duration-500 translate-y-full opacity-0 group-hover/product_overlay:translate-y-0 group-hover/product_overlay:opacity-100"
                                 >
-                                    $35
-                                </p>
-                                <span class="p-1 bg-neutral-200 rounded text-sm"
-                                    >Apple</span
-                                >
-                                <div class="truncate">
-                                    <span
-                                        class="text-sm font-bold text-gray-900 truncate text-center"
-                                    >
-                                        Mô tả:
-                                    </span>
-                                    <span class="mt-1 w-full text-sm text-gray-500">
-                                        BlackBlackBlackBlackBlackBlackBlackBlackBlackBlackBlackBlackBlack
-                                    </span>
-                                </div>
+                                    Add To Cart
+                                </button>
                             </div>
-                        </div>
-                        <!-- OVERLAY -->
-                        <div
-                            class="absolute flex flex-col justify-center z-50 inset-0 p-6 space-y-2 bg-black bg-opacity-70 group-hover:opacity-100 opacity-0 transition duration-300"
-                        >
-                            <div
-                                class="mb-5 transition duration-500 -translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100"
-                            >
-                                <div class="">
-                                    <span
-                                        class="text-sm font-bold text-white truncate text-center"
-                                    >
-                                        Screen:
-                                    </span>
-                                    <span class="mt-1 w-full text-sm text-white">
-                                        screen 69
-                                    </span>
-                                </div>
-                                <div class="">
-                                    <span
-                                        class="text-sm font-bold text-white truncate text-center"
-                                    >
-                                        Camera sau:
-                                    </span>
-                                    <span class="mt-1 w-full text-sm text-white">
-                                        Chính 64 MP & Phụ 12 MP, 5 MP, 5 MP
-                                    </span>
-                                </div>
-                                <div class="">
-                                    <span
-                                        class="text-sm font-bold text-white truncate text-center"
-                                    >
-                                        Camera trước:
-                                    </span>
-                                    <span class="mt-1 w-full text-sm text-white">
-                                        Chính 64 MP & Phụ 12 MP, 5 MP, 5 MP
-                                    </span>
-                                </div>
-                            </div>
-                            <button
-                                id="opencart"
-                                class="w-full btn btn-blue transition duration-500 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100"
-                            >
-                                Add To Cart
-                            </button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
         <button id="closecart" class="z-50 relative btn btn-blue">close</button>
 
         <!-- CART -->
         <section class="cart-section hidden">
-            <div class="container mx-auto">
-                <div class="relative z-50">
-                    <!-- Background backdrop -->
-                    <div
-                        class="cart-backdrop fixed inset-0 bg-gray-500 bg-opacity-75 opacity-0"
-                    ></div>
+            <div class="relative z-50">
+                <!-- Background backdrop -->
+                <div
+                    class="cart-backdrop fixed inset-0 bg-gray-500 bg-opacity-75 opacity-0"
+                ></div>
 
-                    <div class="fixed inset-0 overflow-hidden">
-                        <div class="absolute inset-0 overflow-hidden">
+                <div class="fixed inset-0 overflow-hidden">
+                    <div class="absolute inset-0 overflow-hidden">
+                        <div
+                            class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10"
+                        >
+                            <!-- CART-SLIDE -->
                             <div
-                                class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10"
+                                class="cart-slide translate-x-full pointer-events-auto w-screen max-w-md"
                             >
-                                <!-- CART-SLIDE -->
-                                <div
-                                    class="cart-slide translate-x-full pointer-events-auto w-screen max-w-md"
-                                >
-                                    <div class="flex h-full flex-col bg-white shadow-xl">
-                                        <div
-                                            class="flex-1 overflow-y-auto px-4 py-6 sm:px-6"
-                                        >
-                                            <div class="flex items-start justify-between">
-                                                <h2
-                                                    class="text-lg font-medium text-gray-900"
-                                                    id="slide-over-title"
+                                <div class="flex h-full flex-col bg-white shadow-xl">
+                                    <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
+                                        <div class="flex items-start justify-between">
+                                            <h2
+                                                class="text-lg font-medium text-gray-900"
+                                                id="slide-over-title"
+                                            >
+                                                Shopping cart
+                                            </h2>
+                                            <div class="ml-3 flex h-7 items-center">
+                                                <button
+                                                    id="close-cart"
+                                                    type="button"
+                                                    class="-m-2 p-2 text-gray-400 hover:text-gray-500"
                                                 >
-                                                    Shopping cart
-                                                </h2>
-                                                <div class="ml-3 flex h-7 items-center">
-                                                    <button
-                                                        id="close-cart"
-                                                        type="button"
-                                                        class="-m-2 p-2 text-gray-400 hover:text-gray-500"
+                                                    <span class="sr-only"
+                                                        >Close panel</span
                                                     >
-                                                        <span class="sr-only"
-                                                            >Close panel</span
-                                                        >
-                                                        <svg
-                                                            class="h-6 w-6"
-                                                            fill="none"
-                                                            viewBox="0 0 24 24"
-                                                            stroke-width="1.5"
-                                                            stroke="currentColor"
-                                                            aria-hidden="true"
-                                                        >
-                                                            <path
-                                                                stroke-linecap="round"
-                                                                stroke-linejoin="round"
-                                                                d="M6 18L18 6M6 6l12 12"
-                                                            />
-                                                        </svg>
-                                                    </button>
-                                                </div>
-                                            </div>
-
-                                            <div class="mt-8">
-                                                <div class="flow-root">
-                                                    <ul
-                                                        role="list"
-                                                        class="-my-6 divide-y divide-gray-200"
+                                                    <svg
+                                                        class="h-6 w-6"
+                                                        fill="none"
+                                                        viewBox="0 0 24 24"
+                                                        stroke-width="1.5"
+                                                        stroke="currentColor"
+                                                        aria-hidden="true"
                                                     >
-                                                        <li class="flex py-6">
-                                                            <div
-                                                                class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200"
-                                                            >
-                                                                <img
-                                                                    src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
-                                                                    alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt."
-                                                                    class="h-full w-full object-cover object-center"
-                                                                />
-                                                            </div>
-
-                                                            <div
-                                                                class="ml-4 flex flex-1 flex-col"
-                                                            >
-                                                                <div>
-                                                                    <div
-                                                                        class="flex justify-between text-base font-medium text-gray-900"
-                                                                    >
-                                                                        <h3>
-                                                                            <a href="#"
-                                                                                >Throwback
-                                                                                Hip Bag</a
-                                                                            >
-                                                                        </h3>
-                                                                        <p class="ml-4">
-                                                                            $90.00
-                                                                        </p>
-                                                                    </div>
-                                                                    <p
-                                                                        class="mt-1 text-sm text-gray-500"
-                                                                    >
-                                                                        Salmon
-                                                                    </p>
-                                                                </div>
-                                                                <div
-                                                                    class="flex flex-1 items-end justify-between text-sm"
-                                                                >
-                                                                    <p
-                                                                        class="text-gray-500"
-                                                                    >
-                                                                        Qty 1
-                                                                    </p>
-
-                                                                    <div class="flex">
-                                                                        <button
-                                                                            type="button"
-                                                                            class="font-medium text-indigo-600 hover:text-indigo-500"
-                                                                        >
-                                                                            Remove
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <li class="flex py-6">
-                                                            <div
-                                                                class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200"
-                                                            >
-                                                                <img
-                                                                    src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg"
-                                                                    alt="Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch."
-                                                                    class="h-full w-full object-cover object-center"
-                                                                />
-                                                            </div>
-
-                                                            <div
-                                                                class="ml-4 flex flex-1 flex-col"
-                                                            >
-                                                                <div>
-                                                                    <div
-                                                                        class="flex justify-between text-base font-medium text-gray-900"
-                                                                    >
-                                                                        <h3>
-                                                                            <a href="#"
-                                                                                >Medium
-                                                                                Stuff
-                                                                                Satchel</a
-                                                                            >
-                                                                        </h3>
-                                                                        <p class="ml-4">
-                                                                            $32.00
-                                                                        </p>
-                                                                    </div>
-                                                                    <p
-                                                                        class="mt-1 text-sm text-gray-500"
-                                                                    >
-                                                                        Blue
-                                                                    </p>
-                                                                </div>
-                                                                <div
-                                                                    class="flex flex-1 items-end justify-between text-sm"
-                                                                >
-                                                                    <p
-                                                                        class="text-gray-500"
-                                                                    >
-                                                                        Qty 1
-                                                                    </p>
-
-                                                                    <div class="flex">
-                                                                        <button
-                                                                            type="button"
-                                                                            class="font-medium text-indigo-600 hover:text-indigo-500"
-                                                                        >
-                                                                            Remove
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-
-                                                        <!-- More products... -->
-                                                    </ul>
-                                                </div>
+                                                        <path
+                                                            stroke-linecap="round"
+                                                            stroke-linejoin="round"
+                                                            d="M6 18L18 6M6 6l12 12"
+                                                        />
+                                                    </svg>
+                                                </button>
                                             </div>
                                         </div>
 
-                                        <div
-                                            class="border-t border-gray-200 px-4 py-6 sm:px-6"
-                                        >
-                                            <div
-                                                class="flex justify-between text-base font-medium text-gray-900"
-                                            >
-                                                <p>Subtotal</p>
-                                                <p>$262.00</p>
-                                            </div>
-                                            <p class="mt-0.5 text-sm text-gray-500">
-                                                Shipping and taxes calculated at checkout.
-                                            </p>
-                                            <div class="mt-6">
-                                                <a
-                                                    href="#"
-                                                    class="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
-                                                    >Checkout</a
+                                        <div class="mt-8">
+                                            <div class="flow-root">
+                                                <ul
+                                                    role="list"
+                                                    class="-my-6 divide-y divide-gray-200"
                                                 >
-                                            </div>
-                                            <div
-                                                class="mt-6 flex justify-center text-center text-sm text-gray-500"
-                                            >
-                                                <p>
-                                                    or
-                                                    <button
-                                                        type="button"
-                                                        class="font-medium text-indigo-600 hover:text-indigo-500"
-                                                    >
-                                                        Continue Shopping
-                                                        <span aria-hidden="true">
-                                                            &rarr;</span
+                                                    <li class="flex py-6">
+                                                        <div
+                                                            class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200"
                                                         >
-                                                    </button>
-                                                </p>
+                                                            <img
+                                                                src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
+                                                                alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt."
+                                                                class="h-full w-full object-cover object-center"
+                                                            />
+                                                        </div>
+
+                                                        <div
+                                                            class="ml-4 flex flex-1 flex-col"
+                                                        >
+                                                            <div>
+                                                                <div
+                                                                    class="flex justify-between text-base font-medium text-gray-900"
+                                                                >
+                                                                    <h3>
+                                                                        <a href="#"
+                                                                            >Throwback Hip
+                                                                            Bag</a
+                                                                        >
+                                                                    </h3>
+                                                                    <p class="ml-4">
+                                                                        $90.00
+                                                                    </p>
+                                                                </div>
+                                                                <p
+                                                                    class="mt-1 text-sm text-gray-500"
+                                                                >
+                                                                    Salmon
+                                                                </p>
+                                                            </div>
+                                                            <div
+                                                                class="flex flex-1 items-end justify-between text-sm"
+                                                            >
+                                                                <p class="text-gray-500">
+                                                                    Qty 1
+                                                                </p>
+
+                                                                <div class="flex">
+                                                                    <button
+                                                                        type="button"
+                                                                        class="font-medium text-indigo-600 hover:text-indigo-500"
+                                                                    >
+                                                                        Remove
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="flex py-6">
+                                                        <div
+                                                            class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200"
+                                                        >
+                                                            <img
+                                                                src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg"
+                                                                alt="Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch."
+                                                                class="h-full w-full object-cover object-center"
+                                                            />
+                                                        </div>
+
+                                                        <div
+                                                            class="ml-4 flex flex-1 flex-col"
+                                                        >
+                                                            <div>
+                                                                <div
+                                                                    class="flex justify-between text-base font-medium text-gray-900"
+                                                                >
+                                                                    <h3>
+                                                                        <a href="#"
+                                                                            >Medium Stuff
+                                                                            Satchel</a
+                                                                        >
+                                                                    </h3>
+                                                                    <p class="ml-4">
+                                                                        $32.00
+                                                                    </p>
+                                                                </div>
+                                                                <p
+                                                                    class="mt-1 text-sm text-gray-500"
+                                                                >
+                                                                    Blue
+                                                                </p>
+                                                            </div>
+                                                            <div
+                                                                class="flex flex-1 items-end justify-between text-sm"
+                                                            >
+                                                                <p class="text-gray-500">
+                                                                    Qty 1
+                                                                </p>
+
+                                                                <div class="flex">
+                                                                    <button
+                                                                        type="button"
+                                                                        class="font-medium text-indigo-600 hover:text-indigo-500"
+                                                                    >
+                                                                        Remove
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+
+                                                    <!-- More products... -->
+                                                </ul>
                                             </div>
+                                        </div>
+                                    </div>
+
+                                    <div
+                                        class="border-t border-gray-200 px-4 py-6 sm:px-6"
+                                    >
+                                        <div
+                                            class="flex justify-between text-base font-medium text-gray-900"
+                                        >
+                                            <p>Subtotal</p>
+                                            <p>$262.00</p>
+                                        </div>
+                                        <p class="mt-0.5 text-sm text-gray-500">
+                                            Shipping and taxes calculated at checkout.
+                                        </p>
+                                        <div class="mt-6">
+                                            <a
+                                                href="#"
+                                                class="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+                                                >Checkout</a
+                                            >
+                                        </div>
+                                        <div
+                                            class="mt-6 flex justify-center text-center text-sm text-gray-500"
+                                        >
+                                            <p>
+                                                or
+                                                <button
+                                                    type="button"
+                                                    class="font-medium text-indigo-600 hover:text-indigo-500"
+                                                >
+                                                    Continue Shopping
+                                                    <span aria-hidden="true">
+                                                        &rarr;</span
+                                                    >
+                                                </button>
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
