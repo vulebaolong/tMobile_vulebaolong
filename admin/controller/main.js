@@ -109,6 +109,10 @@ function render(arrData) {
 //click thêm
 $("#add").addEventListener("click", (e) => {
     const value = getValueForm();
+
+    // const isvalidate = validate(value)
+    // if (!isvalidate) return
+
     console.log(value);
     fetchCreate(value);
 });

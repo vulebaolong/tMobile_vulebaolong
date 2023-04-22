@@ -65,146 +65,93 @@
 
                 <!-- PRODUCT LIST -->
                 <div
+                    id="product_list"
                     class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8"
                 >
                     <!-- ITEM PRODUCT -->
-
-                    <div class="group">
-                        <div
-                            class="relative min-h-80 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md lg:aspect-none lg:h-80"
-                        >
-                            <button
-                                class="absolute z-50 top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 group-hover:opacity-100 opacity-0 btn btn-blue"
-                            >
-                                Add To Cart
-                            </button>
+                    <div class="group relative overflow-hidden shadow-xl p-6 rounded-xl">
+                        <div class="transition duration-300 group-hover:opacity-40">
+                            <!-- IMAGE -->
                             <div
-                                class="h-full w-full bg-gray-200 group-hover:opacity-75 transition duration-300"
+                                class="min-h-80 bg-gray-200 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md lg:aspect-none lg:h-80"
                             >
                                 <img
                                     src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg"
-                                    alt="Front of men&#039;s Basic Tee in black."
+                                    alt="img"
                                     class="h-full w-full object-cover object-center lg:h-full lg:w-full"
                                 />
                             </div>
-                        </div>
-                        <div class="mt-4 flex justify-between">
-                            <div>
-                                <h3 class="text-sm text-gray-700">Basic Tee</h3>
-                                <p class="mt-1 text-sm text-gray-500">Black</p>
+                            <!-- TITLE -->
+                            <div class="mt-4 space-y-2">
+                                <p
+                                    class="text-base font-bold text-gray-900 truncate text-center"
+                                >
+                                    Basic TeeBasic
+                                </p>
+                                <p
+                                    class="text-sm font-medium text-gray-700 text-center truncate"
+                                >
+                                    $35
+                                </p>
+                                <span class="p-1 bg-neutral-200 rounded text-sm"
+                                    >Apple</span
+                                >
+                                <div class="truncate">
+                                    <span
+                                        class="text-sm font-bold text-gray-900 truncate text-center"
+                                    >
+                                        Mô tả:
+                                    </span>
+                                    <span class="mt-1 w-full text-sm text-gray-500">
+                                        BlackBlackBlackBlackBlackBlackBlackBlackBlackBlackBlackBlackBlack
+                                    </span>
+                                </div>
                             </div>
-                            <p class="text-sm font-medium text-gray-900">$35</p>
                         </div>
-                        <button id="opencart" class="btn btn-blue w-full">
-                            Add To Cart
-                        </button>
-                    </div>
-
-                    <div class="group relative">
+                        <!-- OVERLAY -->
                         <div
-                            class="min-h-80 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80"
+                            class="absolute flex flex-col justify-center z-50 inset-0 p-6 space-y-2 bg-black bg-opacity-70 group-hover:opacity-100 opacity-0 transition duration-300"
                         >
-                            <img
-                                src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg"
-                                alt="Front of men&#039;s Basic Tee in black."
-                                class="h-full w-full object-cover object-center lg:h-full lg:w-full"
-                            />
-                        </div>
-                        <div class="mt-4 flex justify-between">
-                            <div>
-                                <h3 class="text-sm text-gray-700">
-                                    <a href="#">
-                                        <span
-                                            aria-hidden="true"
-                                            class="absolute inset-0"
-                                        ></span>
-                                        Basic Tee
-                                    </a>
-                                </h3>
-                                <p class="mt-1 text-sm text-gray-500">Black</p>
+                            <div
+                                class="mb-5 transition duration-500 -translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100"
+                            >
+                                <div class="">
+                                    <span
+                                        class="text-sm font-bold text-white truncate text-center"
+                                    >
+                                        Screen:
+                                    </span>
+                                    <span class="mt-1 w-full text-sm text-white">
+                                        screen 69
+                                    </span>
+                                </div>
+                                <div class="">
+                                    <span
+                                        class="text-sm font-bold text-white truncate text-center"
+                                    >
+                                        Camera sau:
+                                    </span>
+                                    <span class="mt-1 w-full text-sm text-white">
+                                        Chính 64 MP & Phụ 12 MP, 5 MP, 5 MP
+                                    </span>
+                                </div>
+                                <div class="">
+                                    <span
+                                        class="text-sm font-bold text-white truncate text-center"
+                                    >
+                                        Camera trước:
+                                    </span>
+                                    <span class="mt-1 w-full text-sm text-white">
+                                        Chính 64 MP & Phụ 12 MP, 5 MP, 5 MP
+                                    </span>
+                                </div>
                             </div>
-                            <p class="text-sm font-medium text-gray-900">$35</p>
-                        </div>
-                    </div>
-
-                    <div class="group relative">
-                        <div
-                            class="min-h-80 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80"
-                        >
-                            <img
-                                src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg"
-                                alt="Front of men&#039;s Basic Tee in black."
-                                class="h-full w-full object-cover object-center lg:h-full lg:w-full"
-                            />
-                        </div>
-                        <div class="mt-4 flex justify-between">
-                            <div>
-                                <h3 class="text-sm text-gray-700">
-                                    <a href="#">
-                                        <span
-                                            aria-hidden="true"
-                                            class="absolute inset-0"
-                                        ></span>
-                                        Basic Tee
-                                    </a>
-                                </h3>
-                                <p class="mt-1 text-sm text-gray-500">Black</p>
-                            </div>
-                            <p class="text-sm font-medium text-gray-900">$35</p>
-                        </div>
-                    </div>
-
-                    <div class="group relative">
-                        <div
-                            class="min-h-80 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80"
-                        >
-                            <img
-                                src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg"
-                                alt="Front of men&#039;s Basic Tee in black."
-                                class="h-full w-full object-cover object-center lg:h-full lg:w-full"
-                            />
-                        </div>
-                        <div class="mt-4 flex justify-between">
-                            <div>
-                                <h3 class="text-sm text-gray-700">
-                                    <a href="#">
-                                        <span
-                                            aria-hidden="true"
-                                            class="absolute inset-0"
-                                        ></span>
-                                        Basic Tee
-                                    </a>
-                                </h3>
-                                <p class="mt-1 text-sm text-gray-500">Black</p>
-                            </div>
-                            <p class="text-sm font-medium text-gray-900">$35</p>
-                        </div>
-                    </div>
-
-                    <div class="group relative">
-                        <div
-                            class="min-h-80 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80"
-                        >
-                            <img
-                                src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg"
-                                alt="Front of men&#039;s Basic Tee in black."
-                                class="h-full w-full object-cover object-center lg:h-full lg:w-full"
-                            />
-                        </div>
-                        <div class="mt-4 flex justify-between">
-                            <div>
-                                <h3 class="text-sm text-gray-700">
-                                    <a href="#">
-                                        <span
-                                            aria-hidden="true"
-                                            class="absolute inset-0"
-                                        ></span>
-                                        Basic Tee
-                                    </a>
-                                </h3>
-                                <p class="mt-1 text-sm text-gray-500">Black</p>
-                            </div>
-                            <p class="text-sm font-medium text-gray-900">$35</p>
+                            <button
+                                id="opencart"
+                                class="w-full btn btn-blue transition duration-500 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100"
+                            >
+                                Add To Cart
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -216,7 +163,7 @@
         <!-- CART -->
         <section class="cart-section hidden">
             <div class="container mx-auto">
-                <div class="relative z-10">
+                <div class="relative z-50">
                     <!-- Background backdrop -->
                     <div
                         class="cart-backdrop fixed inset-0 bg-gray-500 bg-opacity-75 opacity-0"
