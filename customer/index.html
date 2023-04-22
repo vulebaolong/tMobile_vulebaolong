@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en" class="">
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -28,7 +28,7 @@
         <div
             class="absolute z-20 top-0 inset-x-0 flex justify-center overflow-hidden pointer-events-none"
         >
-            <div class="w-[108rem] flex-none flex justify-end">
+            <div class="flex-none flex justify-end">
                 <picture
                     ><source
                         srcset="
@@ -38,7 +38,7 @@
                     <img
                         src="https://tailwindcss.com/_next/static/media/docs@30.8b9a76a2.avif"
                         alt=""
-                        class="w-[71.75rem] flex-none max-w-none dark:hidden"
+                        class="flex-none max-w-none dark:hidden"
                         decoding="async" /></picture
                 ><picture
                     ><source
@@ -49,7 +49,7 @@
                     <img
                         src="https://tailwindcss.com/_next/static/media/docs-dark@30.1a9f8cbf.avif"
                         alt=""
-                        class="w-[90rem] flex-none max-w-none hidden dark:block"
+                        class="flex-none max-w-none hidden dark:block"
                         decoding="async"
                 /></picture>
             </div>
@@ -68,31 +68,36 @@
                     class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8"
                 >
                     <!-- ITEM PRODUCT -->
-                    <div class="group relative">
+
+                    <div class="group">
                         <div
-                            class="min-h-80 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80"
+                            class="relative min-h-80 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md lg:aspect-none lg:h-80"
                         >
-                            <img
-                                src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg"
-                                alt="Front of men&#039;s Basic Tee in black."
-                                class="h-full w-full object-cover object-center lg:h-full lg:w-full"
-                            />
+                            <button
+                                class="absolute z-50 top-2/4 left-2/4 -translate-x-1/2 -translate-y-1/2 group-hover:opacity-100 opacity-0 btn btn-blue"
+                            >
+                                Add To Cart
+                            </button>
+                            <div
+                                class="h-full w-full bg-gray-200 group-hover:opacity-75 transition duration-300"
+                            >
+                                <img
+                                    src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg"
+                                    alt="Front of men&#039;s Basic Tee in black."
+                                    class="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                                />
+                            </div>
                         </div>
                         <div class="mt-4 flex justify-between">
                             <div>
-                                <h3 class="text-sm text-gray-700">
-                                    <a href="#">
-                                        <span
-                                            aria-hidden="true"
-                                            class="absolute inset-0"
-                                        ></span>
-                                        Basic Tee
-                                    </a>
-                                </h3>
+                                <h3 class="text-sm text-gray-700">Basic Tee</h3>
                                 <p class="mt-1 text-sm text-gray-500">Black</p>
                             </div>
                             <p class="text-sm font-medium text-gray-900">$35</p>
                         </div>
+                        <button id="opencart" class="btn btn-blue w-full">
+                            Add To Cart
+                        </button>
                     </div>
 
                     <div class="group relative">
@@ -206,7 +211,6 @@
             </div>
         </div>
 
-        <button id="opencart" class="z-50 relative btn btn-blue">open</button>
         <button id="closecart" class="z-50 relative btn btn-blue">close</button>
 
         <!-- CART -->
@@ -215,7 +219,7 @@
                 <div class="relative z-10">
                     <!-- Background backdrop -->
                     <div
-                        class="cart-backdrop fixed inset-0 bg-gray-500 bg-opacity-75 opacity-0 transition-opacity"
+                        class="cart-backdrop fixed inset-0 bg-gray-500 bg-opacity-75 opacity-0"
                     ></div>
 
                     <div class="fixed inset-0 overflow-hidden">
@@ -240,6 +244,7 @@
                                                 </h2>
                                                 <div class="ml-3 flex h-7 items-center">
                                                     <button
+                                                        id="close-cart"
                                                         type="button"
                                                         class="-m-2 p-2 text-gray-400 hover:text-gray-500"
                                                     >

@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "build-admin": "postcss admin/css/input.css -o admin/css/output.css --watch",
-        "buildCustomer": "postcss customer/css/input.css -o customer/css/output.css --watch"
+        "build_customer": "postcss customer/css/input.css -o customer/css/output.css --watch"
     },
     "repository": {
         "type": "git",

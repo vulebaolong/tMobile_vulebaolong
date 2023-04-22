@@ -11,7 +11,7 @@ $("#opencart").addEventListener("click", function (params) {
     }, 0);
 });
 
-$("#closecart").addEventListener("click", function (params) {
+$("#close-cart").addEventListener("click", function (params) {
     $(".cart-backdrop").classList.toggle("opacity-0");
     $(".cart-slide").classList.toggle("translate-x-full");
     setTimeout(() => {
