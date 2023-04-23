@@ -11,7 +11,7 @@
     @apply disabled:opacity-50 transition duration-300 px-4 py-2 font-semibold text-sm rounded-lg shadow-sm;
 }
 .btn-blue {
-    @apply bg-blue-700 enabled:hover:bg-blue-800 enabled:active:bg-blue-900 text-white;
+    @apply bg-indigo-700 enabled:hover:bg-indigo-800 enabled:active:bg-indigo-900 text-white;
 }
 
 .btn-white {
@@ -20,13 +20,16 @@
 
 /* PRODUCT */
 .product_item {
-    @apply relative overflow-hidden shadow-xl p-6 rounded-xl bg-white;
+    @apply relative overflow-hidden  p-6 rounded-xl bg-white;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
-.cart-slide {
+.cart-slide,
+#M-nav_content {
     transition: transform 0.5s ease-in-out;
 }
 
-.cart-backdrop {
+.cart-backdrop,
+#M-nav_backdrop {
     transition-property: opacity;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 0.5s;

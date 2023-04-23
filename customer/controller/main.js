@@ -87,10 +87,11 @@ function render(arrData) {
     let string = "";
     arrData.reverse().forEach((el) => {
         string += `<div class="product_item group">
+                         <!-- PRODUCT ITEM TITLE -->
                         <div class="transition duration-300 group-hover:opacity-40">
                             <!-- IMAGE -->
                             <div
-                                class="min-h-80 bg-gray-200 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md lg:aspect-none lg:h-80"
+                                class="min-h-80 bg-white aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md lg:aspect-none lg:h-44 xl:h-64"
                             >
                                 <img
                                     src="${el.img}"
@@ -108,12 +109,14 @@ function render(arrData) {
                                 <p
                                     class="text-sm font-medium text-gray-700 text-center truncate"
                                 >
-                                    $${el.price}
+                                    ${el.price} ₫
                                 </p>
-                                <span class="p-1 bg-neutral-200 rounded text-sm"
-                                    >${el.type}</span
-                                >
-                                <div class="truncate">
+                                <div>
+                                    <span class="inline-block mt-4 p-1 bg-neutral-200 rounded text-sm">
+                                        ${el.type}
+                                    </span>
+                                </div>
+                                <div class="">
                                     <span
                                         class="text-sm font-bold text-gray-900 truncate text-center"
                                     >
@@ -175,22 +178,45 @@ function render(arrData) {
     productListEl.innerHTML = string;
 }
 
-//click savechange
-$("#opencart").addEventListener("click", function (params) {
-    $(".cart-section").classList.toggle("hidden");
+function openComponent(elSection, elContent, elBackdrop) {
+    $(elSection).classList.toggle("hidden");
 
     setTimeout(() => {
-        $(".cart-backdrop").classList.toggle("opacity-0");
-        $(".cart-slide").classList.toggle("translate-x-full");
+        $(elBackdrop).classList.toggle("opacity-0");
+        $(elContent).classList.toggle("translate-x-full");
     }, 0);
+}
+
+function closeComponent(elSection, elContent, elBackdrop) {
+    $(elBackdrop).classList.toggle("opacity-0");
+    $(elContent).classList.toggle("translate-x-full");
+    setTimeout(() => {
+        $(elSection).classList.toggle("hidden");
+    }, 400);
+}
+
+//click savechange
+$("#opencart").addEventListener("click", function (params) {
+    openComponent(".cart-section", ".cart-slide", ".cart-backdrop");
+});
+
+$("#cart").addEventListener("click", function (params) {
+    openComponent(".cart-section", ".cart-slide", ".cart-backdrop");
+});
+
+$("#M_cart").addEventListener("click", function (params) {
+    openComponent(".cart-section", ".cart-slide", ".cart-backdrop");
 });
 
 $("#close-cart").addEventListener("click", function (params) {
-    $(".cart-backdrop").classList.toggle("opacity-0");
-    $(".cart-slide").classList.toggle("translate-x-full");
-    setTimeout(() => {
-        $(".cart-section").classList.toggle("hidden");
-    }, 400);
+    closeComponent(".cart-section", ".cart-slide", ".cart-backdrop");
+});
+
+$("#M_btn_show-nav").addEventListener("click", function (params) {
+    openComponent("#M-nav", "#M-nav_content", "#M-nav_backdrop");
+});
+$("#M_btn_close-nav").addEventListener("click", function (params) {
+    closeComponent("#M-nav", "#M-nav_content", "#M-nav_backdrop");
 });
 
 function openCart() {
