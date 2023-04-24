@@ -63,6 +63,7 @@
                 >
                     <!-- FORM ITEM -->
                     <div class="form_content flex space-x-5 w-full">
+                        <!-- FORM LEFT -->
                         <div class="form_left w-full space-y-4">
                             <!-- Id -->
                             <div class="w-full space-y-1">
@@ -74,11 +75,13 @@
                                     class="inputForm"
                                     disabled="true"
                                 />
+                                <span class="validate-fid hidden"></span>
                             </div>
                             <!-- Name -->
                             <div class="w-full space-y-1">
                                 <label for="name" class="">Tên sản phẩm</label>
                                 <input id="fname" required class="inputForm" />
+                                <span class="validate-fname hidden"></span>
                             </div>
                             <!-- Price -->
                             <div class="w-full space-y-1">
@@ -89,28 +92,35 @@
                                     class="inputForm"
                                     type="number"
                                 />
+                                <span class="validate-fprice hidden"></span>
                             </div>
                             <!-- Screen -->
                             <div class="w-full space-y-1">
                                 <label for="screen" class="">Màn hình</label>
                                 <input id="fscreen" required class="inputForm" />
+                                <span class="validate-fscreen hidden"></span>
                             </div>
                             <!-- Front -->
                             <div class="w-full space-y-1">
                                 <label for="screen" class="">Camera trước</label>
                                 <input id="ffront" required class="inputForm" />
+                                <span class="validate-ffront hidden"></span>
                             </div>
                         </div>
+
+                        <!-- FORM RIGHT -->
                         <div class="form_right w-full space-y-4 flex flex-col">
                             <!-- Back -->
                             <div class="w-full space-y-1">
                                 <label for="screen" class="">Camera sau</label>
                                 <input id="fback" required class="inputForm" />
+                                <span class="validate-fback hidden"></span>
                             </div>
                             <!-- Image -->
                             <div class="w-full space-y-1">
                                 <label for="screen" class="">Hình</label>
                                 <input id="fimage" required class="inputForm" />
+                                <span class="validate-fimage hidden"></span>
                             </div>
                             <!-- Desc -->
                             <div class="w-full space-y-1 flex flex-col flex-1">
@@ -122,11 +132,13 @@
                                     cols="50"
                                     required
                                 ></textarea>
+                                <span class="validate-fdesc hidden"></span>
                             </div>
                             <!-- Type -->
                             <div class="w-full space-y-1">
                                 <label for="screen" class="">Hãng</label>
                                 <input id="ftype" required class="inputForm" />
+                                <span class="validate-ftype hidden"></span>
                             </div>
                         </div>
                     </div>
@@ -154,7 +166,17 @@
                     <!-- TITLE -->
                     <div class="flex justify-between">
                         <h2 class="text-lg font-medium">Product</h2>
-                        <button id="savechange" class="btn btn-blue">Save Changes</button>
+                        <div class="flex items-center gap-4 w-1/3 relative">
+                            <i class="fa-solid fa-magnifying-glass absolute ml-2"></i>
+                            <input
+                                type="text"
+                                name="price"
+                                id="search-input"
+                                class="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                placeholder="Tên sản phẩm"
+                            />
+                            <!-- <button id="search-btn" class="btn btn-blue">Search</button> -->
+                        </div>
                         <button type="button" class="btn btn-white">
                             <i
                                 class="transition duration-300 fa-solid fa-pen text-gray-400 -ml-0.5 mr-1.5"
@@ -197,9 +219,9 @@
         ></script>
 
         <!-- CONTROL -->
-        <script src="./controller/controll.js"></script>
+        <script src="./js/controll.js"></script>
 
         <!-- JS -->
-        <script src="./controller/main.js"></script>
+        <script src="./js/main.js"></script>
     </body>
 </html>

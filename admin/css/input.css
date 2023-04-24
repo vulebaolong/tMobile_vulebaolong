@@ -77,3 +77,7 @@
         outline: 0.2rem solid red;
     }
 }
+
+span[class^="validate"] {
+    @apply text-red-600 dark:text-red-500 italic font-normal;
+}
