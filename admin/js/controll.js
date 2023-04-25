@@ -1,88 +1,6 @@
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => document.querySelectorAll(selector);
-const BASE_URL = "https://643a58bdbd3623f1b9b164ba.mockapi.io/admin";
-
-function fetchCreate(value) {
-    axios({
-        url: BASE_URL,
-        method: "POST",
-        data: value,
-    })
-        .then((result) => {
-            console.log("👙 fetchCreate result: ", result);
-            console.log("👙 fetchCreate result: ", result.data);
-            return fetchRead({ render: true });
-        })
-        .then((resultRead) => {
-            console.log(resultRead);
-            console.log(value.name);
-            notification(`"${value.name}" Thêm sản phẩm thành công`);
-            fillForm("");
-        })
-        .catch((err) => {
-            console.log("👙  err: ", err);
-        });
-}
-
-function fetchRead(option) {
-    console.log(option);
-    return new Promise((resolve, reject) => {
-        axios({
-            url: BASE_URL,
-            method: "GET",
-            params: option.params,
-        })
-            .then((result) => {
-                console.log("👙 fetchRead result: ", result);
-                console.log("👙 fetchRead result: ", result.data);
-                if (option.render) render(result.data);
-                resolve(result);
-            })
-            .catch((err) => {
-                console.log("👙  err: ", err);
-            });
-    });
-}
-
-function fetchUpdate(id, value) {
-    return new Promise((resolve, reject) => {
-        axios({
-            url: `${BASE_URL}/${id}`,
-            method: "PUT",
-            data: value,
-        })
-            .then((result) => {
-                console.log("👙 fetchUpdate  result: ", result);
-                console.log("👙 fetchUpdate  result: ", result.data);
-                return fetchRead({ render: true });
-            })
-            .then(() => {
-                notification("Cập nhật sản phẩm thành công");
-                resolve();
-            })
-            .catch((err) => {
-                console.log("👙 fetchUpdate err: ", err);
-            });
-    });
-}
-
-function fetchDelete(id, mes) {
-    axios({
-        url: `${BASE_URL}/${id}`,
-        method: "DELETE",
-    })
-        .then((result) => {
-            console.log("👙 fetchDelete  result: ", result);
-            console.log("👙 fetchDelete  result: ", result.data);
-            return fetchRead({ render: true });
-        })
-        .then(() => {
-            notification(mes);
-        })
-        .catch((err) => {
-            console.log("👙 fetchDelete err: ", err);
-        });
-}
+const BASE_URL = "https://643a58bdbd3623f1b9b164ba.mockapi.io/admin/";
 
 function getValueForm() {
     const valueFid = $("#fid").value;
@@ -169,8 +87,11 @@ function debounce(fn, ms) {
 }
 
 function init() {
-    fetchRead({ render: true });
-    $("#update").disabled = true;
+    // fetchRead({ render: true });
+    readItem().then((result) => {
+        render(result.data);
+        $("#update").disabled = true;
+    });
 }
 
 function render(arrData) {
@@ -196,9 +117,37 @@ function render(arrData) {
             <div class="w-5% break-all text-slate-500">${el.type}</div>
             <div class="w-[10%] flex justify-around  break-all font-semibold text-sky-500 text-right pr-2">
                 <span onclick="edit(${el.id})" class="cursor-pointer">Edit</span>
-                <span onclick="deleteProduct(${el.id},'${el.name}')" class="cursor-pointer">Delete</span>
+                <span onclick="deleteProduct(${el.id})" class="cursor-pointer">Delete</span>
             </div>
         </li>`;
     });
     productItemsEl.innerHTML = string;
+}
+
+function createItem(value) {
+    return axios.post(BASE_URL, value);
+}
+
+function readItem(id = null) {
+    let url = BASE_URL;
+    if (id !== null) {
+        url += id;
+    }
+    return axios.get(url);
+}
+
+function updateItem(item) {
+    return axios.put(BASE_URL + item.id, item);
+}
+
+function deleteItem(id) {
+    return axios.delete(BASE_URL + id);
+}
+
+function searchByName(name) {
+    return axios.get(BASE_URL, {
+        params: {
+            name: name,
+        },
+    });
 }
