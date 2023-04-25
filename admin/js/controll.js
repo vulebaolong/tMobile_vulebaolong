@@ -1,7 +1,7 @@
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => document.querySelectorAll(selector);
 const BASE_URL = "https://643a58bdbd3623f1b9b164ba.mockapi.io/admin/";
-
+let arrProducts = [];
 function getValueForm() {
     const valueFid = $("#fid").value;
     const valueFname = $("#fname").value;
@@ -89,35 +89,43 @@ function debounce(fn, ms) {
 function init() {
     // fetchRead({ render: true });
     readItem().then((result) => {
+        console.log(result);
+
         render(result.data);
         $("#update").disabled = true;
     });
 }
 
 function render(arrData) {
+    arrProducts = arrData;
+    console.log(arrProducts);
     const productItemsEl = $(".product_items");
     let string = "";
     arrData.reverse().forEach((el) => {
         string += `
         <li id="item${el.id}" class="product_item flex gap-4 py-4">
-            <div class="w-5% break-all font-medium">${el.id}</div>
-            <div class="w-[7%] break-all font-medium">${el.name}</div>
-            <div class="w-[7%] break-all text-slate-500">${el.price}</div>
-            <div class="w-[7%] break-all text-slate-500">${el.screen}</div>
-            <div class="w-[7%] break-all text-slate-500">${el.frontCamera}</div>
-            <div class="w-[7%] break-all text-slate-500">${el.backCamera}</div>
-            <div class="w-[7%] break-all text-slate-500">
-            <img
-                src="${el.img}"
-                alt="img"
-                class="h-28 w-full object-cover object-center  lg:w-full"
-            />
+            <div class="w-5% font-medium">${el.id}</div>
+            <div class="w-[10%] font-medium">${el.name}</div>
+            <div class="w-[10%] text-slate-500 ">${formatCurrency(
+                el.price
+            )} <sup>₫</sup></div>
+            <div class="w-[7%] text-slate-500">${el.screen}</div>
+            <div class="w-[7%] text-slate-500">${el.frontCamera}</div>
+            <div class="w-[10%] text-slate-500">${el.backCamera}</div>
+            <div class="w-[7%] text-slate-500">
+                <img
+                    src="${el.img}"
+                    alt="img"
+                    class="rounded-md h-28 w-full object-cover object-center lg:w-full"
+                />
             </div>
             <div class="flex-1 text-slate-500">${el.desc}</div>
-            <div class="w-5% break-all text-slate-500">${el.type}</div>
-            <div class="w-[10%] flex justify-around  break-all font-semibold text-sky-500 text-right pr-2">
+            <div class="w-5%  text-slate-500">${el.type}</div>
+            <div class="w-[10%] flex justify-around   font-semibold text-sky-500 text-right pr-2">
                 <span onclick="edit(${el.id})" class="cursor-pointer">Edit</span>
-                <span onclick="deleteProduct(${el.id})" class="cursor-pointer">Delete</span>
+                <span onclick="deleteProduct(${
+                    el.id
+                })" class="cursor-pointer">Delete</span>
             </div>
         </li>`;
     });
@@ -150,4 +158,8 @@ function searchByName(name) {
             name: name,
         },
     });
+}
+
+function formatCurrency(num, locale = navigator.language) {
+    return new Intl.NumberFormat(locale).format(num);
 }

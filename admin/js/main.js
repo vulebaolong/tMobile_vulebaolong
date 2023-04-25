@@ -86,10 +86,19 @@ $("#search-input").addEventListener(
     }, 500)
 );
 
-//click save test
-// $("#savechange").addEventListener("click", (e) => {
-//     notification("Vũ Lê Bảo Long");
-// });
-// params: {
-//     name: searchTerms,
-// },
+//click sort
+$("#max_min").addEventListener("click", (e) => {
+    // $("#max_min").classList.toggle("hidden");
+    // $("#min_max").classList.toggle("hidden");
+
+    arrProducts.sort((a, b) => +a.price - +b.price);
+    render(arrProducts);
+    console.log(arrProducts);
+});
+$("#min_max").addEventListener("click", () => {
+    // $("#max_min").classList.toggle("hidden");
+    // $("#min_max").classList.toggle("hidden");
+    arrProducts.sort((a, b) => +b.price - +a.price);
+    render(arrProducts);
+    console.log(arrProducts);
+});
