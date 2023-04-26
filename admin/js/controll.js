@@ -1,7 +1,11 @@
+// import validator from "../../node_modules/validator/validator.min";
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => document.querySelectorAll(selector);
 const BASE_URL = "https://643a58bdbd3623f1b9b164ba.mockapi.io/admin/";
 let arrProducts = [];
+
+console.log();
+
 function getValueForm() {
     const valueFid = $("#fid").value;
     const valueFname = $("#fname").value;
@@ -59,6 +63,7 @@ function notification(mes) {
  * @param {*} obj
  */
 function fillForm(obj) {
+    resetValidate();
     $("#search-input").value = obj === "" ? "" : obj.name;
     $("#fname").value = obj === "" ? "" : obj.name;
     $("#fprice").value = obj === "" ? "" : obj.price;

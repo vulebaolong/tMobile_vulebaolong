@@ -64,7 +64,9 @@
                     <!-- FORM ITEM -->
                     <div class="form_content flex space-x-5 w-full">
                         <!-- FORM LEFT -->
-                        <div class="form_left w-full space-y-4">
+                        <div
+                            class="form_left w-full space-y-4 flex flex-col justify-between"
+                        >
                             <!-- Id -->
                             <div class="w-full space-y-1">
                                 <label for="name" class="">ID</label>
@@ -90,7 +92,7 @@
                                     id="fprice"
                                     required
                                     class="inputForm"
-                                    type="number"
+                                    type="text"
                                 />
                                 <span class="validate-fprice hidden"></span>
                             </div>
@@ -109,7 +111,9 @@
                         </div>
 
                         <!-- FORM RIGHT -->
-                        <div class="form_right w-full space-y-4 flex flex-col">
+                        <div
+                            class="form_right w-full space-y-4 flex flex-col justify-between"
+                        >
                             <!-- Back -->
                             <div class="w-full space-y-1">
                                 <label for="screen" class="">Camera sau</label>
@@ -219,6 +223,11 @@
             </div>
         </section>
 
+        <script
+            type="text/javascript"
+            src="../vendor//validator/validator.min.js"
+        ></script>
+
         <!-- TOAST -->
         <script src="../vendor/toastify/toastify.js"></script>
 
@@ -232,6 +241,9 @@
 
         <!-- CONTROL -->
         <script src="./js/controll.js"></script>
+
+        <!-- VALIDATE -->
+        <script src="./js/validate.js"></script>
 
         <!-- JS -->
         <script src="./js/main.js"></script>

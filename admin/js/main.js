@@ -3,7 +3,7 @@ init();
 //click thêm
 $("#add").addEventListener("click", (e) => {
     const value = getValueForm();
-    console.log(value);
+    if (!validate(value)) return;
     createItem(value)
         .then(() => {
             return readItem();
@@ -40,6 +40,7 @@ function edit(id) {
 //click update
 $("#update").addEventListener("click", (e) => {
     const value = getValueForm();
+    if (!validate(value)) return;
     updateItem(value)
         .then(() => {
             return readItem();
