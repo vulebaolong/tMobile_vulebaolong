@@ -34,3 +34,19 @@
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 0.5s;
 }
+
+.bum {
+    animation: bum 0.3s ease forwards;
+}
+
+@keyframes bum {
+    0% {
+        scale: 100%;
+    }
+    50% {
+        scale: 200%;
+    }
+    100% {
+        scale: 100%;
+    }
+}
