@@ -9,9 +9,9 @@ $("#cart").addEventListener("click", function (params) {
     openComponent(".cart-section", ".cart-slide", ".cart-backdrop");
 });
 
-$("#M_cart").addEventListener("click", function (params) {
-    openComponent(".cart-section", ".cart-slide", ".cart-backdrop");
-});
+// $("#M_cart").addEventListener("click", function (params) {
+//     openComponent(".cart-section", ".cart-slide", ".cart-backdrop");
+// });
 
 $("#close-cart").addEventListener("click", function (params) {
     closeComponent(".cart-section", ".cart-slide", ".cart-backdrop");

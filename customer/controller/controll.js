@@ -21,7 +21,7 @@ function deleteItem(id) {
     return axios.delete(BASE_URL + id);
 }
 
-function render(arrData) {
+function renderProduct(arrData) {
     const productListEl = $(".product_list");
     let string = "";
     arrData.reverse().forEach((el) => {
@@ -121,7 +121,7 @@ function init() {
     //danh sách
     readItem(null, "https://643a58bdbd3623f1b9b164ba.mockapi.io/admin/")
         .then((result) => {
-            render(result.data);
+            renderProduct(result.data);
         })
         .catch((err) => {});
 

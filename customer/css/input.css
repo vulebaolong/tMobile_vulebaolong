@@ -50,3 +50,8 @@
         scale: 100%;
     }
 }
+
+/* .hero {
+    @apply pb-20;
+    padding-bottom: 80px;
+} */
