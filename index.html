@@ -61,9 +61,19 @@
                 class="h-full flex items-center justify-between p-6 lg:px-8 text-slate-700 dark:text-slate-200"
                 aria-label="Global"
             >
+                <!-- LOGO -->
                 <div class="flex lg:flex-1 h-full">
                     <a href="#" class="h-full">
-                        <img class="h-full" src="./asset/img/logo-white.png" alt="" />
+                        <img
+                            class="h-full hidden dark:block"
+                            src="./asset/img/logo-white.png"
+                            alt=""
+                        />
+                        <img
+                            class="h-full dark:hidden"
+                            src="./asset/img/logo-dark.png"
+                            alt=""
+                        />
                     </a>
                 </div>
                 <div class="flex lg:hidden gap-4 items-center">
@@ -133,13 +143,9 @@
                     class="translate-x-full fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 text-slate-700"
                 >
                     <div class="flex items-center justify-between">
-                        <a href="#" class="-m-1.5 p-1.5">
-                            <span class="sr-only">Your Company</span>
-                            <img
-                                class="h-8 w-auto"
-                                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                                alt=""
-                            />
+                        <!-- LOGO MOBILE -->
+                        <a href="#" class="-m-1.5 p-1.5 basis-1/4">
+                            <img class="w-full" src="../asset/img/logo-dark.png" alt="" />
                         </a>
                         <button
                             id="M_btn_close-nav"

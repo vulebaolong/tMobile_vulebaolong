@@ -81,3 +81,24 @@
 span[class^="validate"] {
     @apply text-red-600 dark:text-red-500 italic font-normal;
 }
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(100, 116, 139, 0.502) rgba(100, 116, 139, 0.161);
+}
+
+/* Chrome, Edge and Safari */
+*::-webkit-scrollbar {
+    width: 10px;
+    width: 10px;
+}
+*::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background-color: rgba(100, 116, 139, 0.161);
+}
+
+*::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: rgba(100, 116, 139, 0.502);
+}

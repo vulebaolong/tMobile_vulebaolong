@@ -4,9 +4,9 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "build_admin": "tailwindcss admin/css/input.css -o admin/css/output.css --watch",
-        "build_customer": "tailwindcss customer/css/input.css -o customer/css/output.css --watch",
-        "build_all": "tailwindcss css/input.css -o css/output.css --watch"
+        "build_admin": "tailwindcss -i admin/css/input.css -o admin/css/output.css --watch",
+        "build_customer": "tailwindcss -i customer/css/input.css -o customer/css/output.css --watch",
+        "build_all": "tailwindcss -i css/input.css -o css/output.css --watch"
     },
     "repository": {
         "type": "git",
@@ -21,7 +21,6 @@
     "homepage": "https://github.com/vulebaolong/BC44_API_B25_VuLeBaoLong_Capstone#readme",
     "dependencies": {
         "autoprefixer": "^10.4.14",
-        "postcss-cli": "^10.1.0",
         "tailwindcss": "^3.3.1"
     }
 }
