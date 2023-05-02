@@ -4,8 +4,8 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "build_admin": "tailwindcss -i admin/css/input.css -o admin/css/output.css --watch",
-        "build_customer": "tailwindcss -i customer/css/input.css -o customer/css/output.css --watch",
+        "build_admin": "tailwindcss -i page/admin/css/input.css -o page/admin/css/output.css --watch",
+        "build_customer": "tailwindcss -i page/customer/css/input.css -o page/customer/css/output.css --watch",
         "build_all": "tailwindcss -i css/input.css -o css/output.css --watch"
     },
     "repository": {
