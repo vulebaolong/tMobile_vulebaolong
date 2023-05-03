@@ -429,399 +429,383 @@
                 <div class="fixed inset-0 overflow-hidden">
                     <div class="absolute inset-0 overflow-hidden">
                         <div
-                            class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full sm:pl-10"
+                            class="pointer-events-none fixed inset-y-0 right-0 flex justify-end w-screen sm:pl-10"
                         >
                             <!-- CART-SLIDE -->
-                            <div
-                                class="cart-slide translate-x-full pointer-events-auto w-screen max-w-md"
-                            >
-                                <div class="flex h-full flex-col bg-white shadow-xl">
-                                    <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
-                                        <div class="flex items-start justify-between">
-                                            <h2
-                                                class="text-lg font-medium text-gray-900"
-                                                id="slide-over-title"
+                            <div class="cart-slide translate-x-full pointer-events-auto">
+                                <div
+                                    class="flex h-full flex-col bg-white shadow-xl px-4 py-6 sm:px-6"
+                                >
+                                    <!-- HEADER -->
+                                    <div class="flex items-start justify-between">
+                                        <h2
+                                            class="text-lg font-medium text-gray-900"
+                                            id="slide-over-title"
+                                        >
+                                            Giỏ Hàng
+                                        </h2>
+                                        <div class="ml-3 flex h-7 items-center">
+                                            <button
+                                                id="close-cart"
+                                                type="button"
+                                                class="-m-2 p-2 text-gray-400 hover:text-gray-500"
                                             >
-                                                Giỏ Hàng
-                                            </h2>
-                                            <div class="ml-3 flex h-7 items-center">
-                                                <button
-                                                    id="close-cart"
-                                                    type="button"
-                                                    class="-m-2 p-2 text-gray-400 hover:text-gray-500"
+                                                <span class="sr-only">Close panel</span>
+                                                <svg
+                                                    class="h-6 w-6"
+                                                    fill="none"
+                                                    viewBox="0 0 24 24"
+                                                    stroke-width="1.5"
+                                                    stroke="currentColor"
+                                                    aria-hidden="true"
                                                 >
-                                                    <span class="sr-only"
-                                                        >Close panel</span
-                                                    >
-                                                    <svg
-                                                        class="h-6 w-6"
-                                                        fill="none"
-                                                        viewBox="0 0 24 24"
-                                                        stroke-width="1.5"
-                                                        stroke="currentColor"
-                                                        aria-hidden="true"
-                                                    >
-                                                        <path
-                                                            stroke-linecap="round"
-                                                            stroke-linejoin="round"
-                                                            d="M6 18L18 6M6 6l12 12"
-                                                        />
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                        </div>
-
-                                        <div class="mt-8">
-                                            <div class="flow-root">
-                                                <!-- CART-LIST -->
-                                                <ul
-                                                    role="list"
-                                                    class="cart_list -my-6 divide-y divide-gray-200"
-                                                >
-                                                    <li class="flex py-6">
-                                                        <div
-                                                            class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200"
-                                                        >
-                                                            <img
-                                                                src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
-                                                                alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt."
-                                                                class="h-full w-full object-cover object-center"
-                                                            />
-                                                        </div>
-
-                                                        <div
-                                                            class="ml-4 flex flex-1 flex-col"
-                                                        >
-                                                            <div>
-                                                                <div
-                                                                    class="flex justify-between text-base font-medium text-gray-900"
-                                                                >
-                                                                    <h3>
-                                                                        <a href="#"
-                                                                            >Throwback Hip
-                                                                            Bag</a
-                                                                        >
-                                                                    </h3>
-                                                                    <p class="ml-4">
-                                                                        $90.00
-                                                                    </p>
-                                                                </div>
-                                                                <p
-                                                                    class="mt-1 text-sm text-gray-500"
-                                                                >
-                                                                    Salmon
-                                                                </p>
-                                                            </div>
-                                                            <div
-                                                                class="flex flex-1 items-end justify-between text-sm"
-                                                            >
-                                                                <div
-                                                                    class="flex items-center gap-2 justify-center font-semibold"
-                                                                >
-                                                                    <p>Số Lượng:</p>
-                                                                    <button
-                                                                        class="btn btn-white"
-                                                                    >
-                                                                        <i
-                                                                            class="fa-solid fa-minus"
-                                                                        ></i>
-                                                                    </button>
-                                                                    <p>10</p>
-                                                                    <button
-                                                                        class="btn btn-white"
-                                                                    >
-                                                                        <i
-                                                                            class="fa-solid fa-plus"
-                                                                        ></i>
-                                                                    </button>
-                                                                </div>
-                                                                <div
-                                                                    class="flex items-center gap-2 justify-center font-semibold"
-                                                                >
-                                                                    <button
-                                                                        class="btn btn-blue"
-                                                                    >
-                                                                        Remove
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="flex py-6">
-                                                        <div
-                                                            class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200"
-                                                        >
-                                                            <img
-                                                                src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg"
-                                                                alt="Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch."
-                                                                class="h-full w-full object-cover object-center"
-                                                            />
-                                                        </div>
-
-                                                        <div
-                                                            class="ml-4 flex flex-1 flex-col"
-                                                        >
-                                                            <div>
-                                                                <div
-                                                                    class="flex justify-between text-base font-medium text-gray-900"
-                                                                >
-                                                                    <h3>
-                                                                        <a href="#"
-                                                                            >Medium Stuff
-                                                                            Satchel</a
-                                                                        >
-                                                                    </h3>
-                                                                    <p class="ml-4">
-                                                                        $32.00
-                                                                    </p>
-                                                                </div>
-                                                                <p
-                                                                    class="mt-1 text-sm text-gray-500"
-                                                                >
-                                                                    Blue
-                                                                </p>
-                                                            </div>
-                                                            <div
-                                                                class="flex flex-1 items-end justify-between text-sm"
-                                                            >
-                                                                <p class="text-gray-500">
-                                                                    Qty 1
-                                                                </p>
-
-                                                                <div class="flex">
-                                                                    <button
-                                                                        type="button"
-                                                                        class="font-medium text-indigo-600 hover:text-indigo-500"
-                                                                    >
-                                                                        Remove
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="flex py-6">
-                                                        <div
-                                                            class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200"
-                                                        >
-                                                            <img
-                                                                src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg"
-                                                                alt="Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch."
-                                                                class="h-full w-full object-cover object-center"
-                                                            />
-                                                        </div>
-
-                                                        <div
-                                                            class="ml-4 flex flex-1 flex-col"
-                                                        >
-                                                            <div>
-                                                                <div
-                                                                    class="flex justify-between text-base font-medium text-gray-900"
-                                                                >
-                                                                    <h3>
-                                                                        <a href="#"
-                                                                            >Medium Stuff
-                                                                            Satchel</a
-                                                                        >
-                                                                    </h3>
-                                                                    <p class="ml-4">
-                                                                        $32.00
-                                                                    </p>
-                                                                </div>
-                                                                <p
-                                                                    class="mt-1 text-sm text-gray-500"
-                                                                >
-                                                                    Blue
-                                                                </p>
-                                                            </div>
-                                                            <div
-                                                                class="flex flex-1 items-end justify-between text-sm"
-                                                            >
-                                                                <p class="text-gray-500">
-                                                                    Qty 1
-                                                                </p>
-
-                                                                <div class="flex">
-                                                                    <button
-                                                                        type="button"
-                                                                        class="font-medium text-indigo-600 hover:text-indigo-500"
-                                                                    >
-                                                                        Remove
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="flex py-6">
-                                                        <div
-                                                            class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200"
-                                                        >
-                                                            <img
-                                                                src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg"
-                                                                alt="Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch."
-                                                                class="h-full w-full object-cover object-center"
-                                                            />
-                                                        </div>
-
-                                                        <div
-                                                            class="ml-4 flex flex-1 flex-col"
-                                                        >
-                                                            <div>
-                                                                <div
-                                                                    class="flex justify-between text-base font-medium text-gray-900"
-                                                                >
-                                                                    <h3>
-                                                                        <a href="#"
-                                                                            >Medium Stuff
-                                                                            Satchel</a
-                                                                        >
-                                                                    </h3>
-                                                                    <p class="ml-4">
-                                                                        $32.00
-                                                                    </p>
-                                                                </div>
-                                                                <p
-                                                                    class="mt-1 text-sm text-gray-500"
-                                                                >
-                                                                    Blue
-                                                                </p>
-                                                            </div>
-                                                            <div
-                                                                class="flex flex-1 items-end justify-between text-sm"
-                                                            >
-                                                                <p class="text-gray-500">
-                                                                    Qty 1
-                                                                </p>
-
-                                                                <div class="flex">
-                                                                    <button
-                                                                        type="button"
-                                                                        class="font-medium text-indigo-600 hover:text-indigo-500"
-                                                                    >
-                                                                        Remove
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="flex py-6">
-                                                        <div
-                                                            class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200"
-                                                        >
-                                                            <img
-                                                                src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg"
-                                                                alt="Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch."
-                                                                class="h-full w-full object-cover object-center"
-                                                            />
-                                                        </div>
-
-                                                        <div
-                                                            class="ml-4 flex flex-1 flex-col"
-                                                        >
-                                                            <div>
-                                                                <div
-                                                                    class="flex justify-between text-base font-medium text-gray-900"
-                                                                >
-                                                                    <h3>
-                                                                        <a href="#"
-                                                                            >Medium Stuff
-                                                                            Satchel</a
-                                                                        >
-                                                                    </h3>
-                                                                    <p class="ml-4">
-                                                                        $32.00
-                                                                    </p>
-                                                                </div>
-                                                                <p
-                                                                    class="mt-1 text-sm text-gray-500"
-                                                                >
-                                                                    Blue
-                                                                </p>
-                                                            </div>
-                                                            <div
-                                                                class="flex flex-1 items-end justify-between text-sm"
-                                                            >
-                                                                <p class="text-gray-500">
-                                                                    Qty 1
-                                                                </p>
-
-                                                                <div class="flex">
-                                                                    <button
-                                                                        type="button"
-                                                                        class="font-medium text-indigo-600 hover:text-indigo-500"
-                                                                    >
-                                                                        Remove
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="flex py-6">
-                                                        <div
-                                                            class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200"
-                                                        >
-                                                            <img
-                                                                src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg"
-                                                                alt="Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch."
-                                                                class="h-full w-full object-cover object-center"
-                                                            />
-                                                        </div>
-
-                                                        <div
-                                                            class="ml-4 flex flex-1 flex-col"
-                                                        >
-                                                            <div>
-                                                                <div
-                                                                    class="flex justify-between text-base font-medium text-gray-900"
-                                                                >
-                                                                    <h3>
-                                                                        <a href="#"
-                                                                            >Medium Stuff
-                                                                            Satchel</a
-                                                                        >
-                                                                    </h3>
-                                                                    <p class="ml-4">
-                                                                        $32.00
-                                                                    </p>
-                                                                </div>
-                                                                <p
-                                                                    class="mt-1 text-sm text-gray-500"
-                                                                >
-                                                                    Blue
-                                                                </p>
-                                                            </div>
-                                                            <div
-                                                                class="flex flex-1 items-end justify-between text-sm"
-                                                            >
-                                                                <p class="text-gray-500">
-                                                                    Qty 1
-                                                                </p>
-
-                                                                <div class="flex">
-                                                                    <button
-                                                                        type="button"
-                                                                        class="font-medium text-indigo-600 hover:text-indigo-500"
-                                                                    >
-                                                                        Remove
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-
-                                                    <!-- More products... -->
-                                                </ul>
-                                            </div>
+                                                    <path
+                                                        stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        d="M6 18L18 6M6 6l12 12"
+                                                    />
+                                                </svg>
+                                            </button>
                                         </div>
                                     </div>
-
+                                    <!-- LIST -->
                                     <div
-                                        class="border-t border-gray-200 px-4 py-6 sm:px-6"
+                                        class="flex flex-col flex-1 overflow-y-auto mt-8"
                                     >
+                                        <div class="flow-root">
+                                            <!-- CART-LIST -->
+                                            <ul
+                                                role="list"
+                                                class="cart_list -my-6 divide-y divide-gray-200"
+                                            >
+                                                <li class="flex py-6">
+                                                    <div
+                                                        class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200"
+                                                    >
+                                                        <img
+                                                            src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
+                                                            alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt."
+                                                            class="h-full w-full object-cover object-center"
+                                                        />
+                                                    </div>
+
+                                                    <div
+                                                        class="ml-4 flex flex-1 flex-col"
+                                                    >
+                                                        <div>
+                                                            <div
+                                                                class="flex justify-between text-base font-medium text-gray-900"
+                                                            >
+                                                                <h3>
+                                                                    <a href="#"
+                                                                        >Throwback Hip
+                                                                        Bag</a
+                                                                    >
+                                                                </h3>
+                                                                <p class="ml-4">$90.00</p>
+                                                            </div>
+                                                            <p
+                                                                class="mt-1 text-sm text-gray-500"
+                                                            >
+                                                                Salmon
+                                                            </p>
+                                                        </div>
+                                                        <div
+                                                            class="flex flex-1 items-end justify-between text-sm"
+                                                        >
+                                                            <div
+                                                                class="flex items-center gap-2 justify-center font-semibold"
+                                                            >
+                                                                <p>Số Lượng:</p>
+                                                                <button
+                                                                    class="btn btn-white"
+                                                                >
+                                                                    <i
+                                                                        class="fa-solid fa-minus"
+                                                                    ></i>
+                                                                </button>
+                                                                <p>10</p>
+                                                                <button
+                                                                    class="btn btn-white"
+                                                                >
+                                                                    <i
+                                                                        class="fa-solid fa-plus"
+                                                                    ></i>
+                                                                </button>
+                                                            </div>
+                                                            <div
+                                                                class="flex items-center gap-2 justify-center font-semibold"
+                                                            >
+                                                                <button
+                                                                    class="btn btn-blue"
+                                                                >
+                                                                    Remove
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="flex py-6">
+                                                    <div
+                                                        class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200"
+                                                    >
+                                                        <img
+                                                            src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg"
+                                                            alt="Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch."
+                                                            class="h-full w-full object-cover object-center"
+                                                        />
+                                                    </div>
+
+                                                    <div
+                                                        class="ml-4 flex flex-1 flex-col"
+                                                    >
+                                                        <div>
+                                                            <div
+                                                                class="flex justify-between text-base font-medium text-gray-900"
+                                                            >
+                                                                <h3>
+                                                                    <a href="#"
+                                                                        >Medium Stuff
+                                                                        Satchel</a
+                                                                    >
+                                                                </h3>
+                                                                <p class="ml-4">$32.00</p>
+                                                            </div>
+                                                            <p
+                                                                class="mt-1 text-sm text-gray-500"
+                                                            >
+                                                                Blue
+                                                            </p>
+                                                        </div>
+                                                        <div
+                                                            class="flex flex-1 items-end justify-between text-sm"
+                                                        >
+                                                            <p class="text-gray-500">
+                                                                Qty 1
+                                                            </p>
+
+                                                            <div class="flex">
+                                                                <button
+                                                                    type="button"
+                                                                    class="font-medium text-indigo-600 hover:text-indigo-500"
+                                                                >
+                                                                    Remove
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="flex py-6">
+                                                    <div
+                                                        class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200"
+                                                    >
+                                                        <img
+                                                            src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg"
+                                                            alt="Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch."
+                                                            class="h-full w-full object-cover object-center"
+                                                        />
+                                                    </div>
+
+                                                    <div
+                                                        class="ml-4 flex flex-1 flex-col"
+                                                    >
+                                                        <div>
+                                                            <div
+                                                                class="flex justify-between text-base font-medium text-gray-900"
+                                                            >
+                                                                <h3>
+                                                                    <a href="#"
+                                                                        >Medium Stuff
+                                                                        Satchel</a
+                                                                    >
+                                                                </h3>
+                                                                <p class="ml-4">$32.00</p>
+                                                            </div>
+                                                            <p
+                                                                class="mt-1 text-sm text-gray-500"
+                                                            >
+                                                                Blue
+                                                            </p>
+                                                        </div>
+                                                        <div
+                                                            class="flex flex-1 items-end justify-between text-sm"
+                                                        >
+                                                            <p class="text-gray-500">
+                                                                Qty 1
+                                                            </p>
+
+                                                            <div class="flex">
+                                                                <button
+                                                                    type="button"
+                                                                    class="font-medium text-indigo-600 hover:text-indigo-500"
+                                                                >
+                                                                    Remove
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="flex py-6">
+                                                    <div
+                                                        class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200"
+                                                    >
+                                                        <img
+                                                            src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg"
+                                                            alt="Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch."
+                                                            class="h-full w-full object-cover object-center"
+                                                        />
+                                                    </div>
+
+                                                    <div
+                                                        class="ml-4 flex flex-1 flex-col"
+                                                    >
+                                                        <div>
+                                                            <div
+                                                                class="flex justify-between text-base font-medium text-gray-900"
+                                                            >
+                                                                <h3>
+                                                                    <a href="#"
+                                                                        >Medium Stuff
+                                                                        Satchel</a
+                                                                    >
+                                                                </h3>
+                                                                <p class="ml-4">$32.00</p>
+                                                            </div>
+                                                            <p
+                                                                class="mt-1 text-sm text-gray-500"
+                                                            >
+                                                                Blue
+                                                            </p>
+                                                        </div>
+                                                        <div
+                                                            class="flex flex-1 items-end justify-between text-sm"
+                                                        >
+                                                            <p class="text-gray-500">
+                                                                Qty 1
+                                                            </p>
+
+                                                            <div class="flex">
+                                                                <button
+                                                                    type="button"
+                                                                    class="font-medium text-indigo-600 hover:text-indigo-500"
+                                                                >
+                                                                    Remove
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="flex py-6">
+                                                    <div
+                                                        class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200"
+                                                    >
+                                                        <img
+                                                            src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg"
+                                                            alt="Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch."
+                                                            class="h-full w-full object-cover object-center"
+                                                        />
+                                                    </div>
+
+                                                    <div
+                                                        class="ml-4 flex flex-1 flex-col"
+                                                    >
+                                                        <div>
+                                                            <div
+                                                                class="flex justify-between text-base font-medium text-gray-900"
+                                                            >
+                                                                <h3>
+                                                                    <a href="#"
+                                                                        >Medium Stuff
+                                                                        Satchel</a
+                                                                    >
+                                                                </h3>
+                                                                <p class="ml-4">$32.00</p>
+                                                            </div>
+                                                            <p
+                                                                class="mt-1 text-sm text-gray-500"
+                                                            >
+                                                                Blue
+                                                            </p>
+                                                        </div>
+                                                        <div
+                                                            class="flex flex-1 items-end justify-between text-sm"
+                                                        >
+                                                            <p class="text-gray-500">
+                                                                Qty 1
+                                                            </p>
+
+                                                            <div class="flex">
+                                                                <button
+                                                                    type="button"
+                                                                    class="font-medium text-indigo-600 hover:text-indigo-500"
+                                                                >
+                                                                    Remove
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="flex py-6">
+                                                    <div
+                                                        class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200"
+                                                    >
+                                                        <img
+                                                            src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg"
+                                                            alt="Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch."
+                                                            class="h-full w-full object-cover object-center"
+                                                        />
+                                                    </div>
+
+                                                    <div
+                                                        class="ml-4 flex flex-1 flex-col"
+                                                    >
+                                                        <div>
+                                                            <div
+                                                                class="flex justify-between text-base font-medium text-gray-900"
+                                                            >
+                                                                <h3>
+                                                                    <a href="#"
+                                                                        >Medium Stuff
+                                                                        Satchel</a
+                                                                    >
+                                                                </h3>
+                                                                <p class="ml-4">$32.00</p>
+                                                            </div>
+                                                            <p
+                                                                class="mt-1 text-sm text-gray-500"
+                                                            >
+                                                                Blue
+                                                            </p>
+                                                        </div>
+                                                        <div
+                                                            class="flex flex-1 items-end justify-between text-sm"
+                                                        >
+                                                            <p class="text-gray-500">
+                                                                Qty 1
+                                                            </p>
+
+                                                            <div class="flex">
+                                                                <button
+                                                                    type="button"
+                                                                    class="font-medium text-indigo-600 hover:text-indigo-500"
+                                                                >
+                                                                    Remove
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <!-- More products... -->
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- FOOTER -->
+                                    <div class="border-t border-gray-200 py-6">
                                         <div
                                             class="flex justify-between text-base font-medium text-gray-900"
                                         >
                                             <p>Tổng cộng</p>
-                                            <p>$262.00</p>
+                                            <p class="price_all"></p>
                                         </div>
                                         <p class="mt-0.5 text-sm text-gray-500">
                                             Shipping and taxes calculated at checkout.
@@ -870,16 +854,18 @@
                 <div class="fixed inset-0 overflow-hidden">
                     <div class="absolute flex justify-center inset-0 overflow-hidden">
                         <div
-                            class="pointer-events-none fixed inset-y-0 flex max-w-full sm:pl-10"
+                            class="pointer-events-none fixed inset-y-0 flex max-w-full w-[30rem]"
                         >
                             <!-- SETTING-CART-SLIDE -->
                             <div
-                                class="setting_cart-slide flex translate-y-full pointer-events-auto w-screen max-w-md"
+                                class="setting_cart-slide w-full flex translate-y-full pointer-events-auto"
                             >
                                 <div
-                                    class="flex h-1/2 mt-auto w-full flex-col bg-white shadow-xl"
+                                    class="flex mt-auto w-full flex-col bg-white shadow-xl rounded-t-xl"
                                 >
+                                    <!-- SETTING-CART-SLIDE TOP-->
                                     <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
+                                        <!-- TOP HEADER -->
                                         <div class="flex items-center justify-between">
                                             <h2
                                                 class="text-lg font-medium text-gray-900"
@@ -912,9 +898,38 @@
                                             </div>
                                         </div>
 
-                                        <div class="setting_cart-item mt-8"></div>
+                                        <!-- TOP CONTENT BOX-->
+                                        <div class="setting_cart-box">
+                                            <!-- INFO -->
+                                            <div class="setting_cart-info"></div>
+                                            <!-- CONTROL-->
+                                            <div
+                                                class="flex flex-1 justify-between items-center text-sm mt-3"
+                                            >
+                                                <span
+                                                    class="text-gray-900 text-sm font-medium"
+                                                    >Số lượng</span
+                                                >
+                                                <div
+                                                    class="flex items-center gap-2 justify-center font-semibold"
+                                                >
+                                                    <button
+                                                        class="setting_cart_down-qty btn btn-white"
+                                                    >
+                                                        <i class="fa-solid fa-minus"></i>
+                                                    </button>
+                                                    <p class="setting_cart-qty"></p>
+                                                    <button
+                                                        class="setting_cart_up-qty btn btn-white"
+                                                    >
+                                                        <i class="fa-solid fa-plus"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
 
+                                    <!-- SETTING-CART-SLIDE BOTTOM-->
                                     <div
                                         class="border-t border-gray-200 px-4 py-6 sm:px-6"
                                     >
@@ -922,17 +937,18 @@
                                             class="flex justify-between text-base font-medium text-gray-900"
                                         >
                                             <p>Tổng cộng</p>
-                                            <p>$262.00</p>
+                                            <p class="setting_cart-price"></p>
                                         </div>
                                         <p class="mt-0.5 text-sm text-gray-500">
                                             Shipping and taxes calculated at checkout.
                                         </p>
                                         <div class="mt-6">
-                                            <a
+                                            <button
                                                 href="#"
-                                                class="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
-                                                >Thêm vào giỏ hàng</a
+                                                class="add_cart w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 active:bg-indigo-800"
                                             >
+                                                Thêm vào giỏ hàng
+                                            </button>
                                         </div>
                                         <div
                                             class="mt-6 flex justify-center text-center text-sm text-gray-500"

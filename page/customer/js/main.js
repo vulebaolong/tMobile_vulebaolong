@@ -23,21 +23,20 @@ const cart = {
     addItem: function (id) {
         const productItemEl = $(`[data-id="${id}"]`);
         const name = $(".product_item-name", productItemEl).innerText;
-        const price = this.priceStrToNumber(
-            $(".product_item-price", productItemEl).innerText
-        );
+        const price = priceStrToNumber($(".product_item-price", productItemEl).innerText);
         const img = $(".product_item-img", productItemEl).src;
         const type = $(".product_item-type", productItemEl).innerText;
         const quantity = 1;
         const value = {
             name,
             price,
+            priceAll: price,
             img,
             type,
             quantity,
         };
         createItem(value)
-            .then((result) => {
+            .then(() => {
                 return readItem();
             })
             .then((result) => {
@@ -47,9 +46,6 @@ const cart = {
             .catch((err) => {
                 console.log("👙  err: ", err);
             });
-    },
-    priceStrToNumber: function (str) {
-        return +str.slice(0, -1).trim().replaceAll(".", "");
     },
     removeItem: function (id) {
         const index = this.finIndexCart(id);
@@ -65,19 +61,24 @@ const cart = {
     },
     render: function (arrData) {
         const cartListEl = $(".cart_list");
+        const priceAllEl = $(".price_all");
         let string = "";
+        let priceAll = 0;
         arrData.forEach((el) => {
-            string += `<li class="cart_item flex py-6" data-id="${el.id}">
+            priceAll += el.priceAll;
+            string += `<li class="cart_item flex flex-col gap-4 sm:gap-0 sm:flex-row py-6 sm:px-4" data-id="${
+                el.id
+            }">
                             <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                 <img src="${
                                     el.img
                                 }" class="h-full w-full object-cover object-center" alt="img product cart"/>
                             </div>
     
-                            <div class="ml-4 flex flex-1 flex-col">
+                            <div class="sm:ml-4 flex flex-1 flex-col sm:gap-0 gap-3">
                                 <div>
                                     <div class="flex justify-between text-base font-medium text-gray-900">
-                                        <h3><a href="#">${el.name}</a></h3>
+                                        <h3 ><a  href="#">${el.name}</a></h3>
                                         <p class="ml-4">${formatCurrency(el.price)} ₫</p>
                                     </div>
                                     <div>
@@ -104,6 +105,7 @@ const cart = {
                         </li>`;
         });
         cartListEl.innerHTML = string;
+        priceAllEl.innerHTML = `${formatCurrency(priceAll)} ₫`;
     },
     finIndexCart: function (id) {
         const index = this.arrCart.findIndex(function (item) {
@@ -120,6 +122,112 @@ const cart = {
                 this.arrCart = result.data;
                 console.log("👙  updateArrCart arrCart: ", this.arrCart);
             });
+    },
+};
+
+const settingCart = {
+    arrItem: [],
+    addCart: function () {
+        console.log(this.arrItem);
+    },
+    upQuantity: function () {
+        // 1) tăng số lượng
+        this.arrItem.quantity++;
+
+        // 2) kiểm tra nếu số lượng lớn hơn 1 HIỆN btn trừ
+        if (this.arrItem.quantity > 1) {
+            $(".setting_cart_down-qty").disabled = false;
+        }
+
+        // 3) in số lượng ra ngoài giao diện
+        $(".setting_cart-qty").innerText = this.arrItem.quantity;
+
+        // 4) tính toán và cập nhật price trong mảng arrItem
+        this.arrItem.priceAll = this.calPrice("up");
+
+        // 5) in price mới cập nhật ra giao diện
+        $(".setting_cart-price").innerText = `${formatCurrency(this.arrItem.priceAll)} ₫`;
+    },
+    downQuantity: function () {
+        // 1) giảm số lượng
+        this.arrItem.quantity--;
+
+        // 2) kiểm tra nếu số lượng lớn bằng 1 ẨN btn trừ
+        if (this.arrItem.quantity === 1) {
+            $(".setting_cart_down-qty").disabled = true;
+        }
+
+        // 3) in số lượng ra ngoài giao diện
+        $(".setting_cart-qty").innerText = this.arrItem.quantity;
+
+        // 4) tính toán và cập nhật price trong mảng arrItem
+        this.arrItem.priceAll = this.calPrice("down");
+
+        // 5) in price mới cập nhật ra giao diện
+        $(".setting_cart-price").innerText = `${formatCurrency(this.arrItem.priceAll)} ₫`;
+    },
+    getItem: function (id) {
+        const productItemEl = $(`[data-id="${id}"]`);
+        const name = $(".product_item-name", productItemEl).innerText;
+        const price = priceStrToNumber($(".product_item-price", productItemEl).innerText);
+        const img = $(".product_item-img", productItemEl).src;
+        const type = $(".product_item-type", productItemEl).innerText;
+        const quantity = 1;
+        this.arrItem = {
+            id,
+            name,
+            price,
+            priceAll: price,
+            img,
+            type,
+            quantity,
+        };
+    },
+    render: function () {
+        const settingCartInfo = $(".setting_cart-info");
+        let string = `<div class="setting_cart-item pt-6" data-id="${this.arrItem.id}">
+                        <div class="flex">
+                            <!-- IMG-->
+                            <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+                                <img src="${
+                                    this.arrItem.img
+                                }" class="h-full w-full object-cover object-center" alt="img product cart"/>
+                            </div>
+    
+                            <!-- TEXT-->
+                            <div class="ml-4 flex flex-1 flex-col">
+                                <div>
+                                    <div class="flex justify-between text-base font-medium text-gray-900">
+                                        <h3><a href="#">${this.arrItem.name}</a></h3>
+                                        <p class="setting_cart-price-fix ml-4">${formatCurrency(
+                                            this.arrItem.price
+                                        )} ₫</p>
+                                    </div>
+                                    <div>
+                                        <span class="inline-block p-1 bg-neutral-200 rounded text-sm">
+                                            ${this.arrItem.type}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>`;
+        settingCartInfo.innerHTML = string;
+    },
+    calPrice: function (flag) {
+        const priceAll = this.arrItem.priceAll;
+        const priceFix = this.arrItem.price;
+        if (flag === "up") {
+            // Lấy giá tổng cộng, cộng giá fix
+            const result = priceAll + priceFix;
+            return result;
+        }
+        if (flag === "down") {
+            // Lấy giá tổng cộng, trừ giá fix
+            const result = priceAll - priceFix;
+            return result;
+        }
     },
 };
 init();
@@ -182,22 +290,24 @@ $(".cart_list").addEventListener("click", function name(e) {
     }
 });
 
-//click add cart
-// const addCart = debounce((id) => {
-//     cart.addItem(id);
-// }, 300);
-
+//click addSettingCart
+addCart;
 function addCart(id) {
-    const value = getValueProduct(id);
-    renderSettingCart(value);
-    openComponent(
-        ".setting_cart-section",
-        ".setting_cart-slide",
-        ".setting_cart-backdrop",
-        "translate-y-full"
-    );
-}
+    cart.addItem(id);
 
+    // settingCart.getItem(id);
+    // settingCart.render();
+    // $(".setting_cart_down-qty").disabled = true;
+    // $(".setting_cart-qty").innerText = 1;
+    // $(".setting_cart-price").innerText = `${formatCurrency(settingCart.arrItem.price)} ₫`;
+    // openComponent(
+    //     ".setting_cart-section",
+    //     ".setting_cart-slide",
+    //     ".setting_cart-backdrop",
+    //     "translate-y-full"
+    // );
+}
+//click tắt setting cart
 $("#seting_close-cart").addEventListener("click", function () {
     closeComponent(
         ".setting_cart-section",
@@ -206,3 +316,23 @@ $("#seting_close-cart").addEventListener("click", function () {
         "translate-y-full"
     );
 });
+
+// SETTING CART
+$(".setting_cart_down-qty").addEventListener("click", function (e) {
+    settingCart.downQuantity();
+});
+
+$(".setting_cart_up-qty").addEventListener("click", function (e) {
+    settingCart.upQuantity();
+});
+
+// //Click thêm vào giỏ hàng
+// $(".add_cart").addEventListener("click", function () {
+//     settingCart.addCart();
+//     // closeComponent(
+//     //     ".setting_cart-section",
+//     //     ".setting_cart-slide",
+//     //     ".setting_cart-backdrop",
+//     //     "translate-y-full"
+//     // );
+// });

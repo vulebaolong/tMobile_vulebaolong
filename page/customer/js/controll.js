@@ -109,7 +109,7 @@ function renderProduct(arrData) {
                                onclick="addCart(${el.id})"
                                 class="w-full btn btn-blue transition duration-500 translate-y-full opacity-0 group-hover/product_overlay:translate-y-0 group-hover/product_overlay:opacity-100"
                             >
-                                Add To Cart
+                                Giỏ hàng
                             </button>
                         </div>
                     </div>`;
@@ -182,61 +182,6 @@ function formatCurrency(num, locale = navigator.language) {
     return new Intl.NumberFormat(locale).format(num);
 }
 
-function getValueProduct(id) {
-    const productItemEl = $(`[data-id="${id}"]`);
-    const name = $(".product_item-name", productItemEl).innerText;
-    const price = cart.priceStrToNumber(
-        $(".product_item-price", productItemEl).innerText
-    );
-    const img = $(".product_item-img", productItemEl).src;
-    const type = $(".product_item-type", productItemEl).innerText;
-    const quantity = 1;
-    const value = {
-        name,
-        price,
-        img,
-        type,
-        quantity,
-    };
-    return value;
-}
-
-function renderSettingCart(obj) {
-    const settingCartItem = $(".setting_cart-item");
-    let string = `<li class="cart_item flex py-6" data-id="${el.id}">
-        <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-            <img src="${
-                el.img
-            }" class="h-full w-full object-cover object-center" alt="img product cart"/>
-        </div>
-
-        <div class="ml-4 flex flex-1 flex-col">
-            <div>
-                <div class="flex justify-between text-base font-medium text-gray-900">
-                    <h3><a href="#">${el.name}</a></h3>
-                    <p class="ml-4">${formatCurrency(el.price)} ₫</p>
-                </div>
-                <div>
-                    <span class="inline-block p-1 bg-neutral-200 rounded text-sm">
-                        ${el.type}
-                    </span>
-                </div>
-            </div>
-            <div class="flex flex-1 items-end justify-between text-sm">
-                <div class="flex items-center gap-2 justify-center font-semibold">
-                    <button data-id="${
-                        el.id
-                    }" class="down_quantity btn btn-white"><i class="fa-solid fa-minus"></i></button>
-                    <p>${el.quantity}</p>
-                    <button data-id="${
-                        el.id
-                    }" class="up_quantity btn btn-white"><i class="fa-solid fa-plus"></i></button>
-                </div>
-                <div class="flex items-center gap-2 justify-center font-semibold">
-                    <button class="cart_item-delete btn btn-blue">Remove</button>
-                </div>
-            </div>
-        </div>
-    </li>`;
-    settingCartItem.innerHTML = string;
+function priceStrToNumber(str) {
+    return +str.slice(0, -1).trim().replaceAll(".", "");
 }
