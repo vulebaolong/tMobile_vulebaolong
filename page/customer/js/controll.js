@@ -1,5 +1,5 @@
-const $ = (selector) => document.querySelector(selector);
-const $$ = (selector) => document.querySelectorAll(selector);
+const $ = (selector, doc = document) => doc.querySelector(selector);
+const $$ = (selector, doc = document) => doc.querySelectorAll(selector);
 const BASE_URL = "https://643a58bdbd3623f1b9b164ba.mockapi.io/customor/";
 
 function createItem(value) {
@@ -25,7 +25,7 @@ function renderProduct(arrData) {
     const productListEl = $(".product_list");
     let string = "";
     arrData.reverse().forEach((el) => {
-        string += `<div class="product_item group">
+        string += `<div class="product_item group" data-id="${el.id}">
                          <!-- PRODUCT ITEM TITLE -->
                         <div class="transition duration-300 group-hover:opacity-40">
                             <!-- IMAGE -->
@@ -35,23 +35,23 @@ function renderProduct(arrData) {
                                 <img
                                     src="${el.img}"
                                     alt="img"
-                                    class="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                                    class="product_item-img h-full w-full object-cover object-center lg:h-full lg:w-full"
                                 />
                             </div>
                             <!-- TITLE -->
                             <div class="mt-4 space-y-2">
                                 <p
-                                    class="text-base font-bold text-gray-900 truncate text-center"
+                                    class="product_item-name text-base font-bold text-gray-900 truncate text-center"
                                 >
                                     ${el.name}
                                 </p>
                                 <p
-                                    class="text-sm font-medium text-gray-700 text-center truncate"
+                                    class="product_item-price text-sm font-medium text-gray-700 text-center truncate"
                                 >
-                                    ${el.price} ₫
+                                    ${formatCurrency(el.price)} ₫
                                 </p>
                                 <div>
-                                    <span class="inline-block mt-4 p-1 bg-neutral-200 rounded text-sm">
+                                    <span class="product_item-type inline-block mt-4 p-1 bg-neutral-200 rounded text-sm">
                                         ${el.type}
                                     </span>
                                 </div>
@@ -106,7 +106,7 @@ function renderProduct(arrData) {
                                 </div>
                             </div>
                             <button
-                               onclick="openCart()"
+                               onclick="addCart(${el.id})"
                                 class="w-full btn btn-blue transition duration-500 translate-y-full opacity-0 group-hover/product_overlay:translate-y-0 group-hover/product_overlay:opacity-100"
                             >
                                 Add To Cart
@@ -130,8 +130,8 @@ function init() {
         .then((result) => {
             let quantity = result.data.length;
             if (quantity > 0) addCount(quantity);
-
-            // render(result.data);
+            cart.arrCart = result.data;
+            cart.render(cart.arrCart);
         })
         .catch((err) => {});
 }
@@ -176,4 +176,8 @@ function addCount(count) {
     setTimeout(() => {
         $(".cart_count ").classList.remove("bum");
     }, 300);
+}
+
+function formatCurrency(num, locale = navigator.language) {
+    return new Intl.NumberFormat(locale).format(num);
 }

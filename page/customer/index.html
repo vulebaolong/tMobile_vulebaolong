@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>tMobile</title>
 
         <link
             href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css"
@@ -83,7 +83,7 @@
                 </div>
                 <div class="flex lg:hidden gap-4 items-center">
                     <button
-                        id="theme-toggle"
+                        id="M_theme-toggle"
                         type="button"
                         class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
                     >
@@ -406,94 +406,7 @@
                     <!-- PRODUCT LIST -->
                     <div
                         class="product_list mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8"
-                    >
-                        <!-- ITEM PRODUCT -->
-                        <div class="product_item group">
-                            <div class="transition duration-300 group-hover:opacity-40">
-                                <!-- IMAGE -->
-                                <div
-                                    class="min-h-80 bg-gray-200 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md lg:aspect-none lg:h-80"
-                                >
-                                    <img
-                                        src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg"
-                                        alt="img"
-                                        class="h-full w-full object-cover object-center lg:h-full lg:w-full"
-                                    />
-                                </div>
-                                <!-- TITLE -->
-                                <div class="mt-4 space-y-2">
-                                    <p
-                                        class="text-base font-bold text-gray-900 truncate text-center"
-                                    >
-                                        Basic TeeBasic
-                                    </p>
-                                    <p
-                                        class="text-sm font-medium text-gray-700 text-center truncate"
-                                    >
-                                        $35
-                                    </p>
-                                    <span class="p-1 bg-neutral-200 rounded text-sm mt-8"
-                                        >Apple</span
-                                    >
-                                    <div class="truncate">
-                                        <span
-                                            class="text-sm font-bold text-gray-900 truncate text-center"
-                                        >
-                                            Mô tả:
-                                        </span>
-                                        <span class="mt-1 w-full text-sm text-gray-500">
-                                            BlackBlackBlackBlackBlackBlackBlackBlackBlackBlackBlackBlackBlack
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- OVERLAY -->
-                            <div
-                                class="group/product_overlay absolute flex flex-col justify-center z-50 inset-0 p-6 space-y-2 bg-black bg-opacity-70 hover:opacity-100 opacity-0 transition duration-300"
-                            >
-                                <div
-                                    class="mb-5 transition duration-500 -translate-y-full opacity-0 group-hover/product_overlay:translate-y-0 group-hover/product_overlay:opacity-100"
-                                >
-                                    <div class="">
-                                        <span
-                                            class="text-sm font-bold text-white truncate text-center"
-                                        >
-                                            Screen:
-                                        </span>
-                                        <span class="mt-1 w-full text-sm text-white">
-                                            screen 69
-                                        </span>
-                                    </div>
-                                    <div class="">
-                                        <span
-                                            class="text-sm font-bold text-white truncate text-center"
-                                        >
-                                            Camera sau:
-                                        </span>
-                                        <span class="mt-1 w-full text-sm text-white">
-                                            Chính 64 MP & Phụ 12 MP, 5 MP, 5 MP
-                                        </span>
-                                    </div>
-                                    <div class="">
-                                        <span
-                                            class="text-sm font-bold text-white truncate text-center"
-                                        >
-                                            Camera trước:
-                                        </span>
-                                        <span class="mt-1 w-full text-sm text-white">
-                                            Chính 64 MP & Phụ 12 MP, 5 MP, 5 MP
-                                        </span>
-                                    </div>
-                                </div>
-                                <button
-                                    id="opencart"
-                                    class="w-full btn btn-blue transition duration-500 translate-y-full opacity-0 group-hover/product_overlay:translate-y-0 group-hover/product_overlay:opacity-100"
-                                >
-                                    Add To Cart
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                    ></div>
                 </div>
             </div>
         </section>
@@ -512,7 +425,7 @@
                 <div class="fixed inset-0 overflow-hidden">
                     <div class="absolute inset-0 overflow-hidden">
                         <div
-                            class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10"
+                            class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full sm:pl-10"
                         >
                             <!-- CART-SLIDE -->
                             <div
@@ -525,7 +438,7 @@
                                                 class="text-lg font-medium text-gray-900"
                                                 id="slide-over-title"
                                             >
-                                                Shopping cart
+                                                Giỏ Hàng
                                             </h2>
                                             <div class="ml-3 flex h-7 items-center">
                                                 <button
@@ -559,7 +472,7 @@
                                                 <!-- CART-LIST -->
                                                 <ul
                                                     role="list"
-                                                    class="-my-6 divide-y divide-gray-200"
+                                                    class="cart_list -my-6 divide-y divide-gray-200"
                                                 >
                                                     <li class="flex py-6">
                                                         <div
@@ -598,28 +511,31 @@
                                                             <div
                                                                 class="flex flex-1 items-end justify-between text-sm"
                                                             >
-                                                                <p class="text-gray-500">
-                                                                    Qty 1
-                                                                </p>
                                                                 <div
                                                                     class="flex items-center gap-2 justify-center font-semibold"
                                                                 >
-                                                                    <i
-                                                                        class="cursor-pointer fa-solid fa-square-caret-up text-indigo-700"
-                                                                    ></i>
-                                                                    <p
-                                                                        class="text-gray-500"
-                                                                    >
-                                                                        12
-                                                                    </p>
-                                                                    <i
-                                                                        class="cursor-pointer fa-solid fa-square-caret-down text-indigo-700"
-                                                                    ></i>
-                                                                </div>
-                                                                <div class="flex">
+                                                                    <p>Số Lượng:</p>
                                                                     <button
-                                                                        type="button"
-                                                                        class="font-medium text-indigo-600 hover:text-indigo-500"
+                                                                        class="btn btn-white"
+                                                                    >
+                                                                        <i
+                                                                            class="fa-solid fa-minus"
+                                                                        ></i>
+                                                                    </button>
+                                                                    <p>10</p>
+                                                                    <button
+                                                                        class="btn btn-white"
+                                                                    >
+                                                                        <i
+                                                                            class="fa-solid fa-plus"
+                                                                        ></i>
+                                                                    </button>
+                                                                </div>
+                                                                <div
+                                                                    class="flex items-center gap-2 justify-center font-semibold"
+                                                                >
+                                                                    <button
+                                                                        class="btn btn-blue"
                                                                     >
                                                                         Remove
                                                                     </button>
@@ -900,7 +816,7 @@
                                         <div
                                             class="flex justify-between text-base font-medium text-gray-900"
                                         >
-                                            <p>Subtotal</p>
+                                            <p>Tổng cộng</p>
                                             <p>$262.00</p>
                                         </div>
                                         <p class="mt-0.5 text-sm text-gray-500">
