@@ -209,7 +209,11 @@
                     <div class="flex items-center justify-between">
                         <!-- LOGO MOBILE -->
                         <a href="#" class="-m-1.5 p-1.5 basis-1/4">
-                            <img class="w-full" src="../asset/img/logo-dark.png" alt="" />
+                            <img
+                                class="w-full"
+                                src="../../asset/./img/logo-dark.png"
+                                alt=""
+                            />
                         </a>
                         <button
                             id="M_btn_close-nav"
@@ -827,6 +831,107 @@
                                                 href="#"
                                                 class="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
                                                 >Checkout</a
+                                            >
+                                        </div>
+                                        <div
+                                            class="mt-6 flex justify-center text-center text-sm text-gray-500"
+                                        >
+                                            <p>
+                                                or
+                                                <button
+                                                    type="button"
+                                                    class="font-medium text-indigo-600 hover:text-indigo-500"
+                                                >
+                                                    Continue Shopping
+                                                    <span aria-hidden="true">
+                                                        &rarr;</span
+                                                    >
+                                                </button>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SETTING ADD TO CART -->
+        <section class="setting_cart-section hidden">
+            <div class="relative z-50">
+                <!-- SETTING Background backdrop -->
+                <div
+                    class="setting_cart-backdrop fixed inset-0 bg-gray-500 bg-opacity-75 opacity-0"
+                ></div>
+
+                <!-- SETTING-CART-CONTENT -->
+                <div class="fixed inset-0 overflow-hidden">
+                    <div class="absolute flex justify-center inset-0 overflow-hidden">
+                        <div
+                            class="pointer-events-none fixed inset-y-0 flex max-w-full sm:pl-10"
+                        >
+                            <!-- SETTING-CART-SLIDE -->
+                            <div
+                                class="setting_cart-slide flex translate-y-full pointer-events-auto w-screen max-w-md"
+                            >
+                                <div
+                                    class="flex h-1/2 mt-auto w-full flex-col bg-white shadow-xl"
+                                >
+                                    <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
+                                        <div class="flex items-center justify-between">
+                                            <h2
+                                                class="text-lg font-medium text-gray-900"
+                                                id="slide-over-title"
+                                            ></h2>
+                                            <div class="ml-3 flex h-7 items-center">
+                                                <button
+                                                    id="seting_close-cart"
+                                                    type="button"
+                                                    class="-m-2 p-2 text-gray-400 hover:text-gray-500"
+                                                >
+                                                    <span class="sr-only"
+                                                        >Close panel</span
+                                                    >
+                                                    <svg
+                                                        class="h-6 w-6"
+                                                        fill="none"
+                                                        viewBox="0 0 24 24"
+                                                        stroke-width="1.5"
+                                                        stroke="currentColor"
+                                                        aria-hidden="true"
+                                                    >
+                                                        <path
+                                                            stroke-linecap="round"
+                                                            stroke-linejoin="round"
+                                                            d="M6 18L18 6M6 6l12 12"
+                                                        />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="setting_cart-item mt-8"></div>
+                                    </div>
+
+                                    <div
+                                        class="border-t border-gray-200 px-4 py-6 sm:px-6"
+                                    >
+                                        <div
+                                            class="flex justify-between text-base font-medium text-gray-900"
+                                        >
+                                            <p>Tổng cộng</p>
+                                            <p>$262.00</p>
+                                        </div>
+                                        <p class="mt-0.5 text-sm text-gray-500">
+                                            Shipping and taxes calculated at checkout.
+                                        </p>
+                                        <div class="mt-6">
+                                            <a
+                                                href="#"
+                                                class="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+                                                >Thêm vào giỏ hàng</a
                                             >
                                         </div>
                                         <div

@@ -183,6 +183,26 @@ $(".cart_list").addEventListener("click", function name(e) {
 });
 
 //click add cart
-const addCart = debounce((id) => {
-    cart.addItem(id);
-}, 300);
+// const addCart = debounce((id) => {
+//     cart.addItem(id);
+// }, 300);
+
+function addCart(id) {
+    const value = getValueProduct(id);
+    renderSettingCart(value);
+    openComponent(
+        ".setting_cart-section",
+        ".setting_cart-slide",
+        ".setting_cart-backdrop",
+        "translate-y-full"
+    );
+}
+
+$("#seting_close-cart").addEventListener("click", function () {
+    closeComponent(
+        ".setting_cart-section",
+        ".setting_cart-slide",
+        ".setting_cart-backdrop",
+        "translate-y-full"
+    );
+});

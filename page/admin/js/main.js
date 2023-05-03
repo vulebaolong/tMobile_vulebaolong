@@ -3,6 +3,7 @@ init();
 //click thêm
 $("#add").addEventListener("click", (e) => {
     const value = getValueForm();
+    console.log(value);
     if (!validate(value)) return;
     createItem(value)
         .then(() => {
