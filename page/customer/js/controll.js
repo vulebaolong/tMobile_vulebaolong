@@ -2,6 +2,277 @@ const $ = (selector, doc = document) => doc.querySelector(selector);
 const $$ = (selector, doc = document) => doc.querySelectorAll(selector);
 const BASE_URL = "https://643a58bdbd3623f1b9b164ba.mockapi.io/customor/";
 
+const cart = {
+    arrCart: [],
+    upQuantity: async function (id) {
+        try {
+            // 1) tìm index trong mảng arrCart
+            const index = this.finIndexCart(id);
+
+            // 2) tăng quantity
+            this.arrCart[index].quantity++;
+
+            // 3) tăng price
+            this.arrCart[index].priceAll = this.calPrice("up", this.arrCart[index]);
+
+            // 4) update dữ liệu
+            this.toggleLoading("on");
+            await updateItem(this.arrCart[index]);
+
+            // 5) read dữ liệu
+            const result = await readItem();
+            this.arrCart = result.data;
+
+            // 6) render dữ liệu
+            this.render(this.arrCart);
+            this.toggleLoading("off");
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    downQuantity: async function (id) {
+        try {
+            // 1) tìm index trong mảng arrCart
+            const index = this.finIndexCart(id);
+
+            // 2) giảm quantity
+            this.arrCart[index].quantity--;
+
+            // 3) giảm price
+            this.arrCart[index].priceAll = this.calPrice("down", this.arrCart[index]);
+
+            // 4) update dữ liệu
+            this.toggleLoading("on");
+            if (this.arrCart[index].quantity === 0) {
+                await deleteItem(this.arrCart[index].id);
+            }
+            if (this.arrCart[index].quantity > 0) {
+                await updateItem(this.arrCart[index]);
+            }
+
+            // 5) read dữ liệu
+            const result = await readItem();
+            this.arrCart = result.data;
+
+            // 6) render dữ liệu
+            this.render(this.arrCart);
+            this.toggleLoading("off");
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    addItem: async function (id) {
+        try {
+            const productItemEl = $(`[data-id="${id}"]`);
+            const btn = productItemEl.querySelector("button");
+            if (btn.disabled) return;
+            const name = $(".product_item-name", productItemEl).innerText;
+            const price = priceStrToNumber(
+                $(".product_item-price", productItemEl).innerText
+            );
+            const img = $(".product_item-img", productItemEl).src;
+            const type = $(".product_item-type", productItemEl).innerText;
+            const quantity = 1;
+            const value = {
+                id,
+                name,
+                price,
+                priceAll: price,
+                img,
+                type,
+                quantity,
+            };
+            const index = this.finNameCart(name);
+
+            // Nếu trùng nhau
+            if (index !== -1) {
+                this.arrCart[index].quantity++;
+                this.arrCart[index].priceAll =
+                    this.arrCart[index].price * this.arrCart[index].quantity;
+                this.toggleSpinBtn("on", btn);
+
+                await updateItem(this.arrCart[index]);
+                const resultRead = await readItem();
+                this.arrCart = resultRead.data;
+                this.render(this.arrCart);
+                this.toggleSpinBtn("off", btn);
+                // updateItem(this.arrCart[index])
+                //     .then(() => {
+                //         return readItem();
+                //     })
+                //     .then((result) => {
+                //         this.arrCart = result.data;
+                //         this.render(this.arrCart);
+                //         this.toggleSpinBtn("off", btn);
+                //     })
+                //     .catch((err) => {
+                //         console.log("👙  err: ", err);
+                //     });
+                return;
+            }
+            this.toggleSpinBtn("on", btn);
+            await createItem(value);
+            const resultRead = await readItem();
+            this.arrCart = resultRead.data;
+            this.render(this.arrCart);
+            this.toggleSpinBtn("off", btn);
+            // createItem(value)
+            //     .then(() => {
+            //         return readItem();
+            //     })
+            //     .then((result) => {
+            //         this.arrCart = result.data;
+            //         this.render(this.arrCart);
+            //         this.toggleSpinBtn("off", btn);
+            //     })
+            //     .catch((err) => {
+            //         console.log("👙  err: ", err);
+            //     });
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    removeItem: async function (id) {
+        // 1) tìm index trong mảng arrCart
+        const index = this.finIndexCart(+id);
+
+        // 2) delete item trên server
+        this.toggleLoading("on");
+        await deleteItem(this.arrCart[index].id);
+
+        // 5) read dữ liệu
+        const result = await readItem();
+        this.arrCart = result.data;
+
+        // 6) render dữ liệu
+        this.render(this.arrCart);
+        this.toggleLoading("off");
+    },
+    render: function (arrData) {
+        const cartListEl = $(".cart_list");
+        const priceAllEl = $(".price_all");
+        let string = "";
+        let priceAll = 0;
+        arrData.forEach((el) => {
+            priceAll += el.priceAll;
+            string += `<li class="cart_item flex flex-col gap-4 sm:flex-row sm:justify-between  sm:gap-0  py-6 w-full" data-id="${
+                el.id
+            }">
+                            <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+                                <img src="${
+                                    el.img
+                                }" class="h-full w-full object-cover object-center" alt="img product cart"/>
+                            </div>
+    
+                            <div class="sm:ml-4 flex flex-1 flex-col sm:gap-0 gap-3">
+                                <div>
+                                    <div class="flex justify-between text-base font-medium text-gray-900">
+                                        <h3 ><a  href="#">${el.name}</a></h3>
+                                        <p class="ml-4">${formatCurrency(el.price)} ₫</p>
+                                    </div>
+                                    <div>
+                                        <span class="inline-block p-1 bg-neutral-200 rounded text-sm">
+                                            ${el.type}
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-1 items-end justify-between text-sm gap-4">
+                                    <div class="flex items-center gap-2 justify-center font-semibold">
+                                        <button data-id="${
+                                            el.id
+                                        }" class="down_quantity btn btn-white "><i class="w-5 fa-solid fa-minus"></i></button>
+                                        <p class="cart_quantity-${el.id}">${
+                el.quantity
+            }</p>
+                                        <button data-id="${
+                                            el.id
+                                        }" class="up_quantity btn btn-white"><i class="w-5 fa-solid fa-plus"></i></button>
+                                    </div>
+                                    <div class="flex items-center gap-2 justify-center font-semibold">
+                                        <button class="cart_item-delete btn btn-blue">Xóa</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>`;
+        });
+        cartListEl.innerHTML = string;
+        priceAllEl.innerHTML = `${formatCurrency(priceAll)} ₫`;
+        $(".cart_count ").innerText = arrData.length;
+        $(".cart_count ").classList.remove("hidden");
+        $(".cart_count ").classList.add("bum");
+        setTimeout(() => {
+            $(".cart_count ").classList.remove("bum");
+        }, 300);
+    },
+    finIndexCart: function (id) {
+        const index = this.arrCart.findIndex(function (item) {
+            return +item.id === id;
+        });
+        return index;
+    },
+    finNameCart: function (name) {
+        const index = this.arrCart.findIndex(function (item) {
+            return item.name === name;
+        });
+        return index;
+    },
+    toggleSpinBtn: function (flag, el, color = "text-white") {
+        const spin = `<svg
+                            class="animate-spin h-5 w-5 ${color}"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                        >
+                            <circle
+                                class="opacity-25"
+                                cx="12"
+                                cy="12"
+                                r="10"
+                                stroke="currentColor"
+                                stroke-width="4"
+                            ></circle>
+                            <path
+                                class="opacity-75"
+                                fill="currentColor"
+                                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                            ></path>
+                        </svg>`;
+        if (flag === "on") {
+            el.disabled = true;
+            el.insertAdjacentHTML("afterbegin", spin);
+            el.querySelector("i")?.classList.add("hidden");
+        }
+        if (flag === "off") {
+            el.disabled = false;
+            console.log(el.querySelector("svg"));
+            el.querySelector("svg").remove();
+            el.querySelector("i")?.classList.remove("hidden");
+        }
+    },
+    toggleLoading: function (flag) {
+        if (flag === "on") {
+            $(".cart_loading").classList.remove("hidden");
+        }
+        if (flag === "off") {
+            $(".cart_loading").classList.add("hidden");
+        }
+    },
+    calPrice: function (flag, item) {
+        const priceAll = item.priceAll;
+        const priceFix = item.price;
+        if (flag === "up") {
+            // Lấy giá tổng cộng, cộng giá fix
+            const result = priceAll + priceFix;
+            return result;
+        }
+        if (flag === "down") {
+            // Lấy giá tổng cộng, trừ giá fix
+            const result = priceAll - priceFix;
+            return result;
+        }
+    },
+};
+
 function createItem(value) {
     return axios.post(BASE_URL, value);
 }
@@ -69,7 +340,7 @@ function renderProduct(arrData) {
                         </div>
                         <!-- OVERLAY -->
                         <div
-                            class="group/product_overlay absolute flex flex-col justify-center z-50 inset-0 p-6 space-y-2 bg-black bg-opacity-70 group-hover:opacity-100 opacity-0 transition duration-300"
+                            class="group/product_overlay absolute flex flex-col justify-center z-10 inset-0 p-6 space-y-2 bg-black bg-opacity-70 group-hover:opacity-100 opacity-0 transition duration-300"
                         >
                             <div
                                 class="mb-5 transition duration-500 -translate-y-full opacity-0 group-hover/product_overlay:translate-y-0 group-hover/product_overlay:opacity-100"
@@ -107,7 +378,7 @@ function renderProduct(arrData) {
                             </div>
                             <button
                                onclick="addCart(${el.id})"
-                                class="w-full btn btn-blue transition duration-500 translate-y-full opacity-0 group-hover/product_overlay:translate-y-0 group-hover/product_overlay:opacity-100"
+                                class="flex items-center justify-center gap-4 disabled:cursor-not-allowed !text-base w-full btn btn-blue transition duration-500 translate-y-full opacity-0 group-hover/product_overlay:translate-y-0 group-hover/product_overlay:opacity-100"
                             >
                                 Giỏ hàng
                             </button>
@@ -117,23 +388,30 @@ function renderProduct(arrData) {
     productListEl.innerHTML = string;
 }
 
-function init() {
-    //danh sách
-    readItem(null, "https://643a58bdbd3623f1b9b164ba.mockapi.io/admin/")
-        .then((result) => {
-            renderProduct(result.data);
-        })
-        .catch((err) => {});
+function loadding(flag) {
+    if (flag === "on") {
+        $(".body_loading").classList.remove("hidden");
+    }
+    if (flag === "off") {
+        $(".body_loading").classList.add("hidden");
+    }
+}
 
-    // giỏ hàng
-    readItem()
-        .then((result) => {
-            let quantity = result.data.length;
-            if (quantity > 0) addCount(quantity);
-            cart.arrCart = result.data;
-            cart.render(cart.arrCart);
-        })
-        .catch((err) => {});
+async function init() {
+    try {
+        loadding("on");
+        const resultReadProduct = await readItem(
+            null,
+            "https://643a58bdbd3623f1b9b164ba.mockapi.io/admin/"
+        );
+        renderProduct(resultReadProduct.data);
+        const resultReadCart = await readItem();
+        cart.arrCart = resultReadCart.data;
+        cart.render(cart.arrCart);
+        loadding("off");
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 function openComponent(elSection, elContent, elBackdrop, trans = "translate-x-full") {
@@ -167,15 +445,6 @@ function debounce(fn, ms) {
             fn.apply(context, args);
         }, ms);
     };
-}
-
-function addCount(count) {
-    $(".cart_count ").classList.remove("hidden");
-    $(".cart_count ").classList.add("bum");
-    $(".cart_count ").innerText = count;
-    setTimeout(() => {
-        $(".cart_count ").classList.remove("bum");
-    }, 300);
 }
 
 function formatCurrency(num, locale = navigator.language) {

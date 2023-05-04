@@ -81,18 +81,18 @@
     background: linear-gradient(
                 to bottom left,
                 #0000 calc(50% - 1px),
-                #4338ca 0 calc(50% + 1px),
+                #a19af4 0 calc(50% + 1px),
                 #0000 0
             )
             right/50% 100%,
         linear-gradient(
                 to bottom right,
                 #0000 calc(50% - 1px),
-                #4338ca 0 calc(50% + 1px),
+                #eba5f6 0 calc(50% + 1px),
                 #0000 0
             )
             left / 50% 100%,
-        linear-gradient(#4338ca 0 0) bottom/100% 2px;
+        linear-gradient(#6485ff 0 0) bottom/100% 2px;
     background-repeat: no-repeat;
     transform-origin: 50% 66%;
     animation: h5 4s infinite linear;
@@ -114,4 +114,16 @@
     100% {
         transform: rotate(1turn);
     }
+}
+
+.filter_from {
+    @apply transform opacity-0 scale-95;
+}
+
+.filter_to {
+    @apply transform opacity-100 scale-100;
+}
+
+.filter_list {
+    @apply transition ease-out duration-100;
 }

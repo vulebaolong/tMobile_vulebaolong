@@ -6,10 +6,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>tMobile</title>
 
-        <link
+        <!-- FONT -->
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+        <!-- <link
             href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css"
             rel="stylesheet"
-        />
+        /> -->
 
         <!-- FONT AWESOME -->
         <link
@@ -29,6 +31,13 @@
     <body
         class="antialiased text-slate-800 dark:text-slate-400 bg-white dark:bg-slate-900"
     >
+        <!-- LOADDING -->
+        <div
+            class="body_loading flex hidden fixed z-[99999] inset-0 bg-gray-950 bg-opacity-75 items-center justify-center"
+        >
+            <div class="custom-loader"></div>
+        </div>
+
         <!-- BACKGROUND -->
         <div
             class="absolute top-0 inset-x-0 flex justify-center overflow-hidden pointer-events-none"
@@ -386,25 +395,82 @@
         </section>
 
         <!-- PRODUCT -->
-        <section class="product-section" id="product">
+        <section class="product-section pb-20" id="product">
             <div class="container px-2">
                 <div
                     class="product mx-auto px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8 outline outline-1 outline-slate-200 dark:outline-slate-500 rounded-xl"
                 >
                     <!-- PRODUCT TITLE -->
-                    <div class="flex justify-between">
+                    <div
+                        class="flex gap-4 sm:gap-0 flex-col sm:flex-row items-center sm:justify-between"
+                    >
                         <h2 class="text-2xl font-bold tracking-tight">
                             Danh sách sản phẩm
                         </h2>
 
-                        <div
-                            id="cart"
-                            class="cart cursor-pointer relative transition duration-300 hover:text-sky-500 dark:hover:text-sky-400 text-2xl"
-                        >
-                            <span
-                                class="cart_count hidden absolute top-0 right-0 text-slate-200 bg-indigo-600 text-xs rounded-full p-1 -translate-y-1/2 translate-x-1/2"
-                            ></span>
-                            <i class="fa-solid fa-cart-shopping"></i>
+                        <div class="flex gap-5 items-center justify-center">
+                            <!-- DROP DOWN -->
+                            <div class="relative inline-block text-left">
+                                <div>
+                                    <button
+                                        type="button"
+                                        class="filter_btn inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                                    >
+                                        Lọc
+                                        <svg
+                                            class="-mr-1 h-5 w-5 text-gray-400"
+                                            viewBox="0 0 20 20"
+                                            fill="currentColor"
+                                            aria-hidden="true"
+                                        >
+                                            <path
+                                                fill-rule="evenodd"
+                                                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                                clip-rule="evenodd"
+                                            />
+                                        </svg>
+                                    </button>
+                                </div>
+
+                                <!--
+                                  Dropdown menu, show/hide based on menu state.
+                              
+                                  Entering: "transition ease-out duration-100"
+                                    From: "transform opacity-0 scale-95"
+                                    To: "transform opacity-100 scale-100"
+                                  Leaving: "transition ease-in duration-75"
+                                    From: "transform opacity-100 scale-100"
+                                    To: "transform opacity-0 scale-95"
+                                -->
+                                <div
+                                    class="filter_list filter_from absolute right-0 z-20 mt-2 w-28 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                >
+                                    <div class="py-1">
+                                        <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
+                                        <button
+                                            class="w-full text-left bg-gray-100 text-gray-900 block px-4 py-2 text-sm"
+                                        >
+                                            Samsung
+                                        </button>
+                                        <button
+                                            class="w-full text-left text-gray-700 block px-4 py-2 text-sm"
+                                        >
+                                            Apple
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- CART -->
+                            <div
+                                id="cart"
+                                class="cart cursor-pointer relative transition duration-300 hover:text-sky-500 dark:hover:text-sky-400 text-2xl"
+                            >
+                                <span
+                                    class="cart_count hidden absolute top-0 right-0 text-slate-200 bg-indigo-600 text-xs rounded-full p-1 -translate-y-1/2 translate-x-1/2"
+                                ></span>
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </div>
                         </div>
                     </div>
                     <!-- PRODUCT LIST -->
@@ -414,8 +480,6 @@
                 </div>
             </div>
         </section>
-
-        <button id="closecart" class="z-50 relative btn btn-blue">close</button>
 
         <!-- CART -->
         <section class="cart-section hidden">
@@ -437,13 +501,13 @@
                             >
                                 <!-- LOADDING -->
                                 <div
-                                    class="cart_loading flex hidden absolute inset-0 bg-gray-500 bg-opacity-75 items-center justify-center"
+                                    class="cart_loading flex hidden absolute inset-0 bg-gray-950 bg-opacity-75 items-center justify-center"
                                 >
                                     <div class="custom-loader"></div>
                                 </div>
 
                                 <div
-                                    class="flex h-full flex-col bg-white shadow-xl px-4 py-6 sm:px-6"
+                                    class="flex h-full w-[97vw] sm:w-auto flex-col bg-white shadow-xl px-4 py-6 sm:px-6"
                                 >
                                     <!-- HEADER -->
                                     <div class="flex items-start justify-between">
@@ -485,7 +549,7 @@
                                             <!-- CART-LIST -->
                                             <ul
                                                 role="list"
-                                                class="cart_list -my-6 divide-y divide-gray-200"
+                                                class="cart_list sm:w-[29rem] -my-6 divide-y divide-gray-200"
                                             >
                                                 <li class="flex py-6">
                                                     <div
@@ -817,12 +881,12 @@
                                             <p class="price_all"></p>
                                         </div>
                                         <p class="mt-0.5 text-sm text-gray-500">
-                                            Shipping and taxes calculated at checkout.
+                                            Vận chuyển và thuế được tính khi thanh toán.
                                         </p>
                                         <div class="mt-6">
                                             <button
                                                 type="button"
-                                                class="cart_order btn btn-blue w-full flex gap-4 items-center justify-center !px-6 !py-4 disabled:cursor-not-allowed"
+                                                class="cart_order btn btn-blue w-full flex gap-4 items-center justify-center !px-6 !py-4 disabled:cursor-not-allowed !text-lg"
                                             >
                                                 Đặt hàng
                                             </button>
@@ -831,12 +895,12 @@
                                             class="mt-6 flex justify-center text-center text-sm text-gray-500"
                                         >
                                             <p>
-                                                or
+                                                hoặc
                                                 <button
                                                     type="button"
-                                                    class="font-medium text-indigo-600 hover:text-indigo-500"
+                                                    class="continue_shopping font-medium text-indigo-600 hover:text-indigo-500"
                                                 >
-                                                    Continue Shopping
+                                                    Tiếp tục mua sắm.
                                                     <span aria-hidden="true">
                                                         &rarr;</span
                                                     >
@@ -852,138 +916,237 @@
             </div>
         </section>
 
-        <!-- SETTING ADD TO CART -->
-        <section class="setting_cart-section hidden">
-            <div class="relative z-50">
-                <!-- SETTING Background backdrop -->
-                <div
-                    class="setting_cart-backdrop fixed inset-0 bg-gray-500 bg-opacity-75 opacity-0"
-                ></div>
-
-                <!-- SETTING-CART-CONTENT -->
-                <div class="fixed inset-0 overflow-hidden">
-                    <div class="absolute flex justify-center inset-0 overflow-hidden">
-                        <div
-                            class="pointer-events-none fixed inset-y-0 flex max-w-full w-[30rem]"
-                        >
-                            <!-- SETTING-CART-SLIDE -->
-                            <div
-                                class="setting_cart-slide w-full flex translate-y-full pointer-events-auto"
-                            >
-                                <div
-                                    class="flex mt-auto w-full flex-col bg-white shadow-xl rounded-t-xl"
-                                >
-                                    <!-- SETTING-CART-SLIDE TOP-->
-                                    <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
-                                        <!-- TOP HEADER -->
-                                        <div class="flex items-center justify-between">
-                                            <h2
-                                                class="text-lg font-medium text-gray-900"
-                                                id="slide-over-title"
-                                            ></h2>
-                                            <div class="ml-3 flex h-7 items-center">
-                                                <button
-                                                    id="seting_close-cart"
-                                                    type="button"
-                                                    class="-m-2 p-2 text-gray-400 hover:text-gray-500"
-                                                >
-                                                    <span class="sr-only"
-                                                        >Close panel</span
-                                                    >
-                                                    <svg
-                                                        class="h-6 w-6"
-                                                        fill="none"
-                                                        viewBox="0 0 24 24"
-                                                        stroke-width="1.5"
-                                                        stroke="currentColor"
-                                                        aria-hidden="true"
-                                                    >
-                                                        <path
-                                                            stroke-linecap="round"
-                                                            stroke-linejoin="round"
-                                                            d="M6 18L18 6M6 6l12 12"
-                                                        />
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                        </div>
-
-                                        <!-- TOP CONTENT BOX-->
-                                        <div class="setting_cart-box">
-                                            <!-- INFO -->
-                                            <div class="setting_cart-info"></div>
-                                            <!-- CONTROL-->
-                                            <div
-                                                class="flex flex-1 justify-between items-center text-sm mt-3"
-                                            >
-                                                <span
-                                                    class="text-gray-900 text-sm font-medium"
-                                                    >Số lượng</span
-                                                >
-                                                <div
-                                                    class="flex items-center gap-2 justify-center font-semibold"
-                                                >
-                                                    <button
-                                                        class="setting_cart_down-qty btn btn-white"
-                                                    >
-                                                        <i class="fa-solid fa-minus"></i>
-                                                    </button>
-                                                    <p class="setting_cart-qty"></p>
-                                                    <button
-                                                        class="setting_cart_up-qty btn btn-white"
-                                                    >
-                                                        <i class="fa-solid fa-plus"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- SETTING-CART-SLIDE BOTTOM-->
-                                    <div
-                                        class="border-t border-gray-200 px-4 py-6 sm:px-6"
+        <footer class="py-20 text-sm leading-6">
+            <div
+                class="max-w-7xl mx-auto divide-y divide-slate-200 px-4 sm:px-6 md:px-8 dark:divide-slate-700"
+            >
+                <div class="flex">
+                    <div
+                        class="flex-none w-1/2 space-y-10 sm:space-y-8 lg:flex lg:space-y-0"
+                    >
+                        <div class="lg:flex-none lg:w-1/2">
+                            <h2 class="font-semibold text-slate-900 dark:text-slate-100">
+                                Getting Started
+                            </h2>
+                            <ul class="mt-3 space-y-2">
+                                <li>
+                                    <a
+                                        class="hover:text-slate-900 dark:hover:text-slate-300"
+                                        href="/docs/installation"
+                                        >Installation</a
                                     >
-                                        <div
-                                            class="flex justify-between text-base font-medium text-gray-900"
-                                        >
-                                            <p>Tổng cộng</p>
-                                            <p class="setting_cart-price"></p>
-                                        </div>
-                                        <p class="mt-0.5 text-sm text-gray-500">
-                                            Shipping and taxes calculated at checkout.
-                                        </p>
-                                        <div class="mt-6">
-                                            <button
-                                                href="#"
-                                                class="add_cart w-full rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 active:bg-indigo-800"
-                                            >
-                                                Thêm vào giỏ hàng
-                                            </button>
-                                        </div>
-                                        <div
-                                            class="mt-6 flex justify-center text-center text-sm text-gray-500"
-                                        >
-                                            <p>
-                                                or
-                                                <button
-                                                    type="button"
-                                                    class="font-medium text-indigo-600 hover:text-indigo-500"
-                                                >
-                                                    Continue Shopping
-                                                    <span aria-hidden="true">
-                                                        &rarr;</span
-                                                    >
-                                                </button>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                </li>
+                                <li>
+                                    <a
+                                        class="hover:text-slate-900 dark:hover:text-slate-300"
+                                        href="/docs/editor-setup"
+                                        >Editor Setup</a
+                                    >
+                                </li>
+                                <li>
+                                    <a
+                                        class="hover:text-slate-900 dark:hover:text-slate-300"
+                                        href="/docs/using-with-preprocessors"
+                                        >Using with Preprocessors</a
+                                    >
+                                </li>
+                                <li>
+                                    <a
+                                        class="hover:text-slate-900 dark:hover:text-slate-300"
+                                        href="/docs/optimizing-for-production"
+                                        >Optimizing for Production</a
+                                    >
+                                </li>
+                                <li>
+                                    <a
+                                        class="hover:text-slate-900 dark:hover:text-slate-300"
+                                        href="/docs/browser-support"
+                                        >Browser Support</a
+                                    >
+                                </li>
+                                <li>
+                                    <a
+                                        class="hover:text-slate-900 dark:hover:text-slate-300"
+                                        href="/docs/upgrade-guide"
+                                        >Upgrade Guide</a
+                                    >
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="lg:flex-none lg:w-1/2">
+                            <h2 class="font-semibold text-slate-900 dark:text-slate-100">
+                                Core Concepts
+                            </h2>
+                            <ul class="mt-3 space-y-2">
+                                <li>
+                                    <a
+                                        class="hover:text-slate-900 dark:hover:text-slate-300"
+                                        href="/docs/utility-first"
+                                        >Utility-First Fundamentals</a
+                                    >
+                                </li>
+                                <li>
+                                    <a
+                                        class="hover:text-slate-900 dark:hover:text-slate-300"
+                                        href="/docs/hover-focus-and-other-states"
+                                        >Handling Hover, Focus, and Other States</a
+                                    >
+                                </li>
+                                <li>
+                                    <a
+                                        class="hover:text-slate-900 dark:hover:text-slate-300"
+                                        href="/docs/responsive-design"
+                                        >Responsive Design</a
+                                    >
+                                </li>
+                                <li>
+                                    <a
+                                        class="hover:text-slate-900 dark:hover:text-slate-300"
+                                        href="/docs/dark-mode"
+                                        >Dark Mode</a
+                                    >
+                                </li>
+                                <li>
+                                    <a
+                                        class="hover:text-slate-900 dark:hover:text-slate-300"
+                                        href="/docs/reusing-styles"
+                                        >Reusing Styles</a
+                                    >
+                                </li>
+                                <li>
+                                    <a
+                                        class="hover:text-slate-900 dark:hover:text-slate-300"
+                                        href="/docs/adding-custom-styles"
+                                        >Adding Custom Styles</a
+                                    >
+                                </li>
+                                <li>
+                                    <a
+                                        class="hover:text-slate-900 dark:hover:text-slate-300"
+                                        href="/docs/functions-and-directives"
+                                        >Functions &amp; Directives</a
+                                    >
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div
+                        class="flex-none w-1/2 space-y-10 sm:space-y-8 lg:flex lg:space-y-0"
+                    >
+                        <div class="lg:flex-none lg:w-1/2">
+                            <h2 class="font-semibold text-slate-900 dark:text-slate-100">
+                                Customization
+                            </h2>
+                            <ul class="mt-3 space-y-2">
+                                <li>
+                                    <a
+                                        class="hover:text-slate-900 dark:hover:text-slate-300"
+                                        href="/docs/configuration"
+                                        >Configuration</a
+                                    >
+                                </li>
+                                <li>
+                                    <a
+                                        class="hover:text-slate-900 dark:hover:text-slate-300"
+                                        href="/docs/content-configuration"
+                                        >Content Configuration</a
+                                    >
+                                </li>
+                                <li>
+                                    <a
+                                        class="hover:text-slate-900 dark:hover:text-slate-300"
+                                        href="/docs/theme"
+                                        >Theme Configuration</a
+                                    >
+                                </li>
+                                <li>
+                                    <a
+                                        class="hover:text-slate-900 dark:hover:text-slate-300"
+                                        href="/docs/screens"
+                                        >Customizing Screens</a
+                                    >
+                                </li>
+                                <li>
+                                    <a
+                                        class="hover:text-slate-900 dark:hover:text-slate-300"
+                                        href="/docs/customizing-colors"
+                                        >Customizing Colors</a
+                                    >
+                                </li>
+                                <li>
+                                    <a
+                                        class="hover:text-slate-900 dark:hover:text-slate-300"
+                                        href="/docs/customizing-spacing"
+                                        >Customizing Spacing</a
+                                    >
+                                </li>
+                                <li>
+                                    <a
+                                        class="hover:text-slate-900 dark:hover:text-slate-300"
+                                        href="/docs/plugins"
+                                        >Plugins</a
+                                    >
+                                </li>
+                                <li>
+                                    <a
+                                        class="hover:text-slate-900 dark:hover:text-slate-300"
+                                        href="/docs/presets"
+                                        >Presets</a
+                                    >
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="lg:flex-none lg:w-1/2">
+                            <h2 class="font-semibold text-slate-900 dark:text-slate-100">
+                                Community
+                            </h2>
+                            <ul class="mt-3 space-y-2">
+                                <li>
+                                    <a
+                                        class="hover:text-slate-900 dark:hover:text-slate-300"
+                                        href="https://github.com/tailwindlabs/tailwindcss"
+                                        >GitHub</a
+                                    >
+                                </li>
+                                <li>
+                                    <a
+                                        class="hover:text-slate-900 dark:hover:text-slate-300"
+                                        href="/discord"
+                                        >Discord</a
+                                    >
+                                </li>
+                                <li>
+                                    <a
+                                        class="hover:text-slate-900 dark:hover:text-slate-300"
+                                        href="https://twitter.com/tailwindcss"
+                                        >Twitter</a
+                                    >
+                                </li>
+                                <li>
+                                    <a
+                                        class="hover:text-slate-900 dark:hover:text-slate-300"
+                                        href="https://www.youtube.com/tailwindlabs"
+                                        >YouTube</a
+                                    >
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
+                <div class="mt-16 pt-10">
+                    <img
+                        class="h-16 hidden dark:block"
+                        src="../../asset/img/logo-white.png"
+                        alt=""
+                    />
+                    <img
+                        class="h-16 dark:hidden"
+                        src="../../asset/img/logo-dark.png"
+                        alt=""
+                    />
+                </div>
             </div>
-        </section>
+        </footer>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
 
