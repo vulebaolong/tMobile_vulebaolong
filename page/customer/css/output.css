@@ -754,6 +754,10 @@ video {
   margin-left: -0.125rem;
 }
 
+.-ml-1 {
+  margin-left: -0.25rem;
+}
+
 .mb-4 {
   margin-bottom: 1rem;
 }
@@ -782,6 +786,10 @@ video {
   margin-right: 0.375rem;
 }
 
+.mr-3 {
+  margin-right: 0.75rem;
+}
+
 .mt-0 {
   margin-top: 0px;
 }
@@ -802,6 +810,10 @@ video {
   margin-top: 0.5rem;
 }
 
+.mt-3 {
+  margin-top: 0.75rem;
+}
+
 .mt-4 {
   margin-top: 1rem;
 }
@@ -816,10 +828,6 @@ video {
 
 .mt-auto {
   margin-top: auto;
-}
-
-.mt-3 {
-  margin-top: 0.75rem;
 }
 
 .box-border {
@@ -925,10 +933,6 @@ video {
   aspect-ratio: 1155/678;
 }
 
-.h-1\/2 {
-  height: 50%;
-}
-
 .h-20 {
   height: 5rem;
 }
@@ -993,6 +997,14 @@ video {
   width: 108rem;
 }
 
+.w-\[29rem\] {
+  width: 29rem;
+}
+
+.w-\[30rem\] {
+  width: 30rem;
+}
+
 .w-\[36\.125rem\] {
   width: 36.125rem;
 }
@@ -1017,24 +1029,12 @@ video {
   width: 100vw;
 }
 
-.w-3\/4 {
-  width: 75%;
-}
-
-.w-\[30rem\] {
-  width: 30rem;
-}
-
 .max-w-2xl {
   max-width: 42rem;
 }
 
 .max-w-full {
   max-width: 100%;
-}
-
-.max-w-md {
-  max-width: 28rem;
 }
 
 .max-w-none {
@@ -1150,6 +1150,16 @@ video {
 
 .transform-none {
   transform: none;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
 }
 
 .cursor-pointer {
@@ -2027,11 +2037,6 @@ video {
   border-top-right-radius: 0.25rem;
 }
 
-.rounded-t-lg {
-  border-top-left-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
-}
-
 .rounded-t-xl {
   border-top-left-radius: 0.75rem;
   border-top-right-radius: 0.75rem;
@@ -2346,6 +2351,16 @@ video {
 
 .p-6 {
   padding: 1.5rem;
+}
+
+.\!px-6 {
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+}
+
+.\!py-4 {
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
 }
 
 .px-2 {
@@ -2706,6 +2721,11 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.text-indigo-700 {
+  --tw-text-opacity: 1;
+  color: rgb(67 56 202 / var(--tw-text-opacity));
+}
+
 .underline {
   text-decoration-line: underline;
 }
@@ -2756,8 +2776,16 @@ video {
   opacity: 0;
 }
 
+.opacity-25 {
+  opacity: 0.25;
+}
+
 .opacity-30 {
   opacity: 0.3;
+}
+
+.opacity-75 {
+  opacity: 0.75;
 }
 
 .bg-blend-normal {
@@ -3237,11 +3265,6 @@ video {
   outline-color: #4f46e5;
 }
 
-.active\:bg-indigo-900:active {
-  --tw-bg-opacity: 1;
-  background-color: rgb(49 46 129 / var(--tw-bg-opacity));
-}
-
 .active\:bg-indigo-800:active {
   --tw-bg-opacity: 1;
   background-color: rgb(55 48 163 / var(--tw-bg-opacity));
@@ -3249,6 +3272,10 @@ video {
 
 .active\:text-opacity-50:active {
   --tw-text-opacity: 0.5;
+}
+
+.disabled\:cursor-not-allowed:disabled {
+  cursor: not-allowed;
 }
 
 .group\/product_overlay:hover .group-hover\/product_overlay\:translate-y-0 {
@@ -3358,10 +3385,6 @@ video {
     width: 72.1875rem;
   }
 
-  .sm\:w-\[30rem\] {
-    width: 30rem;
-  }
-
   .sm\:max-w-sm {
     max-width: 24rem;
   }
@@ -3372,6 +3395,10 @@ video {
 
   .sm\:flex-row {
     flex-direction: row;
+  }
+
+  .sm\:justify-between {
+    justify-content: space-between;
   }
 
   .sm\:gap-0 {
@@ -3391,11 +3418,6 @@ video {
   .sm\:py-48 {
     padding-top: 12rem;
     padding-bottom: 12rem;
-  }
-
-  .sm\:px-4 {
-    padding-left: 1rem;
-    padding-right: 1rem;
   }
 
   .sm\:pl-10 {
@@ -3652,4 +3674,47 @@ video {
 *::-webkit-scrollbar-thumb {
   border-radius: 5px;
   background-color: rgba(100, 116, 139, 0.502);
+}
+
+.custom-loader {
+  width: 50px;
+  height: calc(50px * 0.866);
+  display: grid;
+  background: linear-gradient(
+                to bottom left,
+                #0000 calc(50% - 1px),
+                #4338ca 0 calc(50% + 1px),
+                #0000 0
+            )
+            right/50% 100%,
+        linear-gradient(
+                to bottom right,
+                #0000 calc(50% - 1px),
+                #4338ca 0 calc(50% + 1px),
+                #0000 0
+            )
+            left / 50% 100%,
+        linear-gradient(#4338ca 0 0) bottom/100% 2px;
+  background-repeat: no-repeat;
+  transform-origin: 50% 66%;
+  animation: h5 4s infinite linear;
+}
+
+.custom-loader::before,
+.custom-loader::after {
+  content: "";
+  grid-area: 1/1;
+  background: inherit;
+  transform-origin: inherit;
+  animation: inherit;
+}
+
+.custom-loader::after {
+  animation-duration: 2s;
+}
+
+@keyframes h5 {
+  100% {
+    transform: rotate(1turn);
+  }
 }

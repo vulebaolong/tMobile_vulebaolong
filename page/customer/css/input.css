@@ -73,3 +73,45 @@
     border-radius: 5px;
     background-color: rgba(100, 116, 139, 0.502);
 }
+
+.custom-loader {
+    width: 50px;
+    height: calc(50px * 0.866);
+    display: grid;
+    background: linear-gradient(
+                to bottom left,
+                #0000 calc(50% - 1px),
+                #4338ca 0 calc(50% + 1px),
+                #0000 0
+            )
+            right/50% 100%,
+        linear-gradient(
+                to bottom right,
+                #0000 calc(50% - 1px),
+                #4338ca 0 calc(50% + 1px),
+                #0000 0
+            )
+            left / 50% 100%,
+        linear-gradient(#4338ca 0 0) bottom/100% 2px;
+    background-repeat: no-repeat;
+    transform-origin: 50% 66%;
+    animation: h5 4s infinite linear;
+}
+
+.custom-loader::before,
+.custom-loader::after {
+    content: "";
+    grid-area: 1/1;
+    background: inherit;
+    transform-origin: inherit;
+    animation: inherit;
+}
+.custom-loader::after {
+    animation-duration: 2s;
+}
+
+@keyframes h5 {
+    100% {
+        transform: rotate(1turn);
+    }
+}

@@ -185,3 +185,9 @@ function formatCurrency(num, locale = navigator.language) {
 function priceStrToNumber(str) {
     return +str.slice(0, -1).trim().replaceAll(".", "");
 }
+
+function wait(seconds) {
+    return new Promise(function (resolve) {
+        setTimeout(resolve, seconds);
+    });
+}
