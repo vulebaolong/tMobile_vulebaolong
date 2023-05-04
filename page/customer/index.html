@@ -273,7 +273,7 @@
                 </div>
             </div>
         </header>
-        <div class="custom-loader"></div>
+
         <!-- HERO -->
         <section class="pt-40 pb-20 relative">
             <div
@@ -432,7 +432,16 @@
                             class="pointer-events-none fixed inset-y-0 right-0 flex justify-end w-screen sm:pl-10"
                         >
                             <!-- CART-SLIDE -->
-                            <div class="cart-slide translate-x-full pointer-events-auto">
+                            <div
+                                class="cart-slide relative translate-x-full pointer-events-auto"
+                            >
+                                <!-- LOADDING -->
+                                <div
+                                    class="cart_loading flex hidden absolute inset-0 bg-gray-500 bg-opacity-75 items-center justify-center"
+                                >
+                                    <div class="custom-loader"></div>
+                                </div>
+
                                 <div
                                     class="flex h-full flex-col bg-white shadow-xl px-4 py-6 sm:px-6"
                                 >

@@ -1,41 +1,52 @@
 const cart = {
     arrCart: [],
-    upQuantity: function (id, el) {
+    upQuantity: async function (id) {
         // 1) tìm index trong mảng arrCart
         const index = this.finIndexCart(id);
 
         // 2) tăng quantity
         this.arrCart[index].quantity++;
 
-        // 3) render lại giao diện
-        el.innerText = this.arrCart[index].quantity;
+        // 3) tăng price
+        this.arrCart[index].priceAll = this.calPrice("up", this.arrCart[index]);
+
+        // 4) update dữ liệu
+        this.toggleLoading("on");
+        await updateItem(this.arrCart[index]);
+
+        // 5) read dữ liệu
+        const result = await readItem();
+
+        // 6) render dữ liệu
+        this.render(result.data);
+        this.toggleLoading("off");
     },
     downQuantity: async function (id, el) {
-        if (el.btn.disabled) return;
         // 1) tìm index trong mảng arrCart
         const index = this.finIndexCart(id);
 
         // 2) giảm quantity
         this.arrCart[index].quantity--;
 
-        if (this.arrCart[index].quantity === 0) {
-            this.toggleSpinBtn("on", el.btn, "text-indigo-700");
-            this.toggleSpinBtn("on", $(".cart_order"));
-            await wait(1000);
-            this.toggleSpinBtn("off", el.btn, "text-indigo-700");
-            this.toggleSpinBtn("off", $(".cart_order"));
+        // 3) giảm price
+        this.arrCart[index].priceAll = this.calPrice("down", this.arrCart[index]);
 
-            // await deleteItem(id);
-            // const result = await readItem();
-            // this.arrCart = result.data;
-            // // this.toggleSpinBtn("off");
-            // this.render(this.arrCart);
-            return;
+        // 4) update dữ liệu
+        this.toggleLoading("on");
+        if (this.arrCart[index].quantity === 0) {
+            await deleteItem(this.arrCart[index].id);
+        }
+        if (this.arrCart[index].quantity > 0) {
+            await updateItem(this.arrCart[index]);
         }
 
-        el.qty.innerText = this.arrCart[index].quantity;
+        // 5) read dữ liệu
+        const result = await readItem();
 
-        // 3) render lại giao diện
+        // 6) render dữ liệu
+        this.render(result.data);
+        this.toggleLoading("off");
+
         // this.render(this.arrCart);
     },
     addItem: function (id) {
@@ -101,13 +112,13 @@ const cart = {
                                     <div class="flex items-center gap-2 justify-center font-semibold">
                                         <button data-id="${
                                             el.id
-                                        }" class="down_quantity btn btn-white"><i class="fa-solid fa-minus"></i></button>
+                                        }" class="down_quantity btn btn-white "><i class="w-5 fa-solid fa-minus"></i></button>
                                         <p class="cart_quantity-${el.id}">${
                 el.quantity
             }</p>
                                         <button data-id="${
                                             el.id
-                                        }" class="up_quantity btn btn-white"><i class="fa-solid fa-plus"></i></button>
+                                        }" class="up_quantity btn btn-white"><i class="w-5 fa-solid fa-plus"></i></button>
                                     </div>
                                     <div class="flex items-center gap-2 justify-center font-semibold">
                                         <button class="cart_item-delete btn btn-blue">Remove</button>
@@ -138,7 +149,7 @@ const cart = {
     toggleSpinBtn: function (flag, el, color = "text-white") {
         console.log(el);
         const spin = `<svg
-                            class="animate-spin -ml-1 h-5 w-5 ${color}"
+                            class="animate-spin h-5 w-5 ${color}"
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
                             viewBox="0 0 24 24"
@@ -167,6 +178,28 @@ const cart = {
             console.log(el.querySelector("svg"));
             el.querySelector("svg").remove();
             el.querySelector("i")?.classList.remove("hidden");
+        }
+    },
+    toggleLoading: function (flag) {
+        if (flag === "on") {
+            $(".cart_loading").classList.remove("hidden");
+        }
+        if (flag === "off") {
+            $(".cart_loading").classList.add("hidden");
+        }
+    },
+    calPrice: function (flag, item) {
+        const priceAll = item.priceAll;
+        const priceFix = item.price;
+        if (flag === "up") {
+            // Lấy giá tổng cộng, cộng giá fix
+            const result = priceAll + priceFix;
+            return result;
+        }
+        if (flag === "down") {
+            // Lấy giá tổng cộng, trừ giá fix
+            const result = priceAll - priceFix;
+            return result;
         }
     },
 };
@@ -315,20 +348,13 @@ $(".cart_list").addEventListener("click", function name(e) {
     const upQuantityEl = el.closest(".up_quantity");
     const downQuantityEl = el.closest(".down_quantity");
     const cartItemDelete = el.closest(".cart_item-delete");
-    const cartQuantityEl = $(`.cart_quantity-${id}`);
     // Click up quantity
     if (upQuantityEl) {
-        cart.upQuantity(+upQuantityEl.dataset.id, {
-            btn: upQuantityEl,
-            qty: cartQuantityEl,
-        });
+        cart.upQuantity(+upQuantityEl.dataset.id);
     }
     // Click up quantity
     if (downQuantityEl) {
-        cart.downQuantity(+downQuantityEl.dataset.id, {
-            btn: downQuantityEl,
-            qty: cartQuantityEl,
-        });
+        cart.downQuantity(+downQuantityEl.dataset.id);
     }
 
     // Click remove
