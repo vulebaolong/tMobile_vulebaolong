@@ -86,48 +86,34 @@ const cart = {
 
             // Nếu trùng nhau
             if (index !== -1) {
+                // cộng quantity trong mảng arrCart
                 this.arrCart[index].quantity++;
+                // tính giá priceAll trong mảng arrCart
                 this.arrCart[index].priceAll =
                     this.arrCart[index].price * this.arrCart[index].quantity;
+
+                //spin
                 this.toggleSpinBtn("on", btn);
 
+                // fetch API update
                 await updateItem(this.arrCart[index]);
+                // fetch API read
                 const resultRead = await readItem();
+                // cập nhật lại mảng arrCart
                 this.arrCart = resultRead.data;
+                // render
                 this.render(this.arrCart);
+                //spin
                 this.toggleSpinBtn("off", btn);
-                // updateItem(this.arrCart[index])
-                //     .then(() => {
-                //         return readItem();
-                //     })
-                //     .then((result) => {
-                //         this.arrCart = result.data;
-                //         this.render(this.arrCart);
-                //         this.toggleSpinBtn("off", btn);
-                //     })
-                //     .catch((err) => {
-                //         console.log("👙  err: ", err);
-                //     });
                 return;
             }
+
             this.toggleSpinBtn("on", btn);
             await createItem(value);
             const resultRead = await readItem();
             this.arrCart = resultRead.data;
             this.render(this.arrCart);
             this.toggleSpinBtn("off", btn);
-            // createItem(value)
-            //     .then(() => {
-            //         return readItem();
-            //     })
-            //     .then((result) => {
-            //         this.arrCart = result.data;
-            //         this.render(this.arrCart);
-            //         this.toggleSpinBtn("off", btn);
-            //     })
-            //     .catch((err) => {
-            //         console.log("👙  err: ", err);
-            //     });
         } catch (error) {
             console.log(error);
         }
