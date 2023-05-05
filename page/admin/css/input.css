@@ -55,7 +55,6 @@
 
 .toast-close {
     @apply text-slate-500 col-start-7 justify-self-center;
-    /* padding-top: 0.2rem; */
 }
 
 .focus-edit {

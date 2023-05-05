@@ -7,6 +7,8 @@
     @apply mx-auto;
 }
 
+button• 
+/*! BUTTON - start */
 .btn {
     @apply disabled:opacity-50 transition duration-300 px-4 py-2 font-semibold text-sm rounded-lg shadow-sm;
 }
@@ -17,12 +19,16 @@
 .btn-white {
     @apply bg-slate-50 enabled:hover:bg-slate-200 enabled:active:bg-slate-300 text-gray-900 ring-1 ring-inset ring-gray-300;
 }
+/* BUTTON - end */
 
-/* PRODUCT */
+/* ! PRODUCT - start */
 .product_item {
     @apply relative overflow-hidden  p-6 rounded-xl bg-white;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
+/* PRODUCT - end */
+
+/*! CART - start */
 .cart-slide,
 .setting_cart-slide,
 #M-nav_content {
@@ -52,7 +58,9 @@
         scale: 100%;
     }
 }
+/* CART - end */
 
+/*! SCROLLBAR - start */
 /* Firefox */
 * {
     scrollbar-width: thin;
@@ -68,12 +76,13 @@
     border-radius: 5px;
     background-color: rgba(100, 116, 139, 0.161);
 }
-
 *::-webkit-scrollbar-thumb {
     border-radius: 5px;
     background-color: rgba(100, 116, 139, 0.502);
 }
+/* SCROLLBAR - end */
 
+/*! LOADDING - start */
 .custom-loader {
     width: 50px;
     height: calc(50px * 0.866);
@@ -97,7 +106,6 @@
     transform-origin: 50% 66%;
     animation: h5 4s infinite linear;
 }
-
 .custom-loader::before,
 .custom-loader::after {
     content: "";
@@ -109,13 +117,14 @@
 .custom-loader::after {
     animation-duration: 2s;
 }
-
 @keyframes h5 {
     100% {
         transform: rotate(1turn);
     }
 }
+/* LOADDING - end */
 
+/*! FILTER - start */
 .filter_from {
     @apply transform opacity-0 scale-95;
 }
@@ -127,3 +136,33 @@
 .filter_list {
     @apply transition ease-out duration-100;
 }
+/* FILTER - end */
+
+/*! TOAST - start */
+.toastify {
+    @apply text-gray-900 font-semibold text-sm rounded-lg shadow-lg fixed ring-1 ring-inset ring-gray-300 grid grid-cols-7  items-center gap-y-3;
+    padding: 20px 0;
+    z-index: 100;
+    background-color: white;
+    width: 22rem;
+}
+
+.notification_title {
+    @apply font-semibold col-start-2 col-end-7 row-start-1;
+}
+
+.notification_mes {
+    @apply text-slate-500 col-start-2 col-end-7 row-start-2;
+    font-weight: 400;
+}
+
+.notification_suc {
+    @apply text-green-500 justify-self-center col-start-1 row-start-1;
+    font-size: 1.3rem;
+    padding: 0.1rem 0;
+}
+
+.toast-close {
+    @apply text-slate-500 col-start-7 justify-self-center;
+}
+/* TOAST - end */

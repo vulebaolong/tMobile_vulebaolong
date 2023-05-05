@@ -1,39 +1,38 @@
 init();
 
-//Click vào giỏ hàng
+//Click vào ​‌‍‌⁡⁢⁣⁢𝗶𝗰𝗼𝗻⁡​ ⁡⁢⁣⁢​‌‍‌giỏ hàng​⁡
 $("#cart").addEventListener("click", function () {
     openComponent(".cart-section", ".cart-slide", ".cart-backdrop");
 });
 
-// Click vào nút X khi giỏ hàng đang mở
+// Click vào nút ⁡⁢⁣⁢​‌‍‌𝗫​⁡ khi giỏ hàng đang mở
 $("#close-cart").addEventListener("click", function () {
     closeComponent(".cart-section", ".cart-slide", ".cart-backdrop");
 });
 
-//Click vào menu khi ở mobile
+//Click vào ⁡⁢⁣⁢​‌‍‌menu​⁡ khi ở ⁡⁣⁣⁢mobile⁡
 $("#M_btn_show-nav").addEventListener("click", function () {
     openComponent("#M-nav", "#M-nav_content", "#M-nav_backdrop");
 });
-//Click vào close khi ở mobile
+//Click vào ⁡⁢⁣⁢​‌‍‌‍𝗰𝗹𝗼𝘀𝗲​⁡ khi ở ⁡⁣⁣⁢mobile⁡
 $("#M_btn_close-nav").addEventListener("click", function () {
     closeComponent("#M-nav", "#M-nav_content", "#M-nav_backdrop");
 });
 
-// Click vào thay đổi theme ở dekstop
+// Click vào ⁡⁢⁣⁢​‌‍‌𝘁𝗵𝗮𝘆 đổ𝗶 𝘁𝗵𝗲𝗺𝗲​⁡ ở ⁡⁣⁣⁢dekstop⁡
 $("#theme-toggle").addEventListener("click", function () {
-    console.log(123);
     $("#theme-toggle-dark-icon").classList.toggle("hidden");
     $("#theme-toggle-light-icon").classList.toggle("hidden");
     $("html").classList.toggle("dark");
 });
-// Click vào thay đổi theme ở mobile
+// Click vào ⁡⁢⁣⁢​‌‍‌𝘁𝗵𝗮𝘆 đổ𝗶 𝘁𝗵𝗲𝗺𝗲​⁡ ở ⁡⁣⁣⁢mobile⁡
 $("#M_theme-toggle").addEventListener("click", function () {
     $("#theme-toggle-dark-icon").classList.toggle("hidden");
     $("#theme-toggle-light-icon").classList.toggle("hidden");
     $("html").classList.toggle("dark");
 });
 
-// Click CART-LIST
+// Click ​‌‍‌⁡⁢⁣⁢𝗖𝗔𝗥𝗧-𝗟𝗜𝗦𝗧⁡​
 $(".cart_list").addEventListener("click", function name(e) {
     e.stopPropagation;
     const el = e.target;
@@ -56,29 +55,27 @@ $(".cart_list").addEventListener("click", function name(e) {
     }
 });
 
-//click giỏ hàng trên item product
+//click ​‌‍‌⁡⁢⁣⁢𝗴𝗶ỏ 𝗵à𝗻𝗴⁡​ trên item product
 function addCart(id) {
     cart.addItem(id);
 }
 
-// Click order
+// Click ​‌‍‌⁡⁢⁣⁢𝘁𝗵𝗮𝗻𝗵 𝘁𝗼á𝗻⁡​
 $(".cart_order").addEventListener("click", async function () {
-    const arrID = cart.arrCart.forEach(function (item) {});
+    cart.removeAll();
 });
 
-// Click continue_shopping
+// Click ​‌‍‌⁡⁢⁣⁢𝘁𝗶ế𝗽 𝘁ụ𝗰 𝗺𝘂𝗮 𝘀ắ𝗺⁡​
 $(".continue_shopping").addEventListener("click", function () {
     closeComponent(".cart-section", ".cart-slide", ".cart-backdrop");
 });
 
-// Click filter_btn
+// Click ​‌‍‌⁡⁢⁣⁢𝗹ọ𝗰⁡​
 $(".filter_btn").addEventListener("click", function () {
-    console.log("lọc");
     // filter_list
     $(".filter_list").classList.toggle("filter_from");
     $(".filter_list").classList.toggle("filter_to");
 });
-
 $("#filter_samsung").addEventListener("click", function () {
     filterToggle();
     const arr = product.filterTypeProduct("Samsung");

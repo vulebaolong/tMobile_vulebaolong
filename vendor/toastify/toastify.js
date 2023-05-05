@@ -282,8 +282,6 @@
                 divElement.style.transform = "translate(" + xOffset + "," + yOffset + ")";
             }
             divElement.innerHTML = this.options.stringHTML;
-            console.log(this.options);
-            console.log(divElement);
 
             if (this.options.close) {
                 divElement.insertAdjacentElement("afterbegin", this.options.closeBtn);

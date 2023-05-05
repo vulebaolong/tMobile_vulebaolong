@@ -27,7 +27,7 @@ const cart = {
             this.render(this.arrCart);
             this.toggleLoading("off");
         } catch (error) {
-            console.log(error);
+            console.error(error);
         }
     },
     downQuantity: async function (id) {
@@ -58,7 +58,7 @@ const cart = {
             this.render(this.arrCart);
             this.toggleLoading("off");
         } catch (error) {
-            console.log(error);
+            console.error(error);
         }
     },
     addItem: async function (id) {
@@ -114,13 +114,15 @@ const cart = {
             this.arrCart = resultRead.data;
             this.render(this.arrCart);
             this.toggleSpinBtn("off", btn);
+            notification(`Thêm thành công sản phẩm "${value.name}" vào giỏ hàng.`);
         } catch (error) {
-            console.log(error);
+            console.error(error);
         }
     },
     removeItem: async function (id) {
         // 1) tìm index trong mảng arrCart
         const index = this.finIndexCart(+id);
+        const name = this.arrCart[index].name;
 
         // 2) delete item trên server
         this.toggleLoading("on");
@@ -133,6 +135,7 @@ const cart = {
         // 6) render dữ liệu
         this.render(this.arrCart);
         this.toggleLoading("off");
+        notification(`Xóa thành công sản phẩm "${name}" khỏi giỏ hàng.`);
     },
     render: function (arrData) {
         const cartListEl = $(".cart_list");
@@ -230,7 +233,6 @@ const cart = {
         }
         if (flag === "off") {
             el.disabled = false;
-            console.log(el.querySelector("svg"));
             el.querySelector("svg").remove();
             el.querySelector("i")?.classList.remove("hidden");
         }
@@ -256,6 +258,18 @@ const cart = {
             const result = priceAll - priceFix;
             return result;
         }
+    },
+    removeAll: async function () {
+        if (this.arrCart.length === 0) return;
+        this.toggleLoading("on");
+        for (let index = 0; index < this.arrCart.length; index++) {
+            const id = this.arrCart[index].id;
+            await deleteItem(id);
+        }
+        this.arrCart = (await readItem()).data;
+        this.render(this.arrCart);
+        this.toggleLoading("off");
+        notification("Thanh Toán Thành Công");
     },
 };
 
@@ -360,7 +374,6 @@ const product = {
         const arrResult = this.arrProduct.filter(function (item) {
             const itemType = item.type.toLowerCase();
             const typeLower = type.toLowerCase();
-            console.log(itemType, typeLower);
             return itemType === typeLower;
         });
         return arrResult;
@@ -416,7 +429,7 @@ async function init() {
         cart.render(cart.arrCart);
         loadding("off");
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
 }
 
@@ -465,4 +478,28 @@ function wait(seconds) {
     return new Promise(function (resolve) {
         setTimeout(resolve, seconds);
     });
+}
+
+function notification(mes) {
+    Toastify({
+        text: "",
+        duration: 3000,
+        // destination: "123123123123",
+        newWindow: true,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        className: "info",
+        style: {
+            background: "white",
+        },
+        stringHTML: `
+                        <i class="notification_suc fa-regular fa-circle-check"></i>
+                        <span class="notification_title">Successfully!</span>
+                        <span class="notification_mes">${mes}</span>
+                    `,
+
+        onClick: function () {}, // Callback after click
+    }).showToast();
 }
