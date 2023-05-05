@@ -174,7 +174,6 @@ function validate(obj) {
         isImg = true,
         isDesc = true,
         isType = true;
-    console.log(!validateName(obj.name));
     if (!validateName(obj.name)) {
         isName = false;
         console.log(isName);

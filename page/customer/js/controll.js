@@ -259,30 +259,13 @@ const cart = {
     },
 };
 
-function createItem(value) {
-    return axios.post(BASE_URL, value);
-}
-
-function readItem(id = null, url = BASE_URL) {
-    if (id !== null) {
-        url += id;
-    }
-    return axios.get(url);
-}
-
-function updateItem(item) {
-    return axios.put(BASE_URL + item.id, item);
-}
-
-function deleteItem(id) {
-    return axios.delete(BASE_URL + id);
-}
-
-function renderProduct(arrData) {
-    const productListEl = $(".product_list");
-    let string = "";
-    arrData.reverse().forEach((el) => {
-        string += `<div class="product_item group" data-id="${el.id}">
+const product = {
+    arrProduct: [],
+    render: function (arrData) {
+        const productListEl = $(".product_list");
+        let string = "";
+        arrData.reverse().forEach((el) => {
+            string += `<div class="product_item group" data-id="${el.id}">
                          <!-- PRODUCT ITEM TITLE -->
                         <div class="transition duration-300 group-hover:opacity-40">
                             <!-- IMAGE -->
@@ -370,8 +353,42 @@ function renderProduct(arrData) {
                             </button>
                         </div>
                     </div>`;
-    });
-    productListEl.innerHTML = string;
+        });
+        productListEl.innerHTML = string;
+    },
+    filterTypeProduct: function (type) {
+        const arrResult = this.arrProduct.filter(function (item) {
+            const itemType = item.type.toLowerCase();
+            const typeLower = type.toLowerCase();
+            console.log(itemType, typeLower);
+            return itemType === typeLower;
+        });
+        return arrResult;
+    },
+};
+
+function createItem(value) {
+    return axios.post(BASE_URL, value);
+}
+
+function readItem(id = null, url = BASE_URL) {
+    if (id !== null) {
+        url += id;
+    }
+    return axios.get(url);
+}
+
+function updateItem(item) {
+    return axios.put(BASE_URL + item.id, item);
+}
+
+function deleteItem(id) {
+    return axios.delete(BASE_URL + id);
+}
+
+function deleteAll(arrID) {
+    const batchUrl = `https://643a58bdbd3623f1b9b164ba.mockapi.io/customor/batch`;
+    return axios.post(batchUrl, { requests: arrID });
 }
 
 function loadding(flag) {
@@ -390,7 +407,10 @@ async function init() {
             null,
             "https://643a58bdbd3623f1b9b164ba.mockapi.io/admin/"
         );
-        renderProduct(resultReadProduct.data);
+        // cập nhật arrProduct
+        product.arrProduct = resultReadProduct.data;
+        product.render(product.arrProduct);
+
         const resultReadCart = await readItem();
         cart.arrCart = resultReadCart.data;
         cart.render(cart.arrCart);

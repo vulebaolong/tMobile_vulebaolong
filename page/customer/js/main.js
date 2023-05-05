@@ -62,8 +62,8 @@ function addCart(id) {
 }
 
 // Click order
-$(".cart_order").addEventListener("click", function () {
-    console.log(123);
+$(".cart_order").addEventListener("click", async function () {
+    const arrID = cart.arrCart.forEach(function (item) {});
 });
 
 // Click continue_shopping
@@ -73,8 +73,24 @@ $(".continue_shopping").addEventListener("click", function () {
 
 // Click filter_btn
 $(".filter_btn").addEventListener("click", function () {
-    console.log(123);
+    console.log("lọc");
     // filter_list
     $(".filter_list").classList.toggle("filter_from");
     $(".filter_list").classList.toggle("filter_to");
 });
+
+$("#filter_samsung").addEventListener("click", function () {
+    filterToggle();
+    const arr = product.filterTypeProduct("Samsung");
+    product.render(arr);
+});
+$("#filter_apple").addEventListener("click", function () {
+    filterToggle();
+    const arr = product.filterTypeProduct("Apple");
+    product.render(arr);
+});
+
+function filterToggle() {
+    $(".filter_list").classList.toggle("filter_from");
+    $(".filter_list").classList.toggle("filter_to");
+}
