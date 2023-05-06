@@ -29,13 +29,11 @@
 
 /*! CART - start */
 .cart-slide,
-.setting_cart-slide,
 #M-nav_content {
     transition: transform 0.5s ease-in-out;
 }
 
 .cart-backdrop,
-.setting_cart-backdrop,
 #M-nav_backdrop {
     transition-property: opacity;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);

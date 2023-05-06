@@ -64,7 +64,7 @@ function notification(mes) {
  */
 function fillForm(obj) {
     resetValidate();
-    $("#search-input").value = obj === "" ? "" : obj.name;
+    $("#search-input").value = "";
     $("#fid").value = obj === "" ? "" : obj.id;
     $("#fname").value = obj === "" ? "" : obj.name;
     $("#fprice").value = obj === "" ? "" : obj.price;
@@ -107,25 +107,51 @@ function render(arrData) {
     let string = "";
     arrData.reverse().forEach((el) => {
         string += `
-        <li id="item${el.id}" class="product_item flex gap-4 py-4">
-            <div class="w-5% font-medium">${el.id}</div>
-            <div class="w-[10%] font-medium">${el.name}</div>
-            <div class="w-[10%] text-slate-500 ">${formatCurrency(
-                el.price
-            )} <sup>₫</sup></div>
-            <div class="w-[7%] text-slate-500">${el.screen}</div>
-            <div class="w-[10%] text-slate-500">${el.frontCamera}</div>
-            <div class="w-[10%] text-slate-500">${el.backCamera}</div>
-            <div class="w-[7%] text-slate-500">
+        <li id="item${el.id}" class="product_item flex flex-col lg:flex-row gap-4 py-4">
+            <div class="lg:w-5% font-medium">
+                <span class="lg:hidden underline decoration-1">ID:</span> 
+                <span>${el.id}</span>
+            </div>
+            <div class="lg:w-[10%] font-medium">
+                <span class="lg:hidden underline decoration-1">Tên:</span>
+                <span>${el.name}</span>
+            </div>
+            <div class="lg:w-[10%] ">
+                <span class="lg:hidden underline decoration-1">Giá:</span>
+                <span class="text-slate-500">${formatCurrency(
+                    el.price
+                )} <sup>₫</sup></span>
+            </div>
+            <div class="lg:w-[7%] ">
+                <span class="lg:hidden underline decoration-1">Màn hình:</span>
+                <span class="text-slate-500">${el.screen}</span>
+            </div>
+            <div class="lg:w-[10%] ">
+                <span class="lg:hidden underline decoration-1">Camera trước:</span>
+                <span class="text-slate-500">${el.frontCamera}</span>
+            </div>
+            <div class="lg:w-[10%] ">
+                <span class="lg:hidden underline decoration-1">Camera sau:</span>
+                <span class="text-slate-500">${el.backCamera}</span>
+            </div>
+            <div class="lg:w-[7%] w-2/5">
+                <span class="lg:hidden underline decoration-1">Hình:</span>
                 <img
                     src="${el.img}"
                     alt="img"
-                    class="bg-white border border-slate-200  rounded-md h-28 w-full object-cover object-center lg:w-full"
+                    class="bg-white border border-slate-200 rounded-md lg:h-28 w-full h-full object-cover object-center lg:w-full"
                 />
             </div>
-            <div class="flex-1 text-slate-500">${el.desc}</div>
-            <div class="w-5%  text-slate-500">${el.type}</div>
-            <div class="w-[10%] flex justify-around   font-semibold text-sky-500 text-right pr-2">
+            <div class="flex-1">
+                <span class="lg:hidden underline decoration-1">Mô tả:</span>
+                <span class="text-slate-500">${el.desc}</span>
+                
+            </div>
+            <div class="lg:w-5%">
+                <span class="lg:hidden underline decoration-1">Hãng:</span>
+                <span class="text-slate-500">${el.type}</span>
+            </div>
+            <div class="lg:w-[10%] flex justify-around font-semibold text-sky-500 text-right pr-2">
                 <span onclick="edit(${el.id})" class="cursor-pointer">Edit</span>
                 <span onclick="deleteProduct(${
                     el.id
@@ -175,4 +201,21 @@ function loadding(flag) {
     if (flag === "off") {
         $(".body_loading").classList.add("hidden");
     }
+}
+
+function openComponent(elSection, elContent, elBackdrop, trans = "translate-x-full") {
+    $(elSection).classList.toggle("hidden");
+
+    setTimeout(() => {
+        $(elBackdrop).classList.toggle("opacity-0");
+        $(elContent).classList.toggle(trans);
+    }, 0);
+}
+
+function closeComponent(elSection, elContent, elBackdrop, trans = "translate-x-full") {
+    $(elBackdrop).classList.toggle("opacity-0");
+    $(elContent).classList.toggle(trans);
+    setTimeout(() => {
+        $(elSection).classList.toggle("hidden");
+    }, 400);
 }
