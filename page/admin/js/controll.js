@@ -114,13 +114,13 @@ function render(arrData) {
                 el.price
             )} <sup>₫</sup></div>
             <div class="w-[7%] text-slate-500">${el.screen}</div>
-            <div class="w-[7%] text-slate-500">${el.frontCamera}</div>
+            <div class="w-[10%] text-slate-500">${el.frontCamera}</div>
             <div class="w-[10%] text-slate-500">${el.backCamera}</div>
             <div class="w-[7%] text-slate-500">
                 <img
                     src="${el.img}"
                     alt="img"
-                    class="rounded-md h-28 w-full object-cover object-center lg:w-full"
+                    class="bg-white border border-slate-200  rounded-md h-28 w-full object-cover object-center lg:w-full"
                 />
             </div>
             <div class="flex-1 text-slate-500">${el.desc}</div>
