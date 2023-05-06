@@ -56,7 +56,6 @@ function validatePrice(value) {
         showValidate(".validate-fprice", "Vui lòng nhập số và không có ký tự lạ và chữ");
         return false;
     }
-    console.log(+value < 1000000);
 
     //kiểm tra giá phải lớn hơn 1.000.000
     if (+value < 1000000) {
@@ -139,7 +138,6 @@ function validateType(value) {
         return false;
     }
     value = value.trim().toLowerCase();
-    console.log(value);
     const arrType = [
         "apple",
         "samsung",
@@ -176,7 +174,6 @@ function validate(obj) {
         isType = true;
     if (!validateName(obj.name)) {
         isName = false;
-        console.log(isName);
     }
 
     if (!validatePrice(obj.price)) {
@@ -206,16 +203,8 @@ function validate(obj) {
     if (!validateType(obj.type)) {
         isType = false;
     }
-    // console.log("isName", isName);
-    // console.log("isPrice", isPrice);
-    // console.log("isScreen", isScreen);
-    // console.log("isFront", isFront);
-    // console.log("isBack", isBack);
-    // console.log("isImg", isImg);
-    // console.log("isDesc", isDesc);
-    // console.log("isType", isType);
+
     isValid =
         isName && isPrice && isScreen && isFront && isBack && isImg && isDesc && isType;
-    console.log(isValid);
     return isValid;
 }

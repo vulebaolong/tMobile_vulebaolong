@@ -4,8 +4,6 @@ const $$ = (selector) => document.querySelectorAll(selector);
 const BASE_URL = "https://643a58bdbd3623f1b9b164ba.mockapi.io/admin/";
 let arrProducts = [];
 
-console.log();
-
 function getValueForm() {
     const valueFid = $("#fid").value;
     const valueFname = $("#fname").value;
@@ -102,7 +100,6 @@ async function init() {
 
 function render(arrData) {
     arrProducts = arrData;
-    console.log(arrProducts);
     const productItemsEl = $(".product_items");
     let string = "";
     arrData.reverse().forEach((el) => {

@@ -4,12 +4,10 @@ init();
 $("#add").addEventListener("click", async (e) => {
     try {
         const value = getValueForm();
-        console.log(value);
         if (!validate(value)) return;
         loadding("on");
         await createItem(value);
         const result = await readItem();
-        console.log(result);
         render(result.data);
         fillForm("");
         loadding("off");
@@ -24,7 +22,6 @@ async function edit(id) {
     try {
         loadding("on");
         const result = await readItem(id);
-        console.log(result);
         fillForm(result.data);
         $(`.focus-edit`)?.classList.remove("focus-edit");
         $(`#item${id}`).classList.add("focus-edit");
@@ -44,7 +41,6 @@ $("#update").addEventListener("click", async (e) => {
         loadding("on");
         await updateItem(value);
         const result = await readItem();
-        console.log(result);
         render(result.data);
         fillForm("");
         $("#add").disabled = false;
