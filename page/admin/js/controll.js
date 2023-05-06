@@ -65,6 +65,7 @@ function notification(mes) {
 function fillForm(obj) {
     resetValidate();
     $("#search-input").value = obj === "" ? "" : obj.name;
+    $("#fid").value = obj === "" ? "" : obj.id;
     $("#fname").value = obj === "" ? "" : obj.name;
     $("#fprice").value = obj === "" ? "" : obj.price;
     $("#fscreen").value = obj === "" ? "" : obj.screen;
@@ -91,14 +92,12 @@ function debounce(fn, ms) {
     };
 }
 
-function init() {
-    // fetchRead({ render: true });
-    readItem().then((result) => {
-        console.log(result);
-
-        render(result.data);
-        $("#update").disabled = true;
-    });
+async function init() {
+    loadding("on");
+    const result = await readItem();
+    loadding("off");
+    render(result.data);
+    $("#update").disabled = true;
 }
 
 function render(arrData) {
@@ -167,4 +166,13 @@ function searchByName(name) {
 
 function formatCurrency(num, locale = navigator.language) {
     return new Intl.NumberFormat(locale).format(num);
+}
+
+function loadding(flag) {
+    if (flag === "on") {
+        $(".body_loading").classList.remove("hidden");
+    }
+    if (flag === "off") {
+        $(".body_loading").classList.add("hidden");
+    }
 }

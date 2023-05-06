@@ -25,7 +25,6 @@ function edit(id) {
     readItem(id)
         .then((result) => {
             console.log(result);
-            $("#fid").value = result.data.id;
             fillForm(result.data);
             // console.log($(`#item${id}`));
             $(`.focus-edit`)?.classList.remove("focus-edit");
@@ -71,6 +70,9 @@ function deleteProduct(id) {
         })
         .then((result) => {
             render(result.data);
+            $("#add").disabled = false;
+            $("#update").disabled = true;
+            fillForm("");
         })
         .catch((err) => {
             console.log("👙  err: ", err);
@@ -103,4 +105,17 @@ $("#min_max").addEventListener("click", () => {
     arrProducts.sort((a, b) => +b.price - +a.price);
     render(arrProducts);
     console.log(arrProducts);
+});
+
+// Click vào ⁡⁢⁣⁢​‌‍‌𝘁𝗵𝗮𝘆 đổ𝗶 𝘁𝗵𝗲𝗺𝗲​⁡ ở ⁡⁣⁣⁢dekstop⁡
+$("#theme-toggle").addEventListener("click", function () {
+    $("#theme-toggle-dark-icon").classList.toggle("hidden");
+    $("#theme-toggle-light-icon").classList.toggle("hidden");
+    $("html").classList.toggle("dark");
+});
+// Click vào ⁡⁢⁣⁢​‌‍‌𝘁𝗵𝗮𝘆 đổ𝗶 𝘁𝗵𝗲𝗺𝗲​⁡ ở ⁡⁣⁣⁢mobile⁡
+$("#M_theme-toggle").addEventListener("click", function () {
+    $("#theme-toggle-dark-icon").classList.toggle("hidden");
+    $("#theme-toggle-light-icon").classList.toggle("hidden");
+    $("html").classList.toggle("dark");
 });
