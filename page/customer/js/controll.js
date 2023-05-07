@@ -503,3 +503,8 @@ function notification(mes) {
         onClick: function () {}, // Callback after click
     }).showToast();
 }
+
+function filterToggle() {
+    $(".filter_list").classList.toggle("filter_from");
+    $(".filter_list").classList.toggle("filter_to");
+}

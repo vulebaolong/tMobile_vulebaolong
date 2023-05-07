@@ -122,3 +122,7 @@ $("#M_btn_show-nav").addEventListener("click", function () {
 $("#M_btn_close-nav").addEventListener("click", function () {
     closeComponent("#M-nav", "#M-nav_content", "#M-nav_backdrop");
 });
+//Click vào ⁡⁢⁣⁢​‌‍‌𝗯𝗮𝗰𝗸𝗱𝗿𝗼𝗽​⁡ khi ở ⁡⁣⁣⁢mobile⁡
+$("#M-nav_backdrop").addEventListener("click", function () {
+    closeComponent("#M-nav", "#M-nav_content", "#M-nav_backdrop");
+});

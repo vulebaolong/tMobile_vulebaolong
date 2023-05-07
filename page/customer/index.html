@@ -422,60 +422,25 @@
                         <h2 class="text-2xl font-bold tracking-tight">
                             Danh sách sản phẩm
                         </h2>
-
-                        <div class="flex gap-5 items-center justify-center">
+                        <div class="flex items-center gap-4">
                             <!-- DROP DOWN -->
-                            <div class="relative inline-block text-left">
-                                <div>
-                                    <button
-                                        type="button"
-                                        class="filter_btn inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-                                    >
-                                        Lọc
-                                        <svg
-                                            class="-mr-1 h-5 w-5 text-gray-400"
-                                            viewBox="0 0 20 20"
-                                            fill="currentColor"
-                                            aria-hidden="true"
-                                        >
-                                            <path
-                                                fill-rule="evenodd"
-                                                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                                                clip-rule="evenodd"
-                                            />
-                                        </svg>
-                                    </button>
-                                </div>
-
-                                <!--
-                                  Dropdown menu, show/hide based on menu state.
-                              
-                                  Entering: "transition ease-out duration-100"
-                                    From: "transform opacity-0 scale-95"
-                                    To: "transform opacity-100 scale-100"
-                                  Leaving: "transition ease-in duration-75"
-                                    From: "transform opacity-100 scale-100"
-                                    To: "transform opacity-0 scale-95"
-                                -->
-                                <div
-                                    class="filter_list filter_from absolute right-0 z-20 mt-2 w-28 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
-                                >
-                                    <div class="py-1">
-                                        <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
-                                        <button
-                                            id="filter_samsung"
-                                            class="w-full text-left text-gray-700 block px-4 py-2 text-sm hovertext-gray-900 hover:bg-gray-100"
-                                        >
-                                            Samsung
-                                        </button>
-                                        <button
-                                            id="filter_apple"
-                                            class="w-full text-left text-gray-700 block px-4 py-2 text-sm hovertext-gray-900 hover:bg-gray-100"
-                                        >
-                                            Apple
-                                        </button>
-                                    </div>
-                                </div>
+                            <div class="flex items-center gap-2">
+                                <label for="screen" class="">Lọc</label>
+                                <select id="filter_seclect" class="select_from">
+                                    <option disabled selected value="" class="">
+                                        Chọn hãng
+                                    </option>
+                                    <option value="Apple" class="">Apple</option>
+                                    <option value="Samsung" class="">Samsung</option>
+                                    <option value="Xiaomi" class="">Xiaomi</option>
+                                    <option value="OPPO" class="">OPPO</option>
+                                    <option value="Realme" class="">Realme</option>
+                                    <option value="Nokia" class="">Nokia</option>
+                                    <option value="Oneplus" class="">Oneplus</option>
+                                    <option value="vivo" class="">vivo</option>
+                                    <option value="Nubia" class="">Nubia</option>
+                                    <option value="Tecno" class="">Tecno</option>
+                                </select>
                             </div>
 
                             <!-- CART -->
@@ -492,7 +457,7 @@
                     </div>
                     <!-- PRODUCT LIST -->
                     <div
-                        class="product_list mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8"
+                        class="product_list relative mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8"
                     ></div>
                 </div>
             </div>
@@ -507,8 +472,8 @@
                 ></div>
 
                 <!-- CART-CONTENT -->
-                <div class="fixed inset-0 overflow-hidden">
-                    <div class="absolute inset-0 overflow-hidden">
+                <div class="fixed overflow-hidden">
+                    <div id="cart_box" class="absolute inset-0 overflow-hidden">
                         <div
                             class="pointer-events-none fixed inset-y-0 right-0 flex justify-end w-screen sm:pl-10"
                         >

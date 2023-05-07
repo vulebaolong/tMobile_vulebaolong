@@ -18,6 +18,10 @@ $("#M_btn_show-nav").addEventListener("click", function () {
 $("#M_btn_close-nav").addEventListener("click", function () {
     closeComponent("#M-nav", "#M-nav_content", "#M-nav_backdrop");
 });
+//Click vào ⁡⁢⁣⁢​‌‍‌𝗯𝗮𝗰𝗸𝗱𝗿𝗼𝗽​⁡ khi ở ⁡⁣⁣⁢mobile⁡
+$("#M-nav_backdrop").addEventListener("click", function () {
+    closeComponent("#M-nav", "#M-nav_content", "#M-nav_backdrop");
+});
 
 // Click vào ⁡⁢⁣⁢​‌‍‌𝘁𝗵𝗮𝘆 đổ𝗶 𝘁𝗵𝗲𝗺𝗲​⁡ ở ⁡⁣⁣⁢dekstop⁡
 $("#theme-toggle").addEventListener("click", function () {
@@ -54,6 +58,11 @@ $(".cart_list").addEventListener("click", function name(e) {
         cart.removeItem(id);
     }
 });
+// Click ​‌‍‌⁡⁢⁣⁢𝗯𝗮𝗰𝗸𝗱𝗿𝗼𝗽⁡​ của giỏ hàng
+$(".cart-backdrop").addEventListener("click", function (e) {
+    e.stopPropagation();
+    closeComponent(".cart-section", ".cart-slide", ".cart-backdrop");
+});
 
 //click ​‌‍‌⁡⁢⁣⁢𝗴𝗶ỏ 𝗵à𝗻𝗴⁡​ trên item product
 function addCart(id) {
@@ -71,23 +80,17 @@ $(".continue_shopping").addEventListener("click", function () {
 });
 
 // Click ​‌‍‌⁡⁢⁣⁢𝗹ọ𝗰⁡​
-$(".filter_btn").addEventListener("click", function () {
-    // filter_list
-    $(".filter_list").classList.toggle("filter_from");
-    $(".filter_list").classList.toggle("filter_to");
-});
-$("#filter_samsung").addEventListener("click", function () {
-    filterToggle();
-    const arr = product.filterTypeProduct("Samsung");
+$("#filter_seclect").addEventListener("change", function (e) {
+    const value = e.target.value;
+    const arr = product.filterTypeProduct(value);
+    if (arr.length === 0) {
+        const productListEl = $(".product_list");
+        const string = `<div class="inset-0 absolute flex items-center justify-center gap-4 py-10">
+                            <i class="text-5xl fa-regular fa-face-sad-tear"></i>
+                            <span>Không tìm thấy sản phẩm thuộc hãng: "<span class="text-red-600 font-semibold">${value}</span>"</span>
+                        </div>`;
+        productListEl.innerHTML = string;
+        return;
+    }
     product.render(arr);
 });
-$("#filter_apple").addEventListener("click", function () {
-    filterToggle();
-    const arr = product.filterTypeProduct("Apple");
-    product.render(arr);
-});
-
-function filterToggle() {
-    $(".filter_list").classList.toggle("filter_from");
-    $(".filter_list").classList.toggle("filter_to");
-}
