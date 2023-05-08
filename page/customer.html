@@ -9,18 +9,18 @@
         <!-- favicon -->
         <link
             rel="apple-touch-icon"
-            href="../../asset/img/favicon/logo_180x180.png"
+            href="../asset/img/favicon/logo_180x180.png"
             sizes="180x180"
         />
         <link
             rel="icon"
-            href="../../asset/img/favicon/logo_32x32.png"
+            href="../asset/img/favicon/logo_32x32.png"
             sizes="32x32"
             type="image/png"
         />
         <link
             rel="icon"
-            href="../../asset/img/favicon/logo_16x16.png"
+            href="../asset/img/favicon/logo_16x16.png"
             sizes="16x16"
             type="image/png"
         />
@@ -38,10 +38,10 @@
         />
 
         <!-- TOAST -->
-        <link rel="stylesheet" href="../../vendor/toastify/toastify.css" />
+        <link rel="stylesheet" href="../vendor/toastify/toastify.css" />
 
         <!-- TAILWIN -->
-        <link rel="stylesheet" href="./css/output.css" />
+        <link rel="stylesheet" href="../css/customer/output.css" />
     </head>
     <body
         class="antialiased text-slate-800 dark:text-slate-400 bg-white dark:bg-slate-900"
@@ -430,6 +430,7 @@
                                     <option disabled selected value="" class="">
                                         Chọn hãng
                                     </option>
+                                    <option value="all" class="">Tất cả</option>
                                     <option value="Apple" class="">Apple</option>
                                     <option value="Samsung" class="">Samsung</option>
                                     <option value="Xiaomi" class="">Xiaomi</option>
@@ -899,7 +900,7 @@
         </section>
 
         <!-- FOOTER -->
-        <footer class="relative py-20 text-sm leading-6 z-50">
+        <footer class="py-20 text-sm leading-6 z-50">
             <div
                 class="max-w-7xl mx-auto divide-y divide-slate-200 px-4 sm:px-6 md:px-8 dark:divide-slate-700"
             >
@@ -1121,10 +1122,7 @@
             referrerpolicy="no-referrer"
         ></script>
 
-        <!-- CONTROL -->
-        <script src="./js/controll.js"></script>
-
         <!-- JS -->
-        <script src="./js/main.js"></script>
+        <script type="module" src="../view/customer_view.js"></script>
     </body>
 </html>
