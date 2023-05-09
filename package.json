@@ -6,7 +6,7 @@
     "scripts": {
         "build_admin": "tailwindcss -i src/css/admin/input.css -o src/css/admin/output.css --watch",
         "build_customer": "tailwindcss -i src/css/customer/input.css -o src/css/customer/output.css --watch",
-        "build_all": "tailwindcss -i src/css/main/input.css -o src/css/main/output.css --watch"
+        "build_main": "tailwindcss -i src/css/main/input.css -o src/css/main/output.css --watch"
     },
     "repository": {
         "type": "git",

@@ -23,6 +23,8 @@ const control = {
     toggleTheme: function () {
         this.$("#theme-toggle-dark-icon").classList.toggle("hidden");
         this.$("#theme-toggle-light-icon").classList.toggle("hidden");
+        this.$("#M_theme-toggle-dark-icon").classList.toggle("hidden");
+        this.$("#M_theme-toggle-light-icon").classList.toggle("hidden");
         this.$("html").classList.toggle("dark");
     },
     loadding: function (flag, selector) {
@@ -224,10 +226,10 @@ const control = {
                 background: "white",
             },
             stringHTML: `
-                            <i class="notification_suc fa-regular fa-circle-check"></i>
-                            <span class="notification_title">Successfully!</span>
-                            <span class="notification_mes">${mes}</span>
-                        `,
+                              <i class="notification_suc fa-regular fa-circle-check"></i>
+                              <span class="notification_title">Successfully!</span>
+                              <span class="notification_mes">${mes}</span>
+                          `,
 
             onClick: function () {}, // Callback after click
         }).showToast();

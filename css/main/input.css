@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind screens;
+
+.container {
+  @apply mx-auto;
+}
+
+.cart-slide,
+#M-nav_content {
+  transition: transform 0.5s ease-in-out;
+}
+
+.cart-backdrop,
+#M-nav_backdrop {
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.5s;
+}
+
+/*! SCROLLBAR - start */
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(100, 116, 139, 0.502) rgba(100, 116, 139, 0.161);
+}
+
+/* Chrome, Edge and Safari */
+*::-webkit-scrollbar {
+  width: 10px;
+  width: 10px;
+}
+*::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background-color: rgba(100, 116, 139, 0.161);
+}
+*::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: rgba(100, 116, 139, 0.502);
+}
+/* SCROLLBAR - end */
+
+footer a::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 0;
+  height: 2px;
+  transition: all 0.3s;
+  @apply bg-sky-500 rounded-full;
+}
+footer a,
+nav a {
+  position: relative;
+  transition: all 0.3s;
+}
+
+footer a:hover::after {
+  width: 100%;
+}

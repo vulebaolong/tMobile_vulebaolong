@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.3.1 | MIT License | https://tailwindcss.com
+! tailwindcss v3.3.2 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -436,6 +436,9 @@ video {
   --tw-pan-y:  ;
   --tw-pinch-zoom:  ;
   --tw-scroll-snap-strictness: proximity;
+  --tw-gradient-from-position:  ;
+  --tw-gradient-via-position:  ;
+  --tw-gradient-to-position:  ;
   --tw-ordinal:  ;
   --tw-slashed-zero:  ;
   --tw-numeric-figure:  ;
@@ -483,6 +486,9 @@ video {
   --tw-pan-y:  ;
   --tw-pinch-zoom:  ;
   --tw-scroll-snap-strictness: proximity;
+  --tw-gradient-from-position:  ;
+  --tw-gradient-via-position:  ;
+  --tw-gradient-to-position:  ;
   --tw-ordinal:  ;
   --tw-slashed-zero:  ;
   --tw-numeric-figure:  ;
@@ -1146,16 +1152,6 @@ video {
 
 .transform-none {
   transform: none;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.animate-spin {
-  animation: spin 1s linear infinite;
 }
 
 .cursor-pointer {
@@ -2196,15 +2192,12 @@ video {
 
 .from-\[\#ff80b5\] {
   --tw-gradient-from: #ff80b5 var(--tw-gradient-from-position);
-  --tw-gradient-from-position:  ;
-  --tw-gradient-to: rgb(255 128 181 / 0)  var(--tw-gradient-from-position);
-  --tw-gradient-to-position:  ;
+  --tw-gradient-to: rgb(255 128 181 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
 .to-\[\#9089fc\] {
   --tw-gradient-to: #9089fc var(--tw-gradient-to-position);
-  --tw-gradient-to-position:  ;
 }
 
 .decoration-slice {
@@ -2803,16 +2796,8 @@ video {
   opacity: 0;
 }
 
-.opacity-25 {
-  opacity: 0.25;
-}
-
 .opacity-30 {
   opacity: 0.3;
-}
-
-.opacity-75 {
-  opacity: 0.75;
 }
 
 .bg-blend-normal {
@@ -3105,6 +3090,12 @@ video {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.transition-all {
+  transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -3842,20 +3833,20 @@ video {
   height: calc(50px * 0.866);
   display: grid;
   background: linear-gradient(
-                to bottom left,
-                #0000 calc(50% - 1px),
-                #a19af4 0 calc(50% + 1px),
-                #0000 0
-            )
-            right/50% 100%,
-        linear-gradient(
-                to bottom right,
-                #0000 calc(50% - 1px),
-                #eba5f6 0 calc(50% + 1px),
-                #0000 0
-            )
-            left / 50% 100%,
-        linear-gradient(#6485ff 0 0) bottom/100% 2px;
+        to bottom left,
+        #0000 calc(50% - 1px),
+        #a19af4 0 calc(50% + 1px),
+        #0000 0
+      )
+      right/50% 100%,
+    linear-gradient(
+        to bottom right,
+        #0000 calc(50% - 1px),
+        #eba5f6 0 calc(50% + 1px),
+        #0000 0
+      )
+      left / 50% 100%,
+    linear-gradient(#6485ff 0 0) bottom/100% 2px;
   background-repeat: no-repeat;
   transform-origin: 50% 66%;
   animation: h5 4s infinite linear;
@@ -3972,3 +3963,26 @@ video {
 }
 
 /* TOAST - end */
+
+footer a::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 0;
+  height: 2px;
+  transition: all 0.3s;
+  border-radius: 9999px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(14 165 233 / var(--tw-bg-opacity));
+}
+
+footer a,
+nav a {
+  position: relative;
+  transition: all 0.3s;
+}
+
+footer a:hover::after {
+  width: 100%;
+}
