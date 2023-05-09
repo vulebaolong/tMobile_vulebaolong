@@ -169,7 +169,7 @@ const control = {
         //true => trống
         //kiểm tra trống
         if (this.validateEmpty(value)) {
-            this.mesValidate(".validate-fback", "Không được để trống camera trước");
+            this.mesValidate(".validate-fback", "Không được để trống camera sau");
             return false;
         }
         this.mesValidate(".validate-fback", "");

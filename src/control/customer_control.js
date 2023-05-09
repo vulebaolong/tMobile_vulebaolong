@@ -1,5 +1,5 @@
 import control from "./main_control.js";
-import admin from "../control/admin_control.js";
+import admin from "./admin_control.js";
 import Cart from "../model/customer_model.js";
 
 const customer = {
